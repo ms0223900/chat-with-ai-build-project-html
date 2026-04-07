@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多巴胺課程配套｜互動概念頁（示範）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0e0e0e;
+      --cream: #f5f0e8;
+      --warm: #ede6d8;
+      --page-bg: #e0d9ce;
+      --accent: #d4540a;
+      --accent2: #1a6b4a;
+      --muted: #888;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--page-bg);
+      color: var(--ink);
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 1.1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .header-links a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .header-links a:hover {
+      color: var(--accent);
+    }
+
+    .badge-tech {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(212, 84, 10, 0.25);
+      color: #fff;
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--accent);
+    }
+
+    nav.toc {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-size: 0.88rem;
+    }
+
+    nav.toc a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .card-inner {
+      padding: 1.75rem 1.5rem;
+    }
+
+    .card.dark {
+      background: #1e2d4a;
+      color: #e8e2d6;
+    }
+
+    .card.dark .section-label {
+      color: rgba(232, 226, 214, 0.65);
+    }
+
+    .card.dark .kicker {
+      color: rgba(232, 226, 214, 0.85);
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 0.6rem;
+    }
+
+    .kicker {
+      font-size: 0.95rem;
+      color: #444;
+      max-width: 40rem;
+    }
+
+    .concept-num {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0.15rem 0.45rem;
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .myth-fact {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .myth-fact {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pill {
+      padding: 1rem;
+      border: 2px solid var(--ink);
+      background: var(--warm);
+    }
+
+    .pill.bad {
+      border-style: dashed;
+      opacity: 0.92;
+    }
+
+    .pill h3 {
+      font-size: 0.85rem;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Seesaw */
+    .seesaw-wrap {
+      margin-top: 1.25rem;
+      padding: 1.5rem 1rem 2rem;
+      background: var(--warm);
+      border: 2px solid var(--ink);
+      text-align: center;
+    }
+
+    .seesaw-stage {
+      position: relative;
+      height: 140px;
+      margin-bottom: 1rem;
+    }
+
+    .fulcrum {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-bottom: 50px solid var(--ink);
+    }
+
+    .beam {
+      position: absolute;
+      left: 50%;
+      bottom: 48px;
+      width: min(100%, 320px);
+      height: 14px;
+      margin-left: calc(min(100%, 320px) / -2);
+      background: var(--ink);
+      border-radius: 2px;
+      transform-origin: 50% 50%;
+      transition: transform 0.9s cubic-bezier(0.45, 0, 0.55, 1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+
+    .beam-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+
+    .beam-hint {
+      font-size: 0.8rem;
+      color: #555;
+      min-height: 2.6em;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+
+    button {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.65rem 1.1rem;
+      border: 2px solid var(--ink);
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    button:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    button.secondary {
+      background: var(--cream);
+      color: var(--ink);
+    }
+
+    /* Four factors */
+    .factor-grid {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 560px) {
+      .factor-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .factor {
+      border: 2px solid var(--ink);
+      padding: 0.85rem;
+      background: var(--warm);
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: none;
+      color: var(--ink);
+      font-size: 0.88rem;
+    }
+
+    .factor:hover {
+      background: #fff;
+    }
+
+    .factor.active {
+      background: var(--accent2);
+      color: #fff;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .factor strong {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.25rem;
+      opacity: 0.95;
+    }
+
+    .factor-detail {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: #333;
+      min-height: 3.5em;
+    }
+
+    .card.dark .factor-detail {
+      color: #e8e2d6;
+    }
+
+    /* 4C */
+    .check-list {
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.6rem 0.65rem;
+      border: 2px solid var(--ink);
+      background: var(--warm);
+      cursor: pointer;
+    }
+
+    .check-item input {
+      margin-top: 0.35rem;
+      accent-color: var(--accent2);
+    }
+
+    .check-item span {
+      font-size: 0.9rem;
+    }
+
+    .result-box {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 2px dashed var(--ink);
+      font-size: 0.92rem;
+      background: #fff;
+    }
+
+    /* Binding axes */
+    .axes {
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 560px) {
+      .axes {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .axis {
+      border: 2px solid var(--ink);
+      padding: 0.85rem;
+      background: var(--warm);
+      font-size: 0.85rem;
+    }
+
+    .axis h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .disclaimer {
+      font-size: 0.78rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .card.dark .disclaimer {
+      color: rgba(232, 226, 214, 0.75);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="index%20(3)_updated_260407.html" class="logo">← 回到｜聊著聊著 AI 就做完了</a>
+    <div class="header-links">
+      <span class="badge-tech" title="課堂示範用">Pure HTML/CSS/JS</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="本頁段落">
+    <a href="#c1">① 動機訊號</a>
+    <a href="#c2">② 翹翹板</a>
+    <a href="#c3">③ 豐盛悖論</a>
+    <a href="#c4">④ 4C 自檢</a>
+    <a href="#c5">⑤ 自我約束</a>
+  </nav>
+
+  <main class="wrap">
+    <div class="card">
+      <div class="card-inner">
+        <div class="section-label">課程配套 · 技術示範</div>
+        <h1>五個觀念，看懂多巴胺與成癮機制</h1>
+        <p class="kicker">本頁設計為搭配投影片講义的「輕量互動」：學員可邊聽邊玩，講師可展示如何只用靜態托管就做出體驗。內容改寫自《多巴胺國度》相關課程地圖，非醫療建議。</p>
+      </div>
+    </div>
+
+    <!-- Concept 1 -->
+    <article class="card" id="c1">
+      <div class="card-inner">
+        <span class="concept-num">概念 ①</span>
+        <h2>多巴胺不是「快樂賀爾蒙」，是「動起來」的訊號</h2>
+        <p class="kicker">它與快感、獎賞預期、動機相關；欠缺多巴胺的老鼠會吃東西，卻不會主動去找食物。</p>
+        <div class="myth-fact">
+          <div class="pill bad">
+            <h3>常見誤解</h3>
+            <p>多巴胺＝快樂本身，越多越好。</p>
+          </div>
+          <div class="pill">
+            <h3>較精準說法</h3>
+            <p>多巴胺更像推你行動的「貨幣」與預期訊號，而非愉悅的總和。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Concept 2 -->
+    <article class="card" id="c2">
+      <div class="card-inner">
+        <span class="concept-num">概念 ②</span>
+        <h2>快感—痛苦翹翹板與對抗過程</h2>
+        <p class="kicker">強烈快感過後，大腦會往痛苦端 compensate；反覆刺激會抬高享樂基準，讓「平常」變得像匱乏。</p>
+        <div class="seesaw-wrap">
+          <div class="seesaw-stage" aria-hidden="true">
+            <div class="beam" id="beam" role="presentation">
+              <span class="beam-label">快感</span>
+              <span class="beam-label">痛苦／渴求</span>
+            </div>
+            <div class="fulcrum"></div>
+          </div>
+          <p class="beam-hint" id="beamHint">按下按鈕，看一次「刺激 → 反彈」的示意（教學用簡化動畫）。</p>
+          <div class="btn-row">
+            <button type="button" id="btnSimulate">模擬：強獎賞後的平衡變化</button>
+            <button type="button" class="secondary" id="btnReset">重置</button>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Concept 3 -->
+    <article class="card dark" id="c3">
+      <div class="card-inner">
+        <span class="concept-num" style="background:var(--cream);color:var(--ink);">概念 ③</span>
+        <h2>豐盛悖論：為什麼「太容易得到」反而讓人失衡</h2>
+        <p class="kicker">當代環境常同時具備下列四點，成癮物質與行為的風險上升（點按看一句說明）。</p>
+        <div class="factor-grid" id="factorGrid">
+          <button type="button" class="factor" data-detail="隨手可得：外送、一鍵下載、無限滑動，降低延遲與摩擦。">
+            <strong>01</strong>取得容易
+          </button>
+          <button type="button" class="factor" data-detail="劑量與刺激強：高度濃縮的獎賞，一下就能把翹翹板推很遠。">
+            <strong>02</strong>效力強大
+          </button>
+          <button type="button" class="factor" data-detail="量與管道爆炸：永遠看不完的內容、買不完的選項。">
+            <strong>03</strong>數量過多
+          </button>
+          <button type="button" class="factor" data-detail="新奇驅動：演算法不斷餵新刺激，讓預期與渴求難以下降。">
+            <strong>04</strong>刺激新奇
+          </button>
+        </div>
+        <p class="factor-detail" id="factorDetail">點選左側任一項…</p>
+      </div>
+    </article>
+
+    <!-- Concept 4 -->
+    <article class="card" id="c4">
+      <div class="card-inner">
+        <span class="concept-num">概念 ④</span>
+        <h2>迷你自檢：成癮光譜上的 4C</h2>
+        <p class="kicker">臨床常用來辨識「是否已超過習慣」的架構（教學整理）。勾選會存進瀏覽器，重新整理不會消失—示範 <code>localStorage</code>。</p>
+        <div class="check-list" id="checkList">
+          <label class="check-item"><input type="checkbox" data-key="c"> <span><b>Control</b> 控制力下降：比原訂更久／更多。</span></label>
+          <label class="check-item"><input type="checkbox" data-key="comp"> <span><b>Compulsions</b> 強迫性：停不下來的行為模式。</span></label>
+          <label class="check-item"><input type="checkbox" data-key="crav"> <span><b>Cravings</b> 渴求：心中揮之不去的「再來一次」。</span></label>
+          <label class="check-item"><input type="checkbox" data-key="cons"> <span><b>Consequences</b> 後果：已影響健康、關係、工作、財務等。</span></label>
+        </div>
+        <div class="result-box" id="checkResult">尚未勾選。此工具僅供自我覺察，不能取代專業評估。</div>
+        <div class="btn-row" style="margin-top:0.75rem;justify-content:flex-start;">
+          <button type="button" class="secondary" id="btnClearChecks">清除紀錄</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Concept 5 -->
+    <article class="card" id="c5">
+      <div class="card-inner">
+        <span class="concept-num">概念 ⑤</span>
+        <h2>多巴胺排毒的第一道護欄：自我約束三軸</h2>
+        <p class="kicker">不一定要「意志力硬扛」，而是增加摩擦與邊界：從 <b>空間</b>、<b>時間</b>、<b>意義／類別</b> 限制高刺激接觸。</p>
+        <div class="axes">
+          <div class="axis">
+            <h3>空間</h3>
+            <p>例如：手機不進臥房、書桌只留工作裝置。</p>
+          </div>
+          <div class="axis">
+            <h3>時間</h3>
+            <p>例如：禁用時段、螢幕灰階、關通知。</p>
+          </div>
+          <div class="axis">
+            <h3>意義／類別</h3>
+            <p>例如：刪掉最容易導致無限滑動的 App 類型。</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <div class="card dark">
+      <div class="card-inner">
+        <h2 style="font-size:1.05rem;">免責與訓練備忘</h2>
+        <p class="disclaimer" style="margin-bottom:0.75rem;">本頁為課程配套與前端互動示範，不是醫療或心理治療指引。酒精、鴉片類等可能造成生命危險戒斷的狀況，務必尋求醫療與專業成癮協助。課堂 Demo 可強調：規格簡化、單一檔案、無建置工具鏈，即可部署到靜態托管。</p>
+        <p class="disclaimer">技術點：CSS 變數與字型與主課程頁一致、翹翹板用 <code>transform</code> 時間軸、4C 用 <code>localStorage</code>、因素卡用事件委派—皆可在講解 Spec 時當「小而完整」的範例。</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = 'dopamine-demo-4c';
+
+      // Seesaw
+      const beam = document.getElementById('beam');
+      const hint = document.getElementById('beamHint');
+      let busy = false;
+
+      function setBeam(deg, text) {
+        beam.style.transform = 'rotate(' + deg + 'deg)';
+        hint.textContent = text;
+      }
+
+      document.getElementById('btnReset').addEventListener('click', function () {
+        busy = false;
+        setBeam(0, '重置為平衡。可再次模擬。');
+      });
+
+      document.getElementById('btnSimulate').addEventListener('click', function () {
+        if (busy) return;
+        busy = true;
+        setBeam(0, '起點：大致平衡…');
+        setTimeout(function () {
+          setBeam(-18, '短暫強烈快感：翹翹板倒向「快感」端（簡化示意）。');
+        }, 400);
+        setTimeout(function () {
+          setBeam(14, '對抗過程：反彈朝向「痛苦／渴求」—快感必須「還」。（簡化）');
+        }, 2200);
+        setTimeout(function () {
+          setBeam(4, '新基準：享樂門檻被拉高，「普通快樂」變得不夠。（長期簡化）');
+          busy = false;
+        }, 4200);
+      });
+
+      // Factors
+      const detailEl = document.getElementById('factorDetail');
+      document.getElementById('factorGrid').addEventListener('click', function (e) {
+        const btn = e.target.closest('.factor');
+        if (!btn) return;
+        this.querySelectorAll('.factor').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        detailEl.textContent = btn.getAttribute('data-detail') || '';
+      });
+
+      // 4C + localStorage
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+        document.querySelectorAll('#checkList input[type=checkbox]').forEach(function (cb) {
+          const k = cb.getAttribute('data-key');
+          if (saved[k]) cb.checked = true;
+        });
+      } catch (e) { /* ignore */ }
+
+      function updateCheckResult() {
+        const boxes = document.querySelectorAll('#checkList input[type=checkbox]');
+        const n = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).length;
+        const el = document.getElementById('checkResult');
+        if (n === 0) {
+          el.textContent = '尚未勾選。此工具僅供自我覺察，不能取代專業評估。';
+          return;
+        }
+        if (n <= 2) {
+          el.textContent = '你已勾選 ' + n + ' 項：可作為自我觀察起點。若困擾持續，建議與可信賴的人談談或尋求專業協助。';
+        } else {
+          el.textContent = '你已勾選 ' + n + ' 項：顯示這些面向值得認真看待。建議記錄觸發與後果，並考慮專業成癮／心理資源（本頁不提供診斷）。';
+        }
+      }
+
+      function persistChecks() {
+        const data = {};
+        document.querySelectorAll('#checkList input[type=checkbox]').forEach(function (cb) {
+          data[cb.getAttribute('data-key')] = cb.checked;
+        });
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        } catch (e) { /* ignore */ }
+        updateCheckResult();
+      }
+
+      document.getElementById('checkList').addEventListener('change', persistChecks);
+      document.getElementById('btnClearChecks').addEventListener('click', function () {
+        document.querySelectorAll('#checkList input[type=checkbox]').forEach(function (cb) { cb.checked = false; });
+        try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+        updateCheckResult();
+      });
+      updateCheckResult();
+    })();
+  </script>
+</body>
+
+</html>
