@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>不會寫程式，也能用 AI 打造你的台股看盤+盯盤系統 | MasterTalks</title>
+    <meta name="description" content="零基礎也能學會！使用 Vibe Coding 對話式寫程式，結合 Google Colab 與 Gemini AI，打造專屬你的台股看盤、策略回測與自動推播系統。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1E3A8A',
+                            purple: '#6B21A8',
+                            accent: '#FBBF24',
+                            accentHover: '#F59E0B'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; }
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #60A5FA, #C084FC);
+        }
+        .bg-gradient-brand {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3), 0 8px 10px -6px rgba(59, 130, 246, 0.1); border-color: #3b82f6; }
+        
+        /* Modal Animations */
+        .modal-enter { opacity: 0; transform: scale(0.95) translateY(10px); }
+        .modal-enter-active { opacity: 1; transform: scale(1) translateY(0); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .modal-leave { opacity: 1; transform: scale(1) translateY(0); }
+        .modal-leave-active { opacity: 0; transform: scale(0.95) translateY(10px); transition: all 0.3s ease-in; }
+        
+        .objective-box {
+            background-image: linear-gradient(to right bottom, #ffffff, #f8fafc);
+            border-left: 4px solid #8b5cf6;
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-gray-800 antialiased selection:bg-purple-300 selection:text-purple-900 pb-10">
+
+    <!-- Universal Toast Notification -->
+    <div id="toast" class="fixed top-24 right-4 md:right-8 z-[100] transform transition-all duration-300 translate-x-full opacity-0 bg-white border-l-4 border-green-500 shadow-2xl rounded-lg px-5 py-4 flex items-center gap-4 min-w-[300px]">
+        <i class="ph-fill ph-check-circle text-green-500 text-3xl shrink-0"></i>
+        <div>
+            <h4 class="font-bold text-gray-900 text-base" id="toast-title">資料已送出！</h4>
+            <p class="text-sm text-gray-600 mt-0.5" id="toast-msg">感謝您的填寫，系統即將為您導向結帳頁面...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card shadow-sm border-b border-gray-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2.5 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="ph-fill ph-chart-line-up text-[40px] text-[#D38B5D]"></i>
+                    <span class="font-black text-3xl tracking-tight hidden sm:flex items-center">
+                        <span class="text-[#D38B5D] italic mr-0.5">Master</span><span class="text-[#323648] italic">Talks</span>
+                    </span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex text-sm font-medium text-red-500 items-center gap-1 animate-pulse">
+                        <i class="ph-fill ph-clock-countdown"></i> 早鳥優惠倒數中
+                    </div>
+                    <a href="#pricing" class="bg-brand-accent hover:bg-brand-accentHover text-gray-900 px-6 py-2 rounded-full font-bold shadow-lg shadow-yellow-500/30 transition-transform hover:-translate-y-0.5">
+                        立即報名
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-gradient-brand text-white">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-40">
+            <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-600/30 blur-[100px]"></div>
+            <div class="absolute top-[40%] -right-[10%] w-[50%] h-[50%] rounded-full bg-purple-600/30 blur-[100px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-block px-5 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-gray-200 mb-8 backdrop-blur-sm">
+                <span class="text-yellow-400 mr-1">✨</span> 零基礎友善 <span class="mx-2 text-white/30">|</span> 前 30 分鐘帶你畫出第一張 K 線圖
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl lg:text-[4rem] font-black tracking-tight mb-8 leading-[1.2] md:leading-[1.15]">
+                不會寫程式，也能用 AI <br class="hidden md:block">
+                打造<br class="hidden md:block">
+                你的 <span class="gradient-text">台股看盤+盯盤系統</span>
+            </h1>
+            
+            <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto font-normal leading-[1.8] mb-12">
+                告別無效盯盤與看不完的新聞。用最先進的 Vibe Coding（對話寫程式）<br class="hidden md:block">
+                技術，<br class="hidden md:block">
+                讓 AI 成為你的全天候盯盤助理，策略條件成立自動 Email 推播！
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-6 mb-10">
+                <a href="#curriculum" class="w-full sm:w-auto bg-transparent hover:bg-white/5 text-white border border-white/20 text-base md:text-lg font-bold px-8 py-3.5 rounded-full backdrop-blur-sm transition-all hover:scale-105 flex items-center justify-center gap-2">
+                    查看課程大綱 <i class="ph-bold ph-caret-down text-sm"></i>
+                </a>
+                <a href="#pricing" class="w-full sm:w-auto bg-[#ffc107] hover:bg-[#ffb300] text-gray-900 text-base md:text-lg font-black px-8 py-3.5 rounded-full shadow-[0_0_30px_rgba(255,193,7,0.3)] transition-all hover:scale-105 flex items-center justify-center gap-2">
+                    立即搶佔早鳥名額 <i class="ph-bold ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">精準擊破散戶的 3 大投資痛點</h2>
+                <div class="w-20 h-1 bg-purple-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 group flex flex-col">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ai-padlet-server.firebasestorage.app/o/uploads%2FTKN_1780730954464_195%2F1780737673516_66ecbecf-bde6-4d75-8729-fc5a0aef04e8.png?alt=media&token=9dd15f09-cc4f-4534-8459-be5038d39682" alt="解決無法隨時盯盤的焦慮" loading="lazy" class="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-12 h-12 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="ph-duotone ph-bell-ringing"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">解決「無法隨時盯盤」的焦慮</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            超過 76% 投資人的剛需！上班開會、外出辦事總是錯過行情？教你設定突破前高、爆量或 KD 交叉等客製化條件，一旦訊號成立，系統將第一時間自動發送 Email 通知。讓 AI 成為你不知疲倦的 24 小時守門員，把專注力還給生活與工作。
+                        </p>
+                    </div>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 group flex flex-col">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ai-padlet-server.firebasestorage.app/o/uploads%2FTKN_1780730954464_195%2F1780737873230_c762e040-c347-420d-84db-1d808c3bf9ef.png?alt=media&token=62c16960-21bb-422f-9bbe-fcd8185c9d49" alt="盲目聽信明牌的風險" loading="lazy" class="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="ph-duotone ph-chart-polar"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">解決「盲目聽信明牌」的風險</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            沒驗證過的策略等於閉眼賭博。網路上達人教的招式真的有效嗎？課程帶你實作專業級的「策略回測模組」，用十年的歷史真實數據檢視策略的實際勝率、最大回撤（MDD）與預期年化報酬，拒絕憑感覺下單，用數據建立抱單的底氣。
+                        </p>
+                    </div>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 group flex flex-col">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ai-padlet-server.firebasestorage.app/o/uploads%2FTKN_1780730954464_195%2F1780738062119_98bbc140-6e83-4e31-a934-bfa4350b6d9f.png?alt=media&token=3bbc8747-fb68-46d2-a810-8698d37c0ea5" alt="打破不會寫程式的門檻" loading="lazy" class="w-full h-auto block transform transition-transform duration-500 group-hover:scale-105">
+                    <div class="p-8 flex-1 flex flex-col">
+                        <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6 shadow-sm"><i class="ph-duotone ph-robot"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">打破「不會寫程式」的門檻</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                            超過半數報名學員完全沒看過程式碼！我們徹底捨棄深奧的 Python 語法死記硬背，全程採用最新世代的 Vibe Coding 技巧。只要會打字、會用 Gemini「對話」，透過課程提供的黃金提示詞，複製貼上就能讓 AI 幫你寫出專業級的看盤系統。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Curriculum Section -->
+    <section id="curriculum" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+                    24 步循序漸進，打造你的專屬量化系統
+                </h2>
+                <p class="text-lg text-gray-600 font-medium max-w-2xl mx-auto">
+                    點擊下方卡片，查看每個階段的<span class="text-purple-600 font-bold">核心學習目標</span>。報名正式課程後，將解鎖全部 AI 詠唱詞與實戰原始碼！
+                </p>
+            </div>
+
+            <!-- Card Grid generated by JS -->
+            <div id="card-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-16">
+                <!-- Cards will be injected here -->
+            </div>
+            
+            <div class="text-center mt-8">
+                <a href="#pricing" class="inline-flex items-center justify-center gap-2 text-blue-600 font-bold hover:text-blue-800 transition-colors text-lg">
+                    <i class="ph-bold ph-lock-key-open text-2xl"></i> 報名課程，解鎖全部 24 步實戰詠唱與程式碼
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-gradient-to-b from-[#0B1021] to-[#1a1638] relative border-t-4 border-purple-600">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Headers -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-4 tracking-wide">投資自己，擁有會主動通知的 AI 助理</h2>
+                <p class="text-lg md:text-xl text-blue-200">早鳥期間加贈兩大高價值自動化工具，錯過不再！</p>
+            </div>
+
+            <!-- Premium Main Card -->
+            <div class="flex flex-col lg:flex-row bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                
+                <!-- Left Column: Features & Bonuses -->
+                <div class="relative w-full lg:w-[55%] bg-white p-8 md:p-10 lg:p-12 overflow-hidden">
+                    <!-- Stock Chart Background & Gradient Fade -->
+                    <div class="absolute top-0 left-0 w-full h-[280px] z-0">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80" alt="Stock Chart Background" class="w-full h-full object-cover opacity-30 grayscale" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-white/80 to-white"></div>
+                    </div>
+                    
+                    <div class="relative z-10 pt-16 sm:pt-20">
+                        <h3 class="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                            <div class="w-7 h-7 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-sm">
+                                <i class="ph-bold ph-check text-sm"></i>
+                            </div>
+                            課程方案包含：
+                        </h3>
+                        <ul class="space-y-4 mb-10 text-gray-800 font-medium text-lg">
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-check text-gray-900 mt-1"></i> 
+                                <span>多章節 24 單元實戰影音 (永久觀看)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-check text-gray-900 mt-1"></i> 
+                                <span>3 套實戰選股/盯盤流程範本</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-check text-gray-900 mt-1"></i> 
+                                <span>20+ 組黃金提示詞卡與 AI 除錯指南</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i class="ph-bold ph-check text-gray-900 mt-1"></i> 
+                                <span>專屬學員社群，遇卡關隨時發問</span>
+                            </li>
+                        </ul>
+
+                        <h4 class="font-bold text-gray-900 flex items-center gap-2 mb-5 text-lg">
+                            <i class="ph-fill ph-gift text-purple-600 text-2xl"></i> 【早鳥限定】加碼贈品：
+                        </h4>
+                        
+                        <div class="space-y-4">
+                            <!-- Refined Bonus 1 (Interactive) -->
+                            <div onclick="openBlueprintModal()" class="cursor-pointer bg-[#faf5ff] rounded-[1.25rem] p-5 flex items-center gap-5 border border-[#e9d5ff] transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-purple-300 group relative overflow-hidden">
+                                <div class="w-14 h-14 bg-[#f3e8ff] text-purple-600 rounded-full flex items-center justify-center text-[28px] shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-110">
+                                    <i class="ph-bold ph-magic-wand"></i>
+                                </div>
+                                <div class="relative z-10 flex-1">
+                                    <div class="font-bold text-gray-800 text-[1.15rem] leading-tight mb-1.5 flex items-center flex-wrap gap-1">
+                                        <span class="bg-[#dcb9ff] text-purple-900 px-2 py-0.5 rounded shadow-sm">６ 大策略提示詞包</span>
+                                        <span class="text-purple-800">(市價 $8,000)</span>
+                                    </div>
+                                    <div class="text-sm text-purple-700 font-medium">含突破、籌碼、月營收等8種實戰寫法</div>
+                                </div>
+                                <!-- Interactive Hint -->
+                                <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-purple-600 text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-md">
+                                    點擊預覽 <i class="ph-bold ph-arrow-up-right"></i>
+                                </div>
+                            </div>
+
+                            <!-- Refined Bonus 2 -->
+                            <div class="bg-[#fffcf5] rounded-[1.25rem] p-5 flex items-center gap-5 border border-[#ffedd5]">
+                                <div class="w-14 h-14 bg-[#ffedd5] text-[#ea580c] rounded-full flex items-center justify-center text-[28px] shrink-0 shadow-sm">
+                                    <i class="ph-bold ph-envelope-open"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-[#7c2d12] text-[1.15rem] mb-1.5">每日台股情報官工具 (市價 $1,800)</div>
+                                    <div class="text-sm text-[#9a3412] font-medium">讓你每天早晚自動收到整理好的盤前盤後 Email</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form & Checkout -->
+                <div class="relative w-full lg:w-[45%] bg-[#fafafa] p-8 md:p-10 lg:p-12 border-l border-gray-100">
+                    <!-- Early Bird Badge -->
+                    <div class="absolute top-0 right-0 bg-[#f05252] text-white px-5 py-2.5 rounded-bl-[1.5rem] font-bold text-sm flex items-center gap-1.5 shadow-md z-10">
+                        <i class="ph-fill ph-fire text-lg animate-pulse"></i> 早鳥限時優惠中
+                    </div>
+
+                    <!-- Price Display -->
+                    <div class="text-center pt-8 mb-10">
+                        <div class="flex items-baseline justify-center gap-1 text-gray-900">
+                            <span class="text-3xl font-bold">NT$</span>
+                            <span class="text-[4rem] leading-none font-black tracking-tight">4,980</span>
+                        </div>
+                        <div class="text-gray-500 text-sm mt-3 font-medium">
+                            原價 <span class="line-through">NT$ 8,800</span> (省下 $3,820)
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form class="space-y-5" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">真實姓名</label>
+                            <input type="text" placeholder="請輸入姓名" required class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Email 信箱 (接收課程權限)</label>
+                            <input type="email" placeholder="your@email.com" required class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">手機號碼</label>
+                            <input type="tel" placeholder="09xx-xxx-xxx" required class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-[#fbbc05] hover:bg-[#f5aa00] text-gray-900 text-xl font-black py-4 rounded-xl shadow-[0_8px_20px_rgba(251,188,5,0.4)] transform transition-transform hover:-translate-y-1 flex justify-center items-center gap-2 mt-8">
+                            填妥送出，前往結帳 <i class="ph-bold ph-receipt text-2xl"></i>
+                        </button>
+                        
+                        <div class="text-center text-xs text-gray-500 mt-5 flex items-center justify-center gap-1.5 font-medium">
+                            <i class="ph-fill ph-lock-key text-gray-400"></i> 支援信用卡最高 6 期零利率 | 14 天退款保證
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blueprint Modal (Expert Path) -->
+    <div id="blueprint-modal" class="fixed inset-0 z-[70] hidden overflow-y-auto bg-black/60 backdrop-blur-sm transition-opacity opacity-0">
+        <div class="min-h-screen px-4 text-center flex items-center justify-center py-10">
+            <!-- Modal Content -->
+            <div id="blueprint-panel" class="inline-block w-full max-w-5xl bg-gray-50 rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all modal-enter relative">
+                
+                <!-- Close Button -->
+                <button onclick="closeBlueprintModal()" class="absolute top-5 right-5 z-20 text-white/80 hover:text-white bg-black/20 hover:bg-black/40 rounded-full p-2 transition-colors focus:outline-none">
+                    <i class="ph-bold ph-x text-xl"></i>
+                </button>
+
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-[#2B5DE5] to-[#3B82F6] px-8 py-10 text-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
+                    <h3 class="text-3xl md:text-4xl font-black text-white mb-4 relative z-10">
+                        🚀 專家之路：未來的進階模型升級藍圖
+                    </h3>
+                    <p class="text-blue-100 text-lg max-w-3xl mx-auto font-medium relative z-10 leading-relaxed">
+                        目前的隨機森林是一個極佳的基準模型 (Baseline)。為了進一步壓榨數據價值、提升預測勝率，<br class="hidden md:block">建議您可以朝以下方向探索：
+                    </p>
+                </div>
+
+                <!-- 6 Cards Grid -->
+                <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6 bg-gray-50">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#fff8db] text-[#b45309] text-xs font-black rounded-full border border-[#fef08a] shadow-sm">一鍵整合神器</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-yellow-500 mr-2">1.</span>終極全自動化分析腳本</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>結合前面 1-24 步的精華！不需要一步一步手動執行，只要貼上這段腳本，輸入股票代號，系統便會自動完成資料抓取、指標計算、AI 預測並生成互動式看盤面板。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">將此腳本貼入全新的 Colab 儲存格並執行。透過產生的 Gradio 網址，您可以隨時在手機或電腦上輸入代號，秒速獲得個股分析與 AI 訊號。</p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-yellow-200 text-[#b45309] font-bold text-sm hover:bg-yellow-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-yellow-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖一鍵整合實戰腳本
+                        </a>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#eff6ff] text-[#1d4ed8] text-xs font-black rounded-full border border-[#bfdbfe] shadow-sm">結構化數據王者</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-blue-500 mr-2">2.</span>引入 XGBoost / LightGBM</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>在處理結構化的表格數據（如我們計算出的各種技術指標）時，梯度提升模型 (Gradient Boosting) 通常能提供更強的擬合能力與更高的準確率，是 Kaggle 數據競賽的常勝軍。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-gray-600 leading-relaxed">學習使用 GridSearchCV 或 Optuna 進行超參數最佳化（如學習率、樹的深度），並利用特徵重要性 (Feature Importance) 反向剔除無效的雜訊指標。</p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-blue-200 text-blue-700 font-bold text-sm hover:bg-blue-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-blue-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖 XGBoost 實戰程式碼
+                        </a>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#faf5ff] text-[#7e22ce] text-xs font-black rounded-full border border-[#e9d5ff] shadow-sm">時間序列預測</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-purple-500 mr-2">3.</span>引入 LSTM 深度學習</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>股價具備強烈的「時間序列」特性。與傳統機器學習只看單一橫截面特徵不同，LSTM (長短期記憶神經網路) 能夠記憶過去一段時間（例如連續 15 天）的走勢型態，特別適合捕捉趨勢的連續性與反轉點。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-purple-900 bg-purple-50 p-2 rounded inline-block leading-relaxed">熟悉 TensorFlow/Keras 或 PyTorch 框架；學習將 2D 的表格數據轉換為 LSTM 所需的 3D 張量結構 (Samples, Time Steps, Features)；並嚴格執行特徵的標準化縮放 (如 MinMaxScaler) 以利模型收斂。</p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-purple-200 text-purple-700 font-bold text-sm hover:bg-purple-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-purple-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖 LSTM 實戰程式碼
+                        </a>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#f0fdf4] text-[#15803d] text-xs font-black rounded-full border border-[#bbf7d0] shadow-sm">文本情感分析</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-green-500 mr-2">4.</span>整合 NLP 財經新聞情感分析</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>市場是由人組成的，情緒往往走在價格之前。透過自然語言處理 (NLP) 分析新聞標題、PTT 股版文章的看多/看空情緒，能捕捉傳統量價指標無法反映的市場心理變化。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-green-900 bg-green-50 p-2 rounded inline-block leading-relaxed">執行右下角代碼，爬取 PTT 股版最新文章，<span class="font-bold">並直接透過 Google Gemini 2.5 Flash 模型進行「多空情緒」自動判定。</span></p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-green-200 text-green-700 font-bold text-sm hover:bg-green-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-green-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖 NLP 實戰程式碼
+                        </a>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#fef2f2] text-[#b91c1c] text-xs font-black rounded-full border border-[#fecaca] shadow-sm">策略最佳化</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-red-500 mr-2">5.</span>強化學習 (Reinforcement Learning)</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>別於監督式學習預測「漲跌」，強化學習能直接訓練一個 AI 交易員 (Agent) 在模擬市場中不斷試錯，以「最大化累積報酬」為目標，學習何時買進、賣出或空手。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-red-900 bg-red-50 p-2 rounded inline-block leading-relaxed">學習 OpenAI Gym 或 FinRL 等框架，建立自定義的市場環境，並使用 PPO 或 DQN 演算法訓練您的交易代理人。</p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-red-200 text-red-700 font-bold text-sm hover:bg-red-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-red-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖強化學習實戰程式碼
+                        </a>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-white rounded-[1.25rem] shadow-sm hover:shadow-md transition-shadow border border-gray-200 p-7 flex flex-col relative pt-8">
+                        <div class="absolute -top-3.5 left-7">
+                            <span class="px-3.5 py-1 bg-[#f0fdfa] text-[#0f766e] text-xs font-black rounded-full border border-[#ccfbf1] shadow-sm">頂級期刊前沿</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3"><span class="text-teal-500 mr-2">6.</span>隱含資本成本 (ICC) 價值循環</h4>
+                        <p class="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                            <strong class="text-gray-800 font-bold">優勢：</strong>傳統股價淨值比 (P/B) 預測力下降。根據 2026 年最新頂級財務期刊研究 (JFQA)，由預期盈餘與配息率反推的「隱含資本成本 (ICC)」，能更精準捕捉個股估值修正的潛在循環 (IVP)，帶來顯著的價值溢酬預測力。
+                        </p>
+                        <div class="bg-[#f8fafc] rounded-xl p-4.5 mb-5 border border-slate-100/80">
+                            <div class="font-bold text-[13px] text-gray-800 mb-1.5 flex items-center gap-1.5">
+                                <i class="ph-fill ph-target text-red-500 text-base"></i> 實戰建議：
+                            </div>
+                            <p class="text-[13px] text-teal-900 bg-teal-50 p-2 rounded inline-block leading-relaxed">計算個股當前 ICC 與長天期均值的乖離 (IVP Cycle Signal)，將其作為全新的時間序列特徵加入 XGBoost 或 LSTM 模型，賦予 AI 洞察「長期基本面循環」的能力。</p>
+                        </div>
+                        <a href="#pricing" onclick="closeBlueprintModal()" class="w-full py-3 rounded-xl border border-teal-200 text-teal-700 font-bold text-sm hover:bg-teal-50 transition-colors flex items-center justify-center gap-2 group cursor-pointer">
+                            <i class="ph-bold ph-lock-key text-lg text-teal-500 group-hover:scale-110 transition-transform"></i> 加入課程，解鎖 ICC 價值循環實戰程式碼
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white relative z-10" id="faq">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-12 text-center tracking-wide">常見問題</h2>
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">完全不會寫程式（零基礎），真的學得會嗎？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            絕對可以！本課程專為零基礎設計，我們捨棄了傳統死記硬背的語法教學，全程採用最新的 Vibe Coding（對話式寫程式）技術。只要你會打字、會用 AI 聊天，複製貼上我們提供的「黃金提示詞」，AI 就會幫你寫出完整程式碼。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">上課需要額外付費購買軟體或資料庫嗎？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            不需要。課程中使用的所有工具（包含 Google Colab 雲端開發環境、yfinance 財經數據庫、Plotly 繪圖套件等）皆為免費開源資源，且台股數據也是免費抓取，為您省下龐大的軟體訂閱費用。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">會教怎麼直接自動下單（API串接）嗎？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            本課程的重點在於「量化分析、策略回測與自動推播訊號（如 Email/Telegram）」。為了保護學員的資金安全，且各家券商 API 規範差異極大，課程中不會包含直接自動下單的實作。我們致力於打造強大的「看盤與盯盤輔助系統」。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">如果程式碼出錯，跑不動怎麼辦？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            這非常重要！我們在課程中會深入教學如何將 <span class="font-bold text-purple-600">Google Colab 結合 Gemini AI</span>，運用 <span class="font-bold text-blue-600">Vibe Coding</span> 的技巧來解決除錯（Debug）與程式編輯的問題。只要把錯誤訊息貼給 AI，它就能精準指出問題並提供修正後的程式碼，讓你再也不用對著紅字發呆。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">我的電腦效能不好、或是使用 Mac，可以嗎？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            完全沒問題！無論您是 Windows 還是 Mac 用戶，我們全程使用 Google Colab 雲端平台進行運算。只要您的電腦有瀏覽器且能連上網，所有複雜的數據訓練都在 Google 的伺服器上完成，不會佔用您個人的電腦效能。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm" onclick="toggleFaq(this)">
+                    <div class="p-6 flex justify-between items-center select-none">
+                        <h4 class="text-lg font-bold text-gray-800 pr-4">課程的觀看期限是多久？</h4>
+                        <i class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
+                    </div>
+                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
+                        <p class="pb-6 text-gray-600 leading-relaxed">
+                            報名後即可享有「永久無限次觀看」的權益！您可以隨時依據自己的步調複習，未來若有補充的提示詞或工具更新，也能持續獲得最新資訊。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-24 bg-[#111624] relative z-10 border-t-2 border-purple-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-[2.5rem] font-black text-white mb-6 tracking-wide leading-tight">
+                投資不該是無止盡的焦慮與盯盤
+            </h2>
+            <p class="text-lg text-gray-400 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
+                省下每天盲目找標的的時間，讓 AI 幫你過濾雜訊。現在就加入，建立你的專屬量化系統。
+            </p>
+            <a href="#pricing" class="inline-flex justify-center items-center gap-2 bg-[#fbbc05] hover:bg-[#f5aa00] text-gray-900 text-xl font-black px-10 py-4 rounded-full shadow-[0_8px_20px_rgba(251,188,5,0.2)] transform transition-transform hover:-translate-y-1">
+                前往方案說明
+            </a>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section id="instructor" class="py-20 bg-white relative z-10 border-t border-gray-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4 tracking-wide">你的 AI 投資引路人</h2>
+                <div class="w-16 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-10 bg-gray-50 rounded-[2rem] p-8 md:p-12 shadow-sm border border-gray-100">
+                <!-- Instructor Image -->
+                <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-lg opacity-50 transform scale-105"></div>
+                    <img src="https://firebasestorage.googleapis.com/v0/b/ai-padlet-server.firebasestorage.app/o/uploads%2FTKN_1780730954464_195%2F1780740693409_556852184_122148363596662381_2013718636480880062_n.jpg?alt=media&token=3fb9c89a-53b2-445e-b63e-a577a6950107" alt="講師照片" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white shadow-xl" loading="lazy">
+                </div>
+
+                <!-- Instructor Info -->
+                <div class="flex-1 text-center md:text-left">
+                    <div class="inline-block px-3 py-1 bg-blue-100 text-blue-700 font-bold text-sm rounded-full mb-3 shadow-sm">
+                        資深量化交易工程師 / AI 佈道者
+                    </div>
+                    <h3 class="text-3xl font-black text-gray-900 mb-2">程瑋翔</h3>
+                    <p class="text-lg text-gray-600 font-medium mb-6">「讓科技成為投資的助力，而不是門檻。」</p>
+
+                    <ul class="space-y-3 text-gray-700 text-base md:text-lg mb-8">
+                        <li class="flex items-start gap-2 justify-center md:justify-start">
+                            <i class="ph-fill ph-check-circle text-blue-500 mt-1"></i>
+                            <span>擁有 10 年以上程式開發與金融數據分析經驗</span>
+                        </li>
+                        <li class="flex items-start gap-2 justify-center md:justify-start">
+                            <i class="ph-fill ph-check-circle text-blue-500 mt-1"></i>
+                            <span>目前任職於智慧未來領袖學苑擔任執行長，專精演算法交易與機器學習模型建構</span>
+                        </li>
+                        <li class="flex items-start gap-2 justify-center md:justify-start">
+                            <i class="ph-fill ph-check-circle text-blue-500 mt-1"></i>
+                            <span>2025榮獲親子天下教育創新、遠見未來教育獎、資訊創意競賽金牌、誠致程有威先生教育科技獎</span>
+                        </li>
+                        <li class="flex items-start gap-2 justify-center md:justify-start">
+                            <i class="ph-fill ph-check-circle text-blue-500 mt-1"></i>
+                            <span>致力於推廣 AI Vibe Coding，幫助數千名零基礎學員寫出第一支看盤程式</span>
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center justify-center md:justify-start gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-blue-600 hover:text-white flex items-center justify-center text-gray-600 transition-colors">
+                            <i class="ph-fill ph-linkedin-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-900 hover:text-white flex items-center justify-center text-gray-600 transition-colors">
+                            <i class="ph-fill ph-github-logo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-200 hover:bg-blue-400 hover:text-white flex items-center justify-center text-gray-600 transition-colors">
+                            <i class="ph-fill ph-twitter-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-8 text-center text-sm relative z-40">
+        <p>&copy; 2026 MasterTalks 課程團隊. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Help Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-[#f06261] hover:bg-red-600 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-2 font-bold transition-all hover:scale-105 active:scale-95">
+            <i class="ph-bold ph-headset text-xl"></i> MasterTalks助手
+        </button>
+    </div>
+
+    <!-- Objective Curriculum Modal (Original) -->
+    <div id="modal" class="fixed inset-0 z-[80] hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div id="modal-bg" class="fixed inset-0 bg-gray-900 bg-opacity-70 backdrop-blur-sm transition-opacity" aria-hidden="true"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            <div id="modal-panel" class="inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-gray-100">
+                <div class="bg-white px-6 pt-6 pb-6">
+                    <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                        <h3 class="text-2xl font-black text-gray-900 flex items-center gap-3" id="modal-title">
+                            <span class="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-bold px-3 py-1 rounded-full shadow-sm" id="modal-step">STEP X</span>
+                            <span id="modal-title-text">標題</span>
+                        </h3>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-gray-800 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2 focus:outline-none">
+                            <i class="ph-bold ph-x text-lg"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2">單元簡介</h4>
+                        <p class="text-lg text-gray-700 font-medium" id="modal-desc">描述</p>
+                    </div>
+                    
+                    <div class="objective-box rounded-xl p-6 relative group shadow-sm border border-purple-100">
+                        <div class="flex items-center gap-2 mb-3">
+                            <div class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center">
+                                <i class="ph-fill ph-target text-xl"></i>
+                            </div>
+                            <h4 class="font-black text-purple-900 text-lg">本節學習目標</h4>
+                        </div>
+                        <p class="text-gray-700 text-base leading-relaxed" id="modal-objective"></p>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-6 py-5 flex flex-col sm:flex-row-reverse items-center justify-between gap-4 border-t border-gray-100">
+                    <a href="#pricing" onclick="closeModal()" class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl shadow-sm px-6 py-3 bg-brand-purple text-base font-bold text-white hover:bg-purple-800 focus:outline-none transition-colors">
+                        <i class="ph-bold ph-lock-key-open"></i> 報名解鎖實戰詠唱詞
+                    </a>
+                    <p class="text-sm text-gray-500 font-medium">加入課程以取得完整程式碼與 AI 對話指令</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data and Logic -->
+    <script>
+        // ... (Curriculum Data Array 保持不變) ...
+        const curriculumData = [
+            { id: 1, title: "啟動環境與套件安裝", desc: "在 Colab 準備好所有分析套件，這是我們數據旅程的第一步。", objective: "學會在雲端建立 Python 虛擬執行環境，並掌握安裝量化分析必備套件 (如 yfinance, pandas, plotly, gradio) 的核心概念與指令操作。" },
+            { id: 2, title: "下載台積電三年數據", desc: "我們先用 yfinance 下載個股歷史日線資料，作為後續分析的基石。", objective: "理解如何透過第三方 API 自動獲取真實金融市場報價，並學習基礎的資料表 (DataFrame) 結構檢視方法，確認數據完整性。" },
+            { id: 3, title: "穩健清洗：多層索引處理", desc: "確保不論資料源回傳什麼格式，都能統一識別為標準欄位。", objective: "掌握資料清理 (Data Cleaning) 的關鍵技巧，學習處理 API 回傳的非標準格式或多層索引，確保後續計算與繪圖不出錯。" },
+            { id: 4, title: "專業 K 線與分價量表", desc: "利用 Plotly 繪製互動式的圖表，並加入分價量表辨識支撐壓力。", objective: "學會使用 Plotly 套件繪製具備縮放互動性的專業金融 K 線圖，並理解「分價量表」在實戰中尋找主力套牢區與支撐位的意義。" },
+            { id: 5, title: "MA 五線譜分析", desc: "計算並繪製均線通道，分析股價位階趨勢。", objective: "理解不同週期移動平均線 (MA) 的計算邏輯，並學會將多條趨勢線疊加於圖表中，以進行多空趨勢與股價位階的判斷。" },
+            { id: 6, title: "RSI 相對強弱指標", desc: "加入 RSI 指標圖，透過 30 與 70 基準線，一眼看出超買或超賣訊號。", objective: "學習建構震盪型技術指標 (RSI) 的數學邏輯，掌握超買超賣區間的定義，並實作圖表分割 (Subplots) 來呈現雙層分析圖。" },
+            { id: 7, title: "MACD 動能指標", desc: "加入 MACD 指標，透過快慢線與柱狀體，掌握多空動能的轉換。", objective: "理解 MACD 快慢線與柱狀體的背後意義，學會透過 AI 擴充多重子圖表，綜合評估市場的長短線趨勢與動能轉換。" },
+            { id: 8, title: "布林通道 (Bollinger Bands)", desc: "加入布林通道分析，一眼看穿股價波動區間與突破訊號。", objective: "掌握「標準差」在金融波動率上的應用，計算並繪製布林通道上下軌，並實作圖表區塊填色技術以視覺化突破與收斂訊號。" },
+            { id: 9, title: "抓取營收與毛利 (財報)", desc: "分析落後指標的第一步：營收成長性與獲利能力。", objective: "學習跨越純技術分析，透過 AI 自動抓取企業季報與基本面財務數據，建立更扎實的選股護城河與評估視角。" },
+            { id: 10, title: "外資與投信動向 (真實籌碼)", desc: "利用第三方 API 獲取真實三大法人進出數據。", objective: "學會串接政府或開源 API 獲取三大法人每日買賣超數據，理解籌碼面對於台股個股的龐大影響力，並進行視覺化對比。" },
+            { id: 11, title: "融資融券與散戶動態", desc: "分析信用交易數據，掌握散戶與融資籌碼的穩定度。", objective: "學習如何分析信用交易數據 (融資/融券餘額)，判斷股票目前的籌碼安定度，建立避開「散戶多殺多」陷阱的分析邏輯。" },
+            { id: 12, title: "ATR 波動幅度與停損策略", desc: "計算真實波動幅度，幫助量化策略設定合理的停損點。", objective: "理解真實波動幅度 (ATR) 的概念，並學習如何將其應用於動態停損/停利設定，讓量化交易的風險控管更加科學化。" },
+            { id: 13, title: "落後指標綜合熱力圖", desc: "將上述財報、籌碼指標進行相關性分析，找出誰最影響股價。", objective: "掌握相關係數矩陣 (Correlation Matrix) 的計算與熱力圖 (Heatmap) 繪製，從眾多數據中找出與目標股價連動性最高的關鍵因子。" },
+            { id: 14, title: "探索領先指標 (大盤與匯率)", desc: "從落後指標轉向領先指標，如大盤指數與美元匯率。", objective: "學習跨市場分析方法，導入總體經濟領先指標 (如匯率變動、費半指數)，建立更具宏觀視野的股價預測模型。" },
+            { id: 15, title: "AI 特徵工程與標籤定義", desc: "將市場行為翻譯成 AI 能懂的特徵，並建立預測目標。", objective: "學習機器學習的核心：特徵工程 (Feature Engineering)。將技術指標轉化為 AI 能理解的數值特徵，並定義漲跌標籤 (Target)。" },
+            { id: 16, title: "訓練 AI 模型 (破解勝率迷思)", desc: "用基礎特徵訓練隨機森林，見證 50% 擲硬幣勝率的第一課。", objective: "建立並訓練第一個分類模型，理解時序資料為何嚴禁洗牌，認識「未來數據洩漏」的危險，並建立正確的量化期望值觀念。" },
+            { id: 17, title: "建構 20+ 複合特徵矩陣", desc: "加入多週期、跨市場與真實籌碼，大幅提升 AI 預測力。", objective: "學習如何整合跨週期、跨市場特徵進入單一數據集，並透過「特徵重要性 (Feature Importance)」透視並優化 AI 的決策邏輯。" },
+            { id: 18, title: "策略回測與驗證 (Backtesting)", desc: "將策略丟入歷史數據驗證，加入手續費摩擦成本考量。", objective: "實作專業級歷史回測引擎，嚴格加入交易成本 (手續費/交易稅/滑價) 考量，計算出策略真實的淨報酬與最大回撤 (MDD)。" },
+            { id: 19, title: "構建量化分析腳本 (自動化)", desc: "將上述所有散落的邏輯封裝成一個優雅的 Python 類別。", objective: "學習基礎物件導向與模組化概念，將原本零散的資料獲取與分析程式碼，封裝成可重複呼叫的自動化腳本架構。" },
+            { id: 20, title: "開發與測試 Gradio 儀表板", desc: "把複雜的數據轉換為直觀的網頁介面，使用 Gradio 快速搭建。", objective: "掌握網頁應用程式框架 (Gradio) 的基礎使用，將後端量化分析邏輯轉化為任何人都能直觀操作、具備互動選項的前端介面。" },
+            { id: 21, title: "專業級面板升級 (自選股雷達)", desc: "升級為雙頁籤，新增「自選股雷達」實現批次掃描與訊號通知。", objective: "學習進階 UI 排版技巧，建立多頁籤 (Tabs) 的綜合應用系統，並實作能批次運算多檔自選股清單的「訊號雷達掃描器」。" },
+            { id: 22, title: "啟動 Gradio 公開分享通道", desc: "一鍵產生 72 小時有效的外網公開連結，免密碼、手機可看！", objective: "學會將本地端或 Colab 雲端開發的 AI 應用服務，公開部署至外網產生分享連結，讓手機或其他設備也能隨時連線存取。" },
+            { id: 23, title: "自動通知：Email 訊號推播", desc: "條件成立時，讓系統自動發送訊息到手機，解決沒時間盯盤的痛點。", objective: "學習串接通訊軟體 API (如 Telegram 或 Line)，撰寫警示條件判斷邏輯，實作滿足買賣訊號時的自動化推播警示功能。" },
+            { id: 24, title: "三大實戰流程範本 (SOP)", desc: "帶走可重複執行的 SOP，將所有功能串接成盤前、盤中、盤後自動化工作流。", objective: "整合全部學習成果，建立「盤前選股過濾、盤中價位觸發警示、盤後籌碼復盤」的標準化自動作業 SOP 流程。" }
+        ];
+
+        const grid = document.getElementById('card-grid');
+        
+        // Curriculum Modal logic
+        const modal = document.getElementById('modal');
+        const modalBg = document.getElementById('modal-bg');
+        const modalPanel = document.getElementById('modal-panel');
+        
+        curriculumData.forEach(card => {
+            const cardEl = document.createElement('div');
+            cardEl.className = 'bg-white rounded-2xl shadow-sm cursor-pointer card-hover transition-all duration-300 border border-gray-200 flex flex-col h-full group';
+            cardEl.innerHTML = `
+                <div class="h-2 w-full rounded-t-2xl bg-gradient-to-r from-blue-400 to-purple-500 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div class="p-5 flex-grow">
+                    <div class="text-xs font-bold text-blue-600 mb-2 tracking-wider flex items-center">
+                        <i class="ph-bold ph-lightning text-sm mr-1"></i> STEP ${card.id}
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 leading-snug group-hover:text-purple-600 transition-colors">${card.title}</h3>
+                    <p class="text-gray-500 text-sm line-clamp-3">${card.desc}</p>
+                </div>
+                <div class="bg-slate-50 px-5 py-3 border-t border-gray-100 flex justify-between items-center rounded-b-2xl">
+                    <span class="text-xs font-bold text-purple-600 flex items-center transition-colors">
+                        <i class="ph-bold ph-eye mr-1"></i> 查看學習目標
+                    </span>
+                    <span class="text-gray-300 group-hover:text-purple-500 transition-colors transform group-hover:translate-x-1 duration-200">
+                        <i class="ph-bold ph-arrow-right text-lg"></i>
+                    </span>
+                </div>
+            `;
+            cardEl.onclick = () => openModal(card);
+            grid.appendChild(cardEl);
+        });
+
+        function openModal(card) {
+            document.getElementById('modal-title-text').textContent = card.title;
+            document.getElementById('modal-step').textContent = `STEP ${card.id}`;
+            document.getElementById('modal-desc').textContent = card.desc;
+            document.getElementById('modal-objective').textContent = card.objective;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalBg.classList.add('opacity-100');
+                modalBg.classList.remove('opacity-0');
+                modalPanel.classList.add('modal-enter-active');
+                modalPanel.classList.remove('modal-enter');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalBg.classList.remove('opacity-100');
+            modalBg.classList.add('opacity-0');
+            modalPanel.classList.add('modal-leave-active');
+            modalPanel.classList.remove('modal-leave');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalPanel.classList.remove('modal-leave-active');
+                modalPanel.classList.add('modal-enter');
+            }, 300);
+        }
+        modalBg.onclick = closeModal;
+
+        // --- Blueprint Modal Logic ---
+        const blueprintModal = document.getElementById('blueprint-modal');
+        const blueprintPanel = document.getElementById('blueprint-panel');
+
+        function openBlueprintModal() {
+            blueprintModal.classList.remove('hidden');
+            setTimeout(() => {
+                blueprintModal.classList.remove('opacity-0');
+                blueprintPanel.classList.add('modal-enter-active');
+                blueprintPanel.classList.remove('modal-enter');
+            }, 10);
+        }
+
+        function closeBlueprintModal() {
+            blueprintModal.classList.add('opacity-0');
+            blueprintPanel.classList.add('modal-leave-active');
+            blueprintPanel.classList.remove('modal-enter-active');
+            setTimeout(() => {
+                blueprintModal.classList.add('hidden');
+                blueprintPanel.classList.remove('modal-leave-active');
+                blueprintPanel.classList.add('modal-enter');
+            }, 300);
+        }
+        
+        // 點擊背景關閉 Blueprint Modal
+        blueprintModal.addEventListener('click', function(e) {
+            if (e.target === this || e.target.closest('.min-h-screen') === e.target) {
+                closeBlueprintModal();
+            }
+        });
+
+        // --- Global Toast Logic ---
+        let toastTimeout;
+        function showCustomToast(title, msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-msg').textContent = msg;
+            
+            clearTimeout(toastTimeout);
+            toast.classList.remove('translate-x-full', 'opacity-0');
+            
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-x-full', 'opacity-0');
+            }, 3500);
+        }
+
+        // Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            showCustomToast('資料已送出！', '感謝您的填寫，系統即將為您導向結帳頁面...');
+        }
+
+        // FAQ Toggle Function
+        function toggleFaq(element) {
+            const content = element.querySelector('.FAQ-content');
+            const icon = element.querySelector('.FAQ-icon');
+            
+            // 檢查是否已經打開
+            const isOpen = content.style.maxHeight;
+
+            // 收合其他已打開的 FAQ
+            document.querySelectorAll('.FAQ-content').forEach(c => c.style.maxHeight = null);
+            document.querySelectorAll('.FAQ-icon').forEach(i => i.classList.remove('rotate-180'));
+
+            // 如果原本是未打開狀態，則展開它
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.add('rotate-180');
+            }
+        }
+        
+        // Initial setup
+        modalPanel.classList.add('modal-enter');
+        blueprintPanel.classList.add('modal-enter');
+        modalBg.classList.add('opacity-0');
+    </script>
+</body>
+</html>
