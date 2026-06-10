@@ -262,7 +262,7 @@
                 class="flex flex-col lg:flex-row bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
 
                 <!-- Left Column: Features & Bonuses -->
-                <div class="relative w-full lg:w-[55%] bg-white p-8 md:p-10 lg:p-12 overflow-hidden">
+                <div class="relative w-full bg-white p-8 md:p-10 lg:p-12 overflow-hidden">
                     <!-- Stock Chart Background & Gradient Fade -->
                     <div class="absolute top-0 left-0 w-full h-[280px] z-0">
                         <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80"
@@ -343,54 +343,6 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Form & Checkout -->
-                <div class="relative w-full lg:w-[45%] bg-[#fafafa] p-8 md:p-10 lg:p-12 border-l border-gray-100">
-                    <!-- Early Bird Badge -->
-                    <div
-                        class="absolute top-0 right-0 bg-[#f05252] text-white px-5 py-2.5 rounded-bl-[1.5rem] font-bold text-sm flex items-center gap-1.5 shadow-md z-10">
-                        <i class="ph-fill ph-fire text-lg animate-pulse"></i> 早鳥限時優惠中
-                    </div>
-
-                    <!-- Price Display -->
-                    <div class="text-center pt-8 mb-10">
-                        <div class="flex items-baseline justify-center gap-1 text-gray-900">
-                            <span class="text-3xl font-bold">NT$</span>
-                            <span class="text-[4rem] leading-none font-black tracking-tight">4,980</span>
-                        </div>
-                        <div class="text-gray-500 text-sm mt-3 font-medium">
-                            原價 <span class="line-through">NT$ 8,800</span> (省下 $3,820)
-                        </div>
-                    </div>
-
-                    <!-- Form -->
-                    <form class="space-y-5" onsubmit="handleFormSubmit(event)">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">真實姓名</label>
-                            <input type="text" placeholder="請輸入姓名" required
-                                class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Email 信箱 (接收課程權限)</label>
-                            <input type="email" placeholder="your@email.com" required
-                                class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">手機號碼</label>
-                            <input type="tel" placeholder="09xx-xxx-xxx" required
-                                class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all text-base bg-white shadow-sm">
-                        </div>
-
-                        <button type="submit"
-                            class="w-full bg-[#fbbc05] hover:bg-[#f5aa00] text-gray-900 text-xl font-black py-4 rounded-xl shadow-[0_8px_20px_rgba(251,188,5,0.4)] transform transition-transform hover:-translate-y-1 flex justify-center items-center gap-2 mt-8">
-                            填妥送出，前往結帳 <i class="ph-bold ph-receipt text-2xl"></i>
-                        </button>
-
-                        <div
-                            class="text-center text-xs text-gray-500 mt-5 flex items-center justify-center gap-1.5 font-medium">
-                            <i class="ph-fill ph-lock-key text-gray-400"></i> 支援信用卡最高 6 期零利率 | 14 天退款保證
-                        </div>
-                    </form>
-                </div>
             </div>
         </div>
     </section>
@@ -618,7 +570,7 @@
                             class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
                     </div>
                     <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
+                        <p class="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
                             絕對可以！本課程專為零基礎設計，我們捨棄了傳統死記硬背的語法教學，全程採用最新的 Vibe Coding（對話式寫程式）技術。只要你會打字、會用 AI
                             聊天，複製貼上我們提供的「黃金提示詞」，AI 就會幫你寫出完整程式碼。
                         </p>
@@ -634,7 +586,7 @@
                             class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
                     </div>
                     <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
+                        <p class="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
                             不需要。課程中使用的所有工具（包含 Google Colab 雲端開發環境、yfinance 財經數據庫、Plotly
                             繪圖套件等）皆為免費開源資源，且台股數據也是免費抓取，為您省下龐大的軟體訂閱費用。
                         </p>
@@ -650,7 +602,7 @@
                             class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
                     </div>
                     <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
+                        <p class="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
                             本課程的重點在於「量化分析、策略回測與自動推播訊號（如 Email/Telegram）」。為了保護學員的資金安全，且各家券商 API
                             規範差異極大，課程中不會包含直接自動下單的實作。我們致力於打造強大的「看盤與盯盤輔助系統」。
                         </p>
@@ -666,7 +618,7 @@
                             class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
                     </div>
                     <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
+                        <p class="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
                             這非常重要！我們在課程中會深入教學如何將 <span class="font-bold text-purple-600">Google Colab 結合 Gemini
                                 AI</span>，運用 <span class="font-bold text-blue-600">Vibe Coding</span>
                             的技巧來解決除錯（Debug）與程式編輯的問題。只要把錯誤訊息貼給 AI，它就能精準指出問題並提供修正後的程式碼，讓你再也不用對著紅字發呆。
@@ -683,28 +635,12 @@
                             class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
                     </div>
                     <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
+                        <p class="pb-6 text-gray-600 leading-relaxed text-base md:text-lg">
                             完全沒問題！無論您是 Windows 還是 Mac 用戶，我們全程使用 Google Colab 雲端平台進行運算。只要您的電腦有瀏覽器且能連上網，所有複雜的數據訓練都在 Google
                             的伺服器上完成，不會佔用您個人的電腦效能。
                         </p>
                     </div>
                 </div>
-
-                <!-- FAQ Item 6 -->
-                <div class="bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:border-blue-200 hover:shadow-sm"
-                    onclick="toggleFaq(this)">
-                    <div class="p-6 flex justify-between items-center select-none">
-                        <h4 class="text-lg font-bold text-gray-800 pr-4">課程的觀看期限是多久？</h4>
-                        <i
-                            class="ph-bold ph-caret-down text-gray-500 transition-transform duration-300 transform FAQ-icon shrink-0"></i>
-                    </div>
-                    <div class="FAQ-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out px-6">
-                        <p class="pb-6 text-gray-600 leading-relaxed">
-                            報名後即可享有「永久無限次觀看」的權益！您可以隨時依據自己的步調複習，未來若有補充的提示詞或工具更新，也能持續獲得最新資訊。
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -718,10 +654,6 @@
             <p class="text-lg text-gray-400 font-medium mb-10 max-w-2xl mx-auto leading-relaxed">
                 省下每天盲目找標的的時間，讓 AI 幫你過濾雜訊。現在就加入，建立你的專屬量化系統。
             </p>
-            <a href="#pricing"
-                class="inline-flex justify-center items-center gap-2 bg-[#fbbc05] hover:bg-[#f5aa00] text-gray-900 text-xl font-black px-10 py-4 rounded-full shadow-[0_8px_20px_rgba(251,188,5,0.2)] transform transition-transform hover:-translate-y-1">
-                前往方案說明
-            </a>
         </div>
     </section>
 
@@ -811,7 +743,7 @@
                             <span id="modal-title-text">標題</span>
                         </h3>
                         <button onclick="closeModal()"
-                            class="text-gray-400 hover:text-gray-800 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2 focus:outline-none">
+                            class="text-gray-400 hover:text-gray-800 transition-colors bg-gray-100 hover:bg-gray-200 rounded-full p-2 focus:outline-none w-[40px] h-[40px] flex items-center justify-center">
                             <i class="ph-bold ph-x text-lg"></i>
                         </button>
                     </div>
@@ -833,11 +765,8 @@
                     </div>
                 </div>
                 <div
-                    class="bg-gray-50 px-6 py-5 flex flex-col sm:flex-row-reverse items-center justify-between gap-4 border-t border-gray-100">
-                    <a href="#pricing" onclick="closeModal()"
-                        class="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-xl shadow-sm px-6 py-3 bg-brand-purple text-base font-bold text-white hover:bg-purple-800 focus:outline-none transition-colors">
-                        <i class="ph-bold ph-lock-key-open"></i> 報名解鎖實戰詠唱詞
-                    </a>
+                    class="bg-gray-50 px-6 py-5 flex flex-col sm:flex-row-reverse items-center justify-center gap-4 border-t border-gray-100">
+
                     <p class="text-sm text-gray-500 font-medium">加入課程以取得完整程式碼與 AI 對話指令</p>
                 </div>
             </div>
@@ -891,7 +820,7 @@
                         <i class="ph-bold ph-lightning text-sm mr-1"></i> STEP ${card.id}
                     </div>
                     <h3 class="text-lg font-bold text-gray-800 mb-2 leading-snug group-hover:text-purple-600 transition-colors">${card.title}</h3>
-                    <p class="text-gray-500 text-sm line-clamp-3">${card.desc}</p>
+                    <p class="text-gray-500 text-sm md:text-base line-clamp-3">${card.desc}</p>
                 </div>
                 <div class="bg-slate-50 px-5 py-3 border-t border-gray-100 flex justify-between items-center rounded-b-2xl">
                     <span class="text-xs font-bold text-purple-600 flex items-center transition-colors">
