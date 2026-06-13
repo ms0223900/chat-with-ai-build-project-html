@@ -237,16 +237,22 @@
       margin: -8px 0 44px;
     }
 
+    .intro-grid .intro-prose {
+      margin: 0;
+    }
+
     .intro-grid figure {
       display: flex;
       flex-direction: column;
+      height: 100%;
+      margin: 0;
       min-height: 0;
     }
 
     .intro-grid figure img {
       width: 100%;
-      flex: 1;
-      min-height: 0;
+      height: 80%;
+      flex: none;
       object-fit: cover;
       border: 1px solid var(--line);
       border-radius: 4px;
@@ -254,6 +260,7 @@
 
     .intro-grid .photo-cap {
       flex: none;
+      margin-top: auto;
     }
 
     .site-photos {
@@ -1045,13 +1052,18 @@
         object-fit: initial;
       }
 
-      .intro-grid {
-        align-items: start;
+      .intro-grid figure {
+        height: auto;
       }
 
       .intro-grid figure img {
-        flex: none;
-        object-fit: initial;
+        height: auto;
+        aspect-ratio: 3/2;
+        object-fit: cover;
+      }
+
+      .intro-grid .photo-cap {
+        margin-top: 12px;
       }
 
       .duo {
@@ -1135,7 +1147,7 @@
         <p class="sec-sub">每一條，都是真實案場付出代價換來的教訓。</p>
       </div>
       <div class="intro-grid">
-        <div class="intro-prose" style="margin:0;">
+        <div class="intro-prose">
           <p>
             一場住家室內裝修就是由無數繁瑣卻關鍵的小事積累完成的。不要賭建案廠商師傅跟你想的一樣、不要賭師傅都知道你要的感覺、不要賭師傅應該會記得、不要賭業主不會發現、不要賭設計師看不出來、不要賭業主使用都會輕手輕腳、不要賭業主一家都是紙片人、不要賭自己一定會記得、不要賭工班時間都可以合的剛剛好、不要賭自己運氣不會這麼差、不要賭問題過保固才會發生、不要賭在問題發生前業主會先換房、不要賭業主一定可以完美斷捨離。
           </p>
