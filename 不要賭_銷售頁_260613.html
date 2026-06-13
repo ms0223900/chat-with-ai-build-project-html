@@ -1,725 +1,1491 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>不要賭：一場裝修的風險管理課｜王采元親授</title>
-<meta name="description" content="從買房到入住，王采元親授避開裝修路上的關鍵風險。二十三年實戰經驗，首次系統化公開的住家裝修風險管理學。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@350;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#F7F4EC;
-  --paper-deep:#EFEADD;
-  --ink:#26241F;
-  --ink-soft:#5C574D;
-  --ink-faint:#8A8374;
-  --wood:#C8A77A;
-  --wood-deep:#8F6F45;
-  --seal:#A63C2B;
-  --seal-deep:#7E2B1E;
-  --line:#D9D2C2;
-  --grid:rgba(143,111,69,0.10);
-  --serif:"Noto Serif TC","Songti TC",serif;
-  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
-  --mono:"IBM Plex Mono","Courier New",monospace;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto;}
-  *,*::before,*::after{animation:none!important;transition:none!important;}
-}
-body{
-  font-family:var(--sans);
-  background:var(--paper);
-  color:var(--ink);
-  font-size:19px;
-  line-height:1.9;
-  font-weight:400;
-  -webkit-font-smoothing:antialiased;
-}
-a{color:var(--wood-deep);}
-img{max-width:100%;display:block;}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
-.narrow{max-width:760px;margin:0 auto;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>不要賭：一場裝修的風險管理課｜王采元親授</title>
+  <meta name="description" content="從買房到入住，王采元親授避開裝修路上的關鍵風險。二十三年實戰經驗，首次系統化公開的住家裝修風險管理學。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@350;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #F7F4EC;
+      --paper-deep: #EFEADD;
+      --ink: #26241F;
+      --ink-soft: #5C574D;
+      --ink-faint: #8A8374;
+      --wood: #C8A77A;
+      --wood-deep: #8F6F45;
+      --seal: #A63C2B;
+      --seal-deep: #7E2B1E;
+      --line: #D9D2C2;
+      --grid: rgba(143, 111, 69, 0.10);
+      --serif: "Noto Serif TC", "Songti TC", serif;
+      --sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      --mono: "IBM Plex Mono", "Courier New", monospace;
+    }
 
-/* ── 頂部列 ───────────────────────── */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(247,244,236,0.94);
-  backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
-}
-.topbar-in{
-  max-width:1040px;margin:0 auto;padding:10px 24px;
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.brand{font-family:var(--serif);font-weight:700;font-size:19px;letter-spacing:0.08em;}
-.brand small{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--ink-faint);letter-spacing:0.12em;display:block;line-height:1.4;}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-/* ── HERO：手繪圖紙 ───────────────── */
-.hero{
-  position:relative;overflow:hidden;
-  background:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size:32px 32px;
-  border-bottom:1px solid var(--line);
-}
-.hero::after{
-  content:"";position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% 35%, transparent 30%, var(--paper) 92%);
-  pointer-events:none;
-}
-.hero-in{
-  position:relative;z-index:1;
-  max-width:1040px;margin:0 auto;padding:84px 24px 76px;
-  display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;
-}
-.hero-title{
-  font-family:var(--serif);font-weight:900;
-  writing-mode:vertical-rl;
-  font-size:clamp(88px,11vw,138px);
-  line-height:1.06;letter-spacing:0.10em;
-  color:var(--seal);
-}
-.hero-copy h1{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(30px,3.6vw,42px);letter-spacing:0.06em;line-height:1.5;
-  margin-bottom:14px;
-}
-.hero-copy .lede{
-  font-size:clamp(18px,2vw,21px);color:var(--ink-soft);font-weight:350;
-  letter-spacing:0.04em;max-width:32em;
-}
-.hero-eyebrow{
-  font-family:var(--mono);font-size:13.5px;letter-spacing:0.22em;
-  color:var(--wood-deep);margin-bottom:22px;
-  display:flex;align-items:center;gap:12px;
-}
-.hero-eyebrow::before{content:"";width:34px;height:1px;background:var(--wood-deep);}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ── 照片 ─────────────────────────── */
-.hero-photo{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 24px 64px;}
-.hero-photo img{width:100%;border:1px solid var(--line);border-radius:4px;}
-.photo-cap{
-  font-family:var(--mono);font-size:13px;letter-spacing:0.14em;color:var(--wood-deep);
-  margin-top:12px;display:flex;align-items:center;gap:12px;
-}
-.photo-cap::before{content:"";width:26px;height:1px;background:var(--wood);}
-.intro-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:stretch;margin:-8px 0 44px;}
-.intro-grid figure{display:flex;flex-direction:column;min-height:0;}
-.intro-grid figure img{width:100%;flex:1;min-height:0;object-fit:cover;border:1px solid var(--line);border-radius:4px;}
-.intro-grid .photo-cap{flex:none;}
-.site-photos{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:40px;}
-.site-photos img{width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);border-radius:4px;}
-.site-photos.three{grid-template-columns:repeat(3,1fr);}
-.post .pimg{margin:-30px -28px 22px;}
-.post .pimg img{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:1px solid var(--line);border-radius:4px 4px 0 0;display:block;}
-.quote-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:52px;align-items:center;}
-.quote-grid img{width:100%;border-radius:4px;border:1px solid rgba(237,232,220,0.25);}
-.quote-grid .photo-cap{color:rgba(237,232,220,0.6);}
-.quote-grid .photo-cap::before{background:var(--wood);}
-.final-photo{max-width:860px;margin:0 auto 44px;text-align:left;}
-.final-photo img{width:100%;border:1px solid var(--line);border-radius:4px;}
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
 
-/* ── 章節標題：尺寸標註線 ─────────── */
-section{padding:88px 0;}
-section.tinted{background:var(--paper-deep);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.sec-head{margin-bottom:46px;}
-.sec-no{
-  font-family:var(--mono);font-size:13.5px;letter-spacing:0.26em;color:var(--wood-deep);
-  display:flex;align-items:center;gap:14px;margin-bottom:16px;
-}
-.dim{flex:1;height:1px;background:var(--wood);position:relative;max-width:220px;}
-.dim::before,.dim::after{
-  content:"";position:absolute;top:-3.5px;width:1px;height:8px;background:var(--wood);
-}
-.dim::before{left:0;}.dim::after{right:0;}
-.sec-title{
-  font-family:var(--serif);font-weight:700;
-  font-size:clamp(28px,3.3vw,36px);letter-spacing:0.05em;line-height:1.5;
-}
-.sec-title em,.final h2 em{font-style:normal;color:var(--seal);}
-.hl{color:var(--seal);}
-.lede .hl{font-weight:500;}
-.sec-sub{color:var(--ink-soft);margin-top:10px;font-weight:350;max-width:40em;}
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
 
-/* ── 十三件事 ─────────────────────── */
-.intro-prose{margin:-8px 0 44px;max-width:46em;}
-.intro-prose p{color:var(--ink-soft);font-weight:400;margin-bottom:18px;}
-.check-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:0 56px;
-  border-top:1px solid var(--line);
-}
-.check-item{
-  display:flex;gap:18px;align-items:flex-start;
-  padding:17px 4px;border-bottom:1px solid var(--line);
-}
-.check-no{
-  font-family:var(--mono);font-size:14px;color:var(--wood-deep);
-  margin-top:7px;flex:none;letter-spacing:0.05em;
-}
-.check-text{font-family:var(--serif);font-weight:500;font-size:19.5px;line-height:1.7;letter-spacing:0.03em;}
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.9;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* ── 三件事 ───────────────────────── */
-.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.card{
-  background:var(--paper);border:1px solid var(--line);border-radius:4px;
-  padding:30px 28px;
-}
-.tinted .card{background:#FBF8F0;}
-.card .k{
-  font-family:var(--mono);font-size:13px;letter-spacing:0.2em;color:var(--wood-deep);
-  display:block;margin-bottom:14px;
-}
-.card h3{font-family:var(--serif);font-weight:700;font-size:21.5px;line-height:1.6;letter-spacing:0.03em;margin-bottom:12px;}
-.card p{font-size:17.5px;color:var(--ink-soft);font-weight:350;}
+    a {
+      color: var(--wood-deep);
+    }
 
-/* ── 學習成果＋適合對象 ───────────── */
-.duo{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:stretch;}
-.duo>div{background:#FBF8F0;border:1px solid var(--line);border-radius:4px;padding:28px;}
-.audience{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
-.chip{
-  border:1px solid var(--wood);color:var(--wood-deep);
-  font-size:16px;letter-spacing:0.05em;border-radius:999px;padding:7px 18px;background:rgba(200,167,122,0.08);
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-/* ── 觀點文章 ─────────────────────── */
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-.post{
-  background:#FBF8F0;border:1px solid var(--line);border-radius:4px;
-  padding:30px 28px;display:flex;flex-direction:column;
-}
-.post h3{font-family:var(--serif);font-weight:700;font-size:22.5px;line-height:1.55;letter-spacing:0.03em;margin-bottom:10px;}
-@media (min-width:681px){
-  .post h3{min-height:3.1em;}
-  .post .gist{min-height:5.1em;}
-}
-.post .gist{font-family:var(--serif);font-weight:500;font-size:17px;color:var(--wood-deep);margin-bottom:14px;line-height:1.7;}
-.post p{font-size:17px;color:var(--ink-soft);font-weight:350;flex:1;}
-.post a{
-  margin-top:18px;font-size:15px;letter-spacing:0.1em;text-decoration:none;
-  color:var(--seal);font-weight:500;
-}
-.post a:hover{text-decoration:underline;}
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-/* ── 理念引言帶 ───────────────────── */
-.quoteband{
-  background:var(--ink);color:#EDE8DC;
-  padding:84px 0;
-  background-image:
-    linear-gradient(rgba(237,232,220,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(237,232,220,0.05) 1px, transparent 1px);
-  background-size:32px 32px;
-}
-.quoteband .sec-no{color:var(--wood);}
-.quoteband .dim,.quoteband .dim::before,.quoteband .dim::after{background:var(--wood);}
-.quoteband blockquote{
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(23px,2.9vw,30px);line-height:2;letter-spacing:0.04em;
-  max-width:30em;
-}
-.quoteband blockquote b{color:var(--wood);font-weight:700;}
-.quoteband p{margin-top:26px;color:rgba(237,232,220,0.75);font-weight:350;max-width:42em;}
+    .narrow {
+      max-width: 760px;
+      margin: 0 auto;
+    }
 
-/* ── 課程大綱 ─────────────────────── */
-.syllabus{border-top:1px solid var(--line);}
-.chapter{border-bottom:1px solid var(--line);}
-.chapter summary{
-  list-style:none;cursor:pointer;
-  display:flex;align-items:baseline;gap:22px;
-  padding:24px 4px;
-}
-.chapter summary::-webkit-details-marker{display:none;}
-.ch-no{font-family:var(--mono);font-size:14px;color:var(--wood-deep);letter-spacing:0.12em;flex:none;width:74px;}
-.ch-title{font-family:var(--serif);font-weight:700;font-size:22.5px;letter-spacing:0.04em;flex:1;}
-.ch-mark{
-  font-family:var(--mono);color:var(--ink-faint);font-size:18px;flex:none;
-  transition:transform 0.2s;
-}
-.chapter[open] .ch-mark{transform:rotate(45deg);}
-.ch-body{padding:0 4px 28px 96px;}
-.ch-body li{
-  list-style:none;position:relative;padding-left:22px;
-  color:var(--ink-soft);font-weight:350;font-size:18px;margin-bottom:6px;
-}
-.ch-body li::before{
-  content:"";position:absolute;left:0;top:0.95em;width:10px;height:1.5px;background:var(--wood);
-}
-.syllabus-note{margin-top:26px;font-size:15.5px;color:var(--ink-faint);letter-spacing:0.04em;}
+    /* ── 頂部列 ───────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(247, 244, 236, 0.94);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
 
-/* ── 老師 ─────────────────────────── */
-.teacher{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:stretch;}
-.teacher-side{display:flex;flex-direction:column;min-height:0;}
-.portrait{
-  aspect-ratio:3/4;flex:none;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--paper-deep);
-}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 26%;}
-.cert{margin-top:22px;flex:1;min-height:0;display:flex;flex-direction:column;}
-.cert img{width:100%;flex:1;min-height:0;object-fit:contain;object-position:top center;border:1px solid var(--line);border-radius:4px;display:block;background:#fff;}
-.cert .photo-cap{flex:none;}
-.teacher h3{font-family:var(--serif);font-weight:900;font-size:34px;letter-spacing:0.08em;}
-.teacher .en{font-family:var(--mono);font-size:14px;color:var(--ink-faint);letter-spacing:0.16em;margin:4px 0 6px;}
-.teacher .role{color:var(--wood-deep);font-weight:500;letter-spacing:0.06em;margin-bottom:20px;}
-.teacher .bio{color:var(--ink-soft);font-weight:350;margin-bottom:24px;max-width:38em;}
-.creds{margin-bottom:30px;}
-.creds li{
-  list-style:none;position:relative;padding:10px 0 10px 26px;
-  border-bottom:1px dashed var(--line);font-size:17.5px;
-}
-.creds li::before{
-  content:"";position:absolute;left:2px;top:1.35em;width:12px;height:1.5px;background:var(--seal);
-}
-.whyme{
-  border-left:4px solid var(--wood);background:var(--paper-deep);
-  padding:24px 28px;border-radius:0 4px 4px 0;
-}
-.whyme h4{font-family:var(--serif);font-weight:700;font-size:19.5px;margin-bottom:8px;letter-spacing:0.05em;}
-.whyme p{font-size:17.5px;color:var(--ink-soft);font-weight:350;}
+    .topbar-in {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-/* ── 推薦 ─────────────────────────── */
-.vouch-list{display:flex;flex-direction:column;gap:26px;}
-.vouch{
-  background:#FBF8F0;border:1px solid var(--line);border-radius:4px;
-  display:grid;grid-template-columns:340px 1fr;overflow:hidden;
-}
-.vouch .vimg{min-height:0;}
-.vouch .vimg img{width:100%;height:100%;object-fit:cover;display:block;}
-.vouch .vbody{padding:32px 36px;display:flex;flex-direction:column;}
-.vouch .who{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:0.03em;}
-.vouch .tag{font-size:14.5px;color:var(--wood-deep);letter-spacing:0.08em;margin:3px 0 16px;}
-.vouch p{font-size:17px;color:var(--ink-soft);font-weight:350;flex:1;}
-.vouch p b{color:var(--ink);font-weight:500;}
-.vouch a{margin-top:16px;font-size:15px;letter-spacing:0.08em;color:var(--seal);text-decoration:none;font-weight:500;}
-.vouch a:hover{text-decoration:underline;}
-.vouch .open-q{
-  font-family:var(--serif);font-size:42px;line-height:0.6;color:var(--wood);
-  display:block;margin-bottom:14px;font-weight:900;
-}
+    .brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 19px;
+      letter-spacing: 0.08em;
+    }
 
-/* ── FAQ ──────────────────────────── */
-.faq{border-top:1px solid var(--line);}
-.faq details{border-bottom:1px solid var(--line);}
-.faq summary{
-  list-style:none;cursor:pointer;display:flex;gap:18px;align-items:baseline;
-  padding:22px 4px;font-family:var(--serif);font-weight:700;font-size:20.5px;letter-spacing:0.03em;
-}
-.faq summary::-webkit-details-marker{display:none;}
-.faq .q{font-family:var(--mono);font-size:14px;color:var(--seal);flex:none;letter-spacing:0.1em;}
-.faq .ch-mark{margin-left:auto;}
-.faq .a{padding:0 4px 26px 52px;color:var(--ink-soft);font-weight:350;max-width:46em;}
+    .brand small {
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: 0.12em;
+      display: block;
+      line-height: 1.4;
+    }
 
-/* ── 尾段 ─────────────────────────── */
-.final{
-  text-align:center;
-  background:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size:32px 32px;
-  border-top:1px solid var(--line);
-}
-.final h2{
-  font-family:var(--serif);font-weight:900;
-  font-size:clamp(28px,4vw,42px);letter-spacing:0.1em;margin-bottom:16px;
-}
-.final p{color:var(--ink-soft);font-weight:350;max-width:34em;margin:0 auto;}
-footer{
-  border-top:1px solid var(--line);padding:34px 0 60px;
-  font-size:14.5px;color:var(--ink-faint);letter-spacing:0.06em;
-}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;justify-content:space-between;}
-footer a{color:var(--ink-faint);}
+    /* ── HERO：手繪圖紙 ───────────────── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 32px 32px;
+      border-bottom: 1px solid var(--line);
+    }
 
-/* ── RWD ──────────────────────────── */
-@media (max-width:920px){
-  .cards3,.posts{grid-template-columns:1fr 1fr;}
-  .vouch{grid-template-columns:1fr;}
-  .vouch .vimg img{aspect-ratio:16/9;height:auto;}
-  .teacher{grid-template-columns:1fr;}
-  .portrait{max-width:300px;}
-  .teacher-side{display:block;}
-  .cert{max-width:320px;display:block;}
-  .cert img{height:auto;object-fit:initial;}
-  .intro-grid{align-items:start;}
-  .intro-grid figure img{flex:none;object-fit:initial;}
-  .duo{grid-template-columns:1fr;}
-}
-@media (max-width:680px){
-  section{padding:64px 0;}
-  .hero-in{grid-template-columns:1fr;gap:36px;padding:56px 24px 56px;}
-  .hero-title{font-size:clamp(72px,20vw,96px);}
-  .check-grid,.intro-grid,.site-photos,.site-photos.three,.quote-grid{grid-template-columns:1fr;}
-  .cards3,.posts{grid-template-columns:1fr;}
-  .ch-body{padding-left:4px;}
-}
-</style>
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 35%, transparent 30%, var(--paper) 92%);
+      pointer-events: none;
+    }
+
+    .hero-in {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 84px 24px 76px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-weight: 900;
+      writing-mode: vertical-rl;
+      font-size: clamp(88px, 11vw, 138px);
+      line-height: 1.06;
+      letter-spacing: 0.10em;
+      color: var(--seal);
+    }
+
+    .hero-copy h1 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(30px, 3.6vw, 42px);
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .hero-copy .lede {
+      font-size: clamp(18px, 2vw, 21px);
+      color: var(--ink-soft);
+      font-weight: 350;
+      letter-spacing: 0.04em;
+      max-width: 32em;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      letter-spacing: 0.22em;
+      color: var(--wood-deep);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--wood-deep);
+    }
+
+    /* ── 照片 ─────────────────────────── */
+    .hero-photo {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 24px 64px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .photo-cap {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      color: var(--wood-deep);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .photo-cap::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--wood);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 48px;
+      align-items: stretch;
+      margin: -8px 0 44px;
+    }
+
+    .intro-grid figure {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .intro-grid figure img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .intro-grid .photo-cap {
+      flex: none;
+    }
+
+    .site-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 40px;
+    }
+
+    .site-photos img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    .site-photos.three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .post .pimg {
+      margin: -30px -28px 22px;
+    }
+
+    .post .pimg img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+      border-radius: 4px 4px 0 0;
+      display: block;
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .quote-grid img {
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid rgba(237, 232, 220, 0.25);
+    }
+
+    .quote-grid .photo-cap {
+      color: rgba(237, 232, 220, 0.6);
+    }
+
+    .quote-grid .photo-cap::before {
+      background: var(--wood);
+    }
+
+    .final-photo {
+      max-width: 860px;
+      margin: 0 auto 44px;
+      text-align: left;
+    }
+
+    .final-photo img {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+    }
+
+    /* ── 章節標題：尺寸標註線 ─────────── */
+    section {
+      padding: 88px 0;
+    }
+
+    section.tinted {
+      background: var(--paper-deep);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sec-head {
+      margin-bottom: 46px;
+    }
+
+    .sec-no {
+      font-family: var(--mono);
+      font-size: 13.5px;
+      letter-spacing: 0.26em;
+      color: var(--wood-deep);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .dim {
+      flex: 1;
+      height: 1px;
+      background: var(--wood);
+      position: relative;
+      max-width: 220px;
+    }
+
+    .dim::before,
+    .dim::after {
+      content: "";
+      position: absolute;
+      top: -3.5px;
+      width: 1px;
+      height: 8px;
+      background: var(--wood);
+    }
+
+    .dim::before {
+      left: 0;
+    }
+
+    .dim::after {
+      right: 0;
+    }
+
+    .sec-title {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(28px, 3.3vw, 36px);
+      letter-spacing: 0.05em;
+      line-height: 1.5;
+    }
+
+    .sec-title em,
+    .final h2 em {
+      font-style: normal;
+      color: var(--seal);
+    }
+
+    .hl {
+      color: var(--seal);
+    }
+
+    .lede .hl {
+      font-weight: 500;
+    }
+
+    .sec-sub {
+      color: var(--ink-soft);
+      margin-top: 10px;
+      font-weight: 350;
+      max-width: 40em;
+    }
+
+    /* ── 十三件事 ─────────────────────── */
+    .intro-prose {
+      margin: -8px 0 44px;
+      max-width: 46em;
+    }
+
+    .intro-prose p {
+      color: var(--ink-soft);
+      font-weight: 400;
+      margin-bottom: 18px;
+    }
+
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 56px;
+      border-top: 1px solid var(--line);
+    }
+
+    .check-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 17px 4px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .check-no {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--wood-deep);
+      margin-top: 7px;
+      flex: none;
+      letter-spacing: 0.05em;
+    }
+
+    .check-text {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 19.5px;
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── 三件事 ───────────────────────── */
+    .cards3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 30px 28px;
+    }
+
+    .tinted .card {
+      background: #FBF8F0;
+    }
+
+    .card .k {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      color: var(--wood-deep);
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 21.5px;
+      line-height: 1.6;
+      letter-spacing: 0.03em;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 17.5px;
+      color: var(--ink-soft);
+      font-weight: 350;
+    }
+
+    /* ── 學習成果＋適合對象 ───────────── */
+    .duo {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .duo>div {
+      background: #FBF8F0;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 28px;
+    }
+
+    .audience {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      border: 1px solid var(--wood);
+      color: var(--wood-deep);
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      border-radius: 999px;
+      padding: 7px 18px;
+      background: rgba(200, 167, 122, 0.08);
+    }
+
+    /* ── 觀點文章 ─────────────────────── */
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .post {
+      background: #FBF8F0;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 30px 28px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post h3 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 22.5px;
+      line-height: 1.55;
+      letter-spacing: 0.03em;
+      margin-bottom: 10px;
+    }
+
+    @media (min-width:681px) {
+      .post h3 {
+        min-height: 3.1em;
+      }
+
+      .post .gist {
+        min-height: 5.1em;
+      }
+    }
+
+    .post .gist {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--wood-deep);
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+
+    .post p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      font-weight: 350;
+      flex: 1;
+    }
+
+    .post a {
+      margin-top: 18px;
+      font-size: 15px;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: var(--seal);
+      font-weight: 500;
+    }
+
+    .post a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── 理念引言帶 ───────────────────── */
+    .quoteband {
+      background: var(--ink);
+      color: #EDE8DC;
+      padding: 84px 0;
+      background-image:
+        linear-gradient(rgba(237, 232, 220, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(237, 232, 220, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .quoteband .sec-no {
+      color: var(--wood);
+    }
+
+    .quoteband .dim,
+    .quoteband .dim::before,
+    .quoteband .dim::after {
+      background: var(--wood);
+    }
+
+    .quoteband blockquote {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(23px, 2.9vw, 30px);
+      line-height: 2;
+      letter-spacing: 0.04em;
+      max-width: 30em;
+    }
+
+    .quoteband blockquote b {
+      color: var(--wood);
+      font-weight: 700;
+    }
+
+    .quoteband p {
+      margin-top: 26px;
+      color: rgba(237, 232, 220, 0.75);
+      font-weight: 350;
+      max-width: 42em;
+    }
+
+    /* ── 課程大綱 ─────────────────────── */
+    .syllabus {
+      border-top: 1px solid var(--line);
+    }
+
+    .chapter {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      padding: 24px 4px;
+    }
+
+    .chapter summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .ch-no {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--wood-deep);
+      letter-spacing: 0.12em;
+      flex: none;
+      width: 74px;
+    }
+
+    .ch-title {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 22.5px;
+      letter-spacing: 0.04em;
+      flex: 1;
+    }
+
+    .ch-mark {
+      font-family: var(--mono);
+      color: var(--ink-faint);
+      font-size: 18px;
+      flex: none;
+      transition: transform 0.2s;
+    }
+
+    .chapter[open] .ch-mark {
+      transform: rotate(45deg);
+    }
+
+    .ch-body {
+      padding: 0 4px 28px 96px;
+    }
+
+    .ch-body li {
+      list-style: none;
+      position: relative;
+      padding-left: 22px;
+      color: var(--ink-soft);
+      font-weight: 350;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .ch-body li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.95em;
+      width: 10px;
+      height: 1.5px;
+      background: var(--wood);
+    }
+
+    .syllabus-note {
+      margin-top: 26px;
+      font-size: 15.5px;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── 老師 ─────────────────────────── */
+    .teacher {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 52px;
+      align-items: stretch;
+    }
+
+    .teacher-side {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .portrait {
+      aspect-ratio: 3/4;
+      flex: none;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--paper-deep);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 26%;
+    }
+
+    .cert {
+      margin-top: 22px;
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cert img {
+      width: 100%;
+      flex: 1;
+      min-height: 0;
+      object-fit: contain;
+      object-position: top center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      display: block;
+      background: #fff;
+    }
+
+    .cert .photo-cap {
+      flex: none;
+    }
+
+    .teacher h3 {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 34px;
+      letter-spacing: 0.08em;
+    }
+
+    .teacher .en {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--ink-faint);
+      letter-spacing: 0.16em;
+      margin: 4px 0 6px;
+    }
+
+    .teacher .role {
+      color: var(--wood-deep);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+    }
+
+    .teacher .bio {
+      color: var(--ink-soft);
+      font-weight: 350;
+      margin-bottom: 24px;
+      max-width: 38em;
+    }
+
+    .creds {
+      margin-bottom: 30px;
+    }
+
+    .creds li {
+      list-style: none;
+      position: relative;
+      padding: 10px 0 10px 26px;
+      border-bottom: 1px dashed var(--line);
+      font-size: 17.5px;
+    }
+
+    .creds li::before {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 1.35em;
+      width: 12px;
+      height: 1.5px;
+      background: var(--seal);
+    }
+
+    .whyme {
+      border-left: 4px solid var(--wood);
+      background: var(--paper-deep);
+      padding: 24px 28px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .whyme h4 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 19.5px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .whyme p {
+      font-size: 17.5px;
+      color: var(--ink-soft);
+      font-weight: 350;
+    }
+
+    /* ── 推薦 ─────────────────────────── */
+    .vouch-list {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .vouch {
+      background: #FBF8F0;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      overflow: hidden;
+    }
+
+    .vouch .vimg {
+      min-height: 0;
+    }
+
+    .vouch .vimg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .vouch .vbody {
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vouch .who {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .vouch .tag {
+      font-size: 14.5px;
+      color: var(--wood-deep);
+      letter-spacing: 0.08em;
+      margin: 3px 0 16px;
+    }
+
+    .vouch p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      font-weight: 350;
+      flex: 1;
+    }
+
+    .vouch p b {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .vouch a {
+      margin-top: 16px;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      color: var(--seal);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .vouch a:hover {
+      text-decoration: underline;
+    }
+
+    .vouch .open-q {
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 0.6;
+      color: var(--wood);
+      display: block;
+      margin-bottom: 14px;
+      font-weight: 900;
+    }
+
+    /* ── FAQ ──────────────────────────── */
+    .faq {
+      border-top: 1px solid var(--line);
+    }
+
+    .faq details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .faq summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      padding: 22px 4px;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 20.5px;
+      letter-spacing: 0.03em;
+    }
+
+    .faq summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq .q {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--seal);
+      flex: none;
+      letter-spacing: 0.1em;
+    }
+
+    .faq .ch-mark {
+      margin-left: auto;
+    }
+
+    .faq .a {
+      padding: 0 4px 26px 52px;
+      color: var(--ink-soft);
+      font-weight: 350;
+      max-width: 46em;
+    }
+
+    /* ── 尾段 ─────────────────────────── */
+    .final {
+      text-align: center;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 32px 32px;
+      border-top: 1px solid var(--line);
+    }
+
+    .final h2 {
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .final p {
+      color: var(--ink-soft);
+      font-weight: 350;
+      max-width: 34em;
+      margin: 0 auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 60px;
+      font-size: 14.5px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+    }
+
+    footer .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 30px;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--ink-faint);
+    }
+
+    /* ── RWD ──────────────────────────── */
+    @media (max-width:920px) {
+
+      .cards3,
+      .posts {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vouch {
+        grid-template-columns: 1fr;
+      }
+
+      .vouch .vimg img {
+        aspect-ratio: 16/9;
+        height: auto;
+      }
+
+      .teacher {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        max-width: 320px;
+      }
+
+      .teacher-side {
+        display: block;
+      }
+
+      .cert {
+        max-width: 320px;
+        display: block;
+      }
+
+      .cert img {
+        height: auto;
+        object-fit: initial;
+      }
+
+      .intro-grid {
+        align-items: start;
+      }
+
+      .intro-grid figure img {
+        flex: none;
+        object-fit: initial;
+      }
+
+      .duo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width:680px) {
+      section {
+        padding: 64px 0;
+      }
+
+      .hero-in {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding: 56px 24px 56px;
+      }
+
+      .hero-title {
+        font-size: clamp(72px, 20vw, 96px);
+      }
+
+      .check-grid,
+      .intro-grid,
+      .site-photos,
+      .site-photos.three,
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards3,
+      .posts {
+        grid-template-columns: 1fr;
+      }
+
+      .ch-body {
+        padding-left: 4px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- 頂部列 -->
-<div class="topbar">
-  <div class="topbar-in">
-    <div class="brand">不要賭<small>王采元的家學雙修・壹</small></div>
+  <!-- 頂部列 -->
+  <div class="topbar">
+    <div class="topbar-in">
+      <div class="brand">不要賭<small>王采元的家學雙修・壹</small></div>
+    </div>
   </div>
-</div>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-in">
-    <div class="hero-title">不要賭</div>
-    <div class="hero-copy">
-      <div class="hero-eyebrow">YUAN-GALLERY × MASTERTALKS　線上課程</div>
-      <h1>一場裝修的風險管理課</h1>
-      <p class="lede">從買房到入住，王采元親授避開裝修路上的關鍵風險。一場住家室內裝修，就是由無數繁瑣卻關鍵的小事積累完成的——這堂課，把<span class="hl">「會出事的點」</span>系統性公開給你。</p>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-in">
+      <div class="hero-title">不要賭</div>
+      <div class="hero-copy">
+        <div class="hero-eyebrow">YUAN-GALLERY × MASTERTALKS　線上課程</div>
+        <h1>一場裝修的風險管理課</h1>
+        <p class="lede">從買房到入住，王采元親授避開裝修路上的關鍵風險。一場住家室內裝修，就是由無數繁瑣卻關鍵的小事積累完成的——這堂課，把<span
+            class="hl">「會出事的點」</span>系統性公開給你。</p>
+      </div>
     </div>
-  </div>
-  <div class="hero-photo">
-    <img src="images/不要賭_銷售頁_260613/01-王采元伏案手繪施工圖.jpg" alt="王采元伏案手繪施工圖">
-    <div class="photo-cap">全手繪設計——每一份施工圖，平面、立面詳附比例與方位</div>
-  </div>
-</header>
+    <div class="hero-photo">
+      <img src="images/不要賭_銷售頁_260613/01-王采元伏案手繪施工圖.jpg" alt="王采元伏案手繪施工圖">
+      <div class="photo-cap">全手繪設計——每一份施工圖，平面、立面詳附比例與方位</div>
+    </div>
+  </header>
 
-<!-- 壹：不要賭．十三件事 -->
-<section id="thirteen">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">壹<span class="dim"></span>課程簡介</div>
-      <h2 class="sec-title">不要賭・<em>十三件事</em></h2>
-      <p class="sec-sub">每一條，都是真實案場付出代價換來的教訓。</p>
-    </div>
-    <div class="intro-grid">
-      <div class="intro-prose" style="margin:0;">
-        <p>一場住家室內裝修就是由無數繁瑣卻關鍵的小事積累完成的。不要賭建案廠商師傅跟你想的一樣、不要賭師傅都知道你要的感覺、不要賭師傅應該會記得、不要賭業主不會發現、不要賭設計師看不出來、不要賭業主使用都會輕手輕腳、不要賭業主一家都是紙片人、不要賭自己一定會記得、不要賭工班時間都可以合的剛剛好、不要賭自己運氣不會這麼差、不要賭問題過保固才會發生、不要賭在問題發生前業主會先換房、不要賭業主一定可以完美斷捨離。</p>
-        <p>本課程從購屋、選擇設計師到工程各階段，分門別類將可能發生危機的問題以及關鍵原則、處理邏輯，全部整理出來，設計師可以做好危機預防、業主可以有效避險，希望幫助大家遠離危機，減少不必要的困擾與糾紛。</p>
+  <!-- 壹：不要賭．十三件事 -->
+  <section id="thirteen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">壹<span class="dim"></span>課程簡介</div>
+        <h2 class="sec-title">不要賭・<em>十三件事</em></h2>
+        <p class="sec-sub">每一條，都是真實案場付出代價換來的教訓。</p>
       </div>
-      <figure>
-        <img src="images/不要賭_銷售頁_260613/02-拆除工地現場-王采元在場監看.jpg" alt="拆除工地現場，王采元在場監看">
-        <div class="photo-cap">拆除現場——風險，從第一錘就開始</div>
-      </figure>
-    </div>
-    <div class="check-grid">
-      <div class="check-item"><span class="check-no">01</span><span class="check-text"><span class="hl">不要賭</span>建案廠商師傅跟你想的一樣</span></div>
-      <div class="check-item"><span class="check-no">02</span><span class="check-text"><span class="hl">不要賭</span>師傅都知道你要的感覺</span></div>
-      <div class="check-item"><span class="check-no">03</span><span class="check-text"><span class="hl">不要賭</span>師傅應該會記得</span></div>
-      <div class="check-item"><span class="check-no">04</span><span class="check-text"><span class="hl">不要賭</span>業主不會發現</span></div>
-      <div class="check-item"><span class="check-no">05</span><span class="check-text"><span class="hl">不要賭</span>設計師看不出來</span></div>
-      <div class="check-item"><span class="check-no">06</span><span class="check-text"><span class="hl">不要賭</span>業主使用都會輕手輕腳</span></div>
-      <div class="check-item"><span class="check-no">07</span><span class="check-text"><span class="hl">不要賭</span>業主一家都是紙片人</span></div>
-      <div class="check-item"><span class="check-no">08</span><span class="check-text"><span class="hl">不要賭</span>自己一定會記得</span></div>
-      <div class="check-item"><span class="check-no">09</span><span class="check-text"><span class="hl">不要賭</span>工班時間都可以合的剛剛好</span></div>
-      <div class="check-item"><span class="check-no">10</span><span class="check-text"><span class="hl">不要賭</span>自己運氣不會這麼差</span></div>
-      <div class="check-item"><span class="check-no">11</span><span class="check-text"><span class="hl">不要賭</span>問題過保固才會發生</span></div>
-      <div class="check-item"><span class="check-no">12</span><span class="check-text"><span class="hl">不要賭</span>在問題發生前業主會先換房</span></div>
-      <div class="check-item"><span class="check-no">13</span><span class="check-text"><span class="hl">不要賭</span>業主一定可以完美斷捨離</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- 這堂課要解決的三件事 -->
-<section class="tinted" id="three">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">壹之二<span class="dim"></span>為什麼需要這堂課</div>
-      <h2 class="sec-title">這堂課，要解決的<em>三件事</em></h2>
-    </div>
-    <div class="cards3">
-      <div class="card">
-        <span class="k">PROBLEM・01</span>
-        <h3>市面上第一堂，從「危機預防」角度出發的室內裝修課程</h3>
-        <p>不談風格、不賣材質——直接面對那些會決定你裝修成敗的風險點。</p>
-      </div>
-      <div class="card">
-        <span class="k">PROBLEM・02</span>
-        <h3>執業超過 23 年的工地實戰經驗整合</h3>
-        <p>可以有效幫助室內設計師或一般人減少悲劇發生——包含老師犯過的錯，以及後續的有效調整與改進。</p>
-      </div>
-      <div class="card">
-        <span class="k">PROBLEM・03</span>
-        <h3>老屋有很多隱藏的介面問題，很容易一發不可收拾</h3>
-        <p>針對工程各階段進行重要危機提醒，可以有效幫助設計師或業主避險。</p>
-      </div>
-    </div>
-    <div class="duo" style="margin-top:56px;">
-      <div>
-        <h3 style="font-family:var(--serif);font-weight:700;font-size:20px;margin-bottom:12px;letter-spacing:0.04em;">學習成果</h3>
-        <p style="color:var(--ink-soft);font-weight:350;">從購屋到找設計師、工程階段的關鍵基礎知識與重要觀念，幫助大家提升判斷能力，才有機會做出適當的關鍵決策。</p>
-      </div>
-      <div>
-        <h3 style="font-family:var(--serif);font-weight:700;font-size:20px;margin-bottom:6px;letter-spacing:0.04em;">適合對象</h3>
-        <div class="audience">
-          <span class="chip">有購屋需求的人（含老舊公寓、預售屋、小坪數）</span>
-          <span class="chip">有裝修需求的居住者</span>
-          <span class="chip">室內設計師</span>
-          <span class="chip">對室內設計感興趣的人</span>
+      <div class="intro-grid">
+        <div class="intro-prose" style="margin:0;">
+          <p>
+            一場住家室內裝修就是由無數繁瑣卻關鍵的小事積累完成的。不要賭建案廠商師傅跟你想的一樣、不要賭師傅都知道你要的感覺、不要賭師傅應該會記得、不要賭業主不會發現、不要賭設計師看不出來、不要賭業主使用都會輕手輕腳、不要賭業主一家都是紙片人、不要賭自己一定會記得、不要賭工班時間都可以合的剛剛好、不要賭自己運氣不會這麼差、不要賭問題過保固才會發生、不要賭在問題發生前業主會先換房、不要賭業主一定可以完美斷捨離。
+          </p>
+          <p>本課程從購屋、選擇設計師到工程各階段，分門別類將可能發生危機的問題以及關鍵原則、處理邏輯，全部整理出來，設計師可以做好危機預防、業主可以有效避險，希望幫助大家遠離危機，減少不必要的困擾與糾紛。</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 貳：王采元觀點 -->
-<section id="views">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">貳<span class="dim"></span>王采元觀點</div>
-      <h2 class="sec-title">不是教科書，是現場<em>淬鍊出的解方</em></h2>
-      <p class="sec-sub">「采元跟你聊幾句」專欄持續更新六年、近三百篇實戰筆記，在網路上獲得廣大迴響。先讀三篇，感受這堂課的密度。</p>
-    </div>
-    <div class="posts">
-      <article class="post">
-        <div class="pimg"><img src="images/不要賭_銷售頁_260613/03-購入老屋後的拆除現場.jpg" alt="購入老屋後的拆除現場"></div>
-        <h3>最貴的裝潢，是你在買房時以為不必裝潢</h3>
-        <p class="gist">舊屋屋齡 × 使用目的 × 持有年限，會直接決定你「必須」面對的工程成本與風險。</p>
-        <p>買房只看外在條件，容易忽略中古屋防水失效、電線走火、結構受損等隱形危機，導致入住後預算從數十萬暴增至數百萬。她強烈建議：長期自住者應在購屋前就帶設計師陪同看診、評估風險，才能避免買房後人生失控。</p>
-        <a href="https://yuan-gallery.com/article276/" target="_blank" rel="noopener">閱讀原文 →</a>
-      </article>
-      <article class="post">
-        <div class="pimg"><img src="images/不要賭_銷售頁_260613/04-管道間內密集的給排水管線.jpg" alt="管道間內密集的給排水管線"></div>
-        <h3>嚴禁工班動管道間</h3>
-        <p class="gist">管道間嚴禁修打——任何打鑿都可能讓碎磚砸破給排水管線，引發無預期的漏水災難。</p>
-        <p>住戶裝修時若盲目拆除或修打管道間磚面，極易使碎磚掉落砸破密集的給排水主管，引發整棟樓層滲漏水、木作發霉腐爛的災情。早期公寓多缺乏防火、遮煙的「防火區劃」概念，設計師應嚴禁工班變動管道間，守護其完整。</p>
-        <a href="https://yuan-gallery.com/article130/" target="_blank" rel="noopener">閱讀原文 →</a>
-      </article>
-      <article class="post">
-        <div class="pimg"><img src="images/不要賭_銷售頁_260613/05-老屋天花板的漏水水漬.jpg" alt="老屋天花板的漏水水漬"></div>
-        <h3>我家天花板漏水了！</h3>
-        <p class="gist">漏水時間規律藏著源頭線索——24 小時持續、特定時段、雨天才滲，完全是不同問題。</p>
-        <p>不分天候 24 小時持續滲漏，多為「進水管漏水」；特定時間發生，多與樓上住戶使用習慣有關的「排污水管漏水」；下雨才漏，則是「外牆或屋頂防水層老化失效」——釐清原因，才能根治。</p>
-        <a href="https://yuan-gallery.com/article126/" target="_blank" rel="noopener">閱讀原文 →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- 參：理念引言帶 -->
-<div class="quoteband" id="belief">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:34px;">
-      <div class="sec-no">參<span class="dim"></span>裝修不是賭運氣的事</div>
-    </div>
-    <div class="quote-grid">
-      <div>
-        <blockquote>「<b>會出事的，都會出事。</b>」這堂課要做的，是把這些「會出事」的點，系統性公開給你——<b>預防，永遠比補救便宜。</b></blockquote>
-        <p>這堂課，把采元 23 年實戰累積的「住家裝修風險管理學」完整公開——讓你看清每個「不要賭」背後的真實風險，以及避開它的具體做法。看完這堂課，你會擁有業主端最完整的風險判斷力。</p>
-      </div>
-      <figure>
-        <img src="images/不要賭_銷售頁_260613/06-王采元坐在-沐浴在光中-作品的窗邊沙發上.jpg" alt="王采元坐在「沐浴在光中」作品的窗邊沙發上">
-        <div class="photo-cap">每個安心，都是無數個「不要賭」累積出的成果</div>
-      </figure>
-    </div>
-  </div>
-</div>
-
-<!-- 肆：課程大綱 -->
-<section id="syllabus">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">肆<span class="dim"></span>課程大綱</div>
-      <h2 class="sec-title"><em>七大階段</em>，完整覆蓋從買房到入住的全流程</h2>
-    </div>
-    <div class="site-photos">
-      <figure>
-        <img src="images/不要賭_銷售頁_260613/07-王采元與木工師傅在現場討論.jpg" alt="王采元與木工師傅在現場討論">
-        <div class="photo-cap">與師傅當面確認每一個細節</div>
-      </figure>
-      <figure>
-        <img src="images/不要賭_銷售頁_260613/08-王采元與師傅一起丈量訂製桌板.jpg" alt="王采元與師傅一起丈量訂製桌板">
-        <div class="photo-cap">木作工程——尺寸用量的，不是用猜的</div>
-      </figure>
-    </div>
-    <div class="syllabus">
-      <details class="chapter" open>
-        <summary><span class="ch-no">第一章</span><span class="ch-title">買屋階段</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>屋況自我評估的十項警訊</li>
-          <li>看屋十項檢核重點</li>
-          <li>預售屋客變期間的關鍵決策</li>
-          <li>舊屋的隱藏風險判讀</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第二章</span><span class="ch-title">設計階段</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>挑選設計師的關鍵原則</li>
-          <li>需求溝通的層次與深度</li>
-          <li>圖面確認的優先順序</li>
-          <li>從平面到立面的轉換邏輯</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第三章</span><span class="ch-title">基礎工程（舊屋）</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>拆除工程的避雷指南</li>
-          <li>水電工程的關鍵驗收點</li>
-          <li>防水工法的常見 NG</li>
-          <li>老屋介面的隱藏問題</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第四章</span><span class="ch-title">木作工程</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>木作關鍵風險與 NG 案例</li>
-          <li>櫃體尺寸的人體工學</li>
-          <li>門片五金的長期耐用度</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第五章</span><span class="ch-title">塗裝工程</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>底材處理的常見問題</li>
-          <li>色彩選擇的現場驗證</li>
-          <li>完工後的維修策略</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第六章</span><span class="ch-title">工程收尾</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>細部清潔與驗收順序</li>
-          <li>家具軟裝的時程銜接</li>
-          <li>入住前的最後檢核</li>
-        </ul>
-      </details>
-      <details class="chapter">
-        <summary><span class="ch-no">第七章</span><span class="ch-title">居住期維修與改修</span><span class="ch-mark">＋</span></summary>
-        <ul class="ch-body">
-          <li>第一年保固期的記事重點</li>
-          <li>何時該找原工班、何時自己處理</li>
-          <li>長期居住的改修判斷</li>
-        </ul>
-      </details>
-    </div>
-    <p class="syllabus-note">內容涵蓋一般裝修案從簽約到完工、再到一年保固期的完整時程。</p>
-  </div>
-</section>
-
-<!-- 伍：授課老師 -->
-<section class="tinted" id="teacher">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">伍<span class="dim"></span>授課老師</div>
-      <h2 class="sec-title">為什麼是<em>王采元</em>教這堂課</h2>
-    </div>
-    <div class="teacher">
-      <div class="teacher-side">
-        <figure class="portrait">
-          <img src="images/不要賭_銷售頁_260613/09-王采元形象照.jpg" alt="王采元形象照">
-        </figure>
-        <figure class="cert">
-          <img src="images/不要賭_銷售頁_260613/10-Luxury-Lifestyle-Awards-2024-得獎通知函.jpg" alt="Luxury Lifestyle Awards 2024 得獎通知函">
-          <div class="photo-cap">Luxury Lifestyle Awards 2024 得獎通知</div>
+        <figure>
+          <img src="images/不要賭_銷售頁_260613/02-拆除工地現場-王采元在場監看.jpg" alt="拆除工地現場，王采元在場監看">
+          <div class="photo-cap">拆除現場——風險，從第一錘就開始</div>
         </figure>
       </div>
-      <div>
-        <h3>王采元</h3>
-        <div class="en">TANYA WANG</div>
-        <div class="role">元設計 Yuan-Gallery Design Studio・創辦人</div>
-        <p class="bio">台北人，畢業於國立台灣大學物理系。2002 年畢業後，開始跟著父親（建築學者王鎮華）自學建築，並在 2004 年接下第一個室內設計案。</p>
-        <ul class="creds">
-          <li>執業超過 23 年，累積近 50 個住宅設計作品</li>
-          <li>不綁工班、不包工程、全手繪、全程監工</li>
-          <li>著作：《朗然小徑》、《不會整理沒關係》、《人的自然》</li>
-          <li>獲獎：Luxury Lifestyle Awards Best Contemporary Interior</li>
-        </ul>
-        <div class="whyme">
-          <h4>超過 23 年累積的口碑</h4>
-          <p>每一個王采元接過的案子，從第一次需求討論到完工後的維修，都用同樣的細膩處理。這堂課，就是把這些散落在二十年寫作中的「危機預防學」，首次系統化公開。</p>
+      <div class="check-grid">
+        <div class="check-item"><span class="check-no">01</span><span class="check-text"><span
+              class="hl">不要賭</span>建案廠商師傅跟你想的一樣</span></div>
+        <div class="check-item"><span class="check-no">02</span><span class="check-text"><span
+              class="hl">不要賭</span>師傅都知道你要的感覺</span></div>
+        <div class="check-item"><span class="check-no">03</span><span class="check-text"><span
+              class="hl">不要賭</span>師傅應該會記得</span></div>
+        <div class="check-item"><span class="check-no">04</span><span class="check-text"><span
+              class="hl">不要賭</span>業主不會發現</span></div>
+        <div class="check-item"><span class="check-no">05</span><span class="check-text"><span
+              class="hl">不要賭</span>設計師看不出來</span></div>
+        <div class="check-item"><span class="check-no">06</span><span class="check-text"><span
+              class="hl">不要賭</span>業主使用都會輕手輕腳</span></div>
+        <div class="check-item"><span class="check-no">07</span><span class="check-text"><span
+              class="hl">不要賭</span>業主一家都是紙片人</span></div>
+        <div class="check-item"><span class="check-no">08</span><span class="check-text"><span
+              class="hl">不要賭</span>自己一定會記得</span></div>
+        <div class="check-item"><span class="check-no">09</span><span class="check-text"><span
+              class="hl">不要賭</span>工班時間都可以合的剛剛好</span></div>
+        <div class="check-item"><span class="check-no">10</span><span class="check-text"><span
+              class="hl">不要賭</span>自己運氣不會這麼差</span></div>
+        <div class="check-item"><span class="check-no">11</span><span class="check-text"><span
+              class="hl">不要賭</span>問題過保固才會發生</span></div>
+        <div class="check-item"><span class="check-no">12</span><span class="check-text"><span
+              class="hl">不要賭</span>在問題發生前業主會先換房</span></div>
+        <div class="check-item"><span class="check-no">13</span><span class="check-text"><span
+              class="hl">不要賭</span>業主一定可以完美斷捨離</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 這堂課要解決的三件事 -->
+  <section class="tinted" id="three">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">壹之二<span class="dim"></span>為什麼需要這堂課</div>
+        <h2 class="sec-title">這堂課，要解決的<em>三件事</em></h2>
+      </div>
+      <div class="cards3">
+        <div class="card">
+          <span class="k">PROBLEM・01</span>
+          <h3>市面上第一堂，從「危機預防」角度出發的室內裝修課程</h3>
+          <p>不談風格、不賣材質——直接面對那些會決定你裝修成敗的風險點。</p>
+        </div>
+        <div class="card">
+          <span class="k">PROBLEM・02</span>
+          <h3>執業超過 23 年的工地實戰經驗整合</h3>
+          <p>可以有效幫助室內設計師或一般人減少悲劇發生——包含老師犯過的錯，以及後續的有效調整與改進。</p>
+        </div>
+        <div class="card">
+          <span class="k">PROBLEM・03</span>
+          <h3>老屋有很多隱藏的介面問題，很容易一發不可收拾</h3>
+          <p>針對工程各階段進行重要危機提醒，可以有效幫助設計師或業主避險。</p>
+        </div>
+      </div>
+      <div class="duo" style="margin-top:56px;">
+        <div>
+          <h3 style="font-family:var(--serif);font-weight:700;font-size:20px;margin-bottom:12px;letter-spacing:0.04em;">
+            學習成果</h3>
+          <p style="color:var(--ink-soft);font-weight:350;">從購屋到找設計師、工程階段的關鍵基礎知識與重要觀念，幫助大家提升判斷能力，才有機會做出適當的關鍵決策。</p>
+        </div>
+        <div>
+          <h3 style="font-family:var(--serif);font-weight:700;font-size:20px;margin-bottom:6px;letter-spacing:0.04em;">
+            適合對象</h3>
+          <div class="audience">
+            <span class="chip">有購屋需求的人（含老舊公寓、預售屋、小坪數）</span>
+            <span class="chip">有裝修需求的居住者</span>
+            <span class="chip">室內設計師</span>
+            <span class="chip">對室內設計感興趣的人</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 陸：推薦 -->
-<section id="vouch">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">陸<span class="dim"></span>業主與工作夥伴推薦</div>
-      <h2 class="sec-title">與她共事過的人，怎麼說</h2>
+  <!-- 貳：王采元觀點 -->
+  <section id="views">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">貳<span class="dim"></span>王采元觀點</div>
+        <h2 class="sec-title">不是教科書，是現場<em>淬鍊出的解方</em></h2>
+        <p class="sec-sub">「采元跟你聊幾句」專欄持續更新六年、近三百篇實戰筆記，在網路上獲得廣大迴響。先讀三篇，感受這堂課的密度。</p>
+      </div>
+      <div class="posts">
+        <article class="post">
+          <div class="pimg"><img src="images/不要賭_銷售頁_260613/03-購入老屋後的拆除現場.jpg" alt="購入老屋後的拆除現場"></div>
+          <h3>最貴的裝潢，是你在買房時以為不必裝潢</h3>
+          <p class="gist">舊屋屋齡 × 使用目的 × 持有年限，會直接決定你「必須」面對的工程成本與風險。</p>
+          <p>買房只看外在條件，容易忽略中古屋防水失效、電線走火、結構受損等隱形危機，導致入住後預算從數十萬暴增至數百萬。她強烈建議：長期自住者應在購屋前就帶設計師陪同看診、評估風險，才能避免買房後人生失控。</p>
+          <a href="https://yuan-gallery.com/article276/" target="_blank" rel="noopener">閱讀原文 →</a>
+        </article>
+        <article class="post">
+          <div class="pimg"><img src="images/不要賭_銷售頁_260613/04-管道間內密集的給排水管線.jpg" alt="管道間內密集的給排水管線"></div>
+          <h3>嚴禁工班動管道間</h3>
+          <p class="gist">管道間嚴禁修打——任何打鑿都可能讓碎磚砸破給排水管線，引發無預期的漏水災難。</p>
+          <p>住戶裝修時若盲目拆除或修打管道間磚面，極易使碎磚掉落砸破密集的給排水主管，引發整棟樓層滲漏水、木作發霉腐爛的災情。早期公寓多缺乏防火、遮煙的「防火區劃」概念，設計師應嚴禁工班變動管道間，守護其完整。</p>
+          <a href="https://yuan-gallery.com/article130/" target="_blank" rel="noopener">閱讀原文 →</a>
+        </article>
+        <article class="post">
+          <div class="pimg"><img src="images/不要賭_銷售頁_260613/05-老屋天花板的漏水水漬.jpg" alt="老屋天花板的漏水水漬"></div>
+          <h3>我家天花板漏水了！</h3>
+          <p class="gist">漏水時間規律藏著源頭線索——24 小時持續、特定時段、雨天才滲，完全是不同問題。</p>
+          <p>不分天候 24 小時持續滲漏，多為「進水管漏水」；特定時間發生，多與樓上住戶使用習慣有關的「排污水管漏水」；下雨才漏，則是「外牆或屋頂防水層老化失效」——釐清原因，才能根治。</p>
+          <a href="https://yuan-gallery.com/article126/" target="_blank" rel="noopener">閱讀原文 →</a>
+        </article>
+      </div>
     </div>
-    <div class="vouch-list">
-      <article class="vouch">
-        <div class="vimg"><img src="images/不要賭_銷售頁_260613/11-都市田園居完工後的客廳.jpg" alt="都市田園居完工後的客廳"></div>
-        <div class="vbody">
-          <span class="open-q">「</span>
-          <div class="who">黃維霓</div>
-          <div class="tag">都市田園居・業主</div>
-          <p>采元懷孕仍每天進工地、隨時回報進度，讓常在國外的他們安心放心；趕工、鄰損、颱風等突發狀況都負責處理到位。她<b>管理工班嚴謹有紀律，收費公開透明</b>，堅持徹底溝通的設計哲學，事後證明都是對的。</p>
-          <a href="https://yuan-gallery.com/article162/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+  </section>
+
+  <!-- 參：理念引言帶 -->
+  <div class="quoteband" id="belief">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:34px;">
+        <div class="sec-no">參<span class="dim"></span>裝修不是賭運氣的事</div>
+      </div>
+      <div class="quote-grid">
+        <div>
+          <blockquote>「<b>會出事的，都會出事。</b>」這堂課要做的，是把這些「會出事」的點，系統性公開給你——<b>預防，永遠比補救便宜。</b></blockquote>
+          <p>這堂課，把采元 23 年實戰累積的「住家裝修風險管理學」完整公開——讓你看清每個「不要賭」背後的真實風險，以及避開它的具體做法。看完這堂課，你會擁有業主端最完整的風險判斷力。</p>
         </div>
-      </article>
-      <article class="vouch">
-        <div class="vimg"><img src="images/不要賭_銷售頁_260613/12-與鄰居協調打開牆面追查漏水源頭.jpg" alt="與鄰居協調打開牆面追查漏水源頭"></div>
-        <div class="vbody">
-          <span class="open-q">「</span>
-          <div class="who">「陸吾書居」業主</div>
-          <div class="tag">屋齡近五十年・老公寓改造</div>
-          <p>拆除廚房舊裝修後發現共同壁長期潮濕，采元團隊不只做表面防水，更與鄰居協調打開牆面追查源頭，更換老舊管線徹底解決，<b>連鄰居的居住環境也一併升級</b>。面對鋼筋鏽蝕、管線老舊等老屋問題，都能找出根源並提供多種報價方案。他形容采元就像屋主的「司空」——處變不驚、臨危不亂。</p>
-          <a href="https://yuan-gallery.com/project/works-28/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+        <figure>
+          <img src="images/不要賭_銷售頁_260613/06-王采元坐在-沐浴在光中-作品的窗邊沙發上.jpg" alt="王采元坐在「沐浴在光中」作品的窗邊沙發上">
+          <div class="photo-cap">每個安心，都是無數個「不要賭」累積出的成果</div>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- 肆：課程大綱 -->
+  <section id="syllabus">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">肆<span class="dim"></span>課程大綱</div>
+        <h2 class="sec-title"><em>七大階段</em>，完整覆蓋從買房到入住的全流程</h2>
+      </div>
+      <div class="site-photos">
+        <figure>
+          <img src="images/不要賭_銷售頁_260613/07-王采元與木工師傅在現場討論.jpg" alt="王采元與木工師傅在現場討論">
+          <div class="photo-cap">與師傅當面確認每一個細節</div>
+        </figure>
+        <figure>
+          <img src="images/不要賭_銷售頁_260613/08-王采元與師傅一起丈量訂製桌板.jpg" alt="王采元與師傅一起丈量訂製桌板">
+          <div class="photo-cap">木作工程——尺寸用量的，不是用猜的</div>
+        </figure>
+      </div>
+      <div class="syllabus">
+        <details class="chapter" open>
+          <summary><span class="ch-no">第一章</span><span class="ch-title">買屋階段</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>屋況自我評估的十項警訊</li>
+            <li>看屋十項檢核重點</li>
+            <li>預售屋客變期間的關鍵決策</li>
+            <li>舊屋的隱藏風險判讀</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第二章</span><span class="ch-title">設計階段</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>挑選設計師的關鍵原則</li>
+            <li>需求溝通的層次與深度</li>
+            <li>圖面確認的優先順序</li>
+            <li>從平面到立面的轉換邏輯</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第三章</span><span class="ch-title">基礎工程（舊屋）</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>拆除工程的避雷指南</li>
+            <li>水電工程的關鍵驗收點</li>
+            <li>防水工法的常見 NG</li>
+            <li>老屋介面的隱藏問題</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第四章</span><span class="ch-title">木作工程</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>木作關鍵風險與 NG 案例</li>
+            <li>櫃體尺寸的人體工學</li>
+            <li>門片五金的長期耐用度</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第五章</span><span class="ch-title">塗裝工程</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>底材處理的常見問題</li>
+            <li>色彩選擇的現場驗證</li>
+            <li>完工後的維修策略</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第六章</span><span class="ch-title">工程收尾</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>細部清潔與驗收順序</li>
+            <li>家具軟裝的時程銜接</li>
+            <li>入住前的最後檢核</li>
+          </ul>
+        </details>
+        <details class="chapter">
+          <summary><span class="ch-no">第七章</span><span class="ch-title">居住期維修與改修</span><span class="ch-mark">＋</span>
+          </summary>
+          <ul class="ch-body">
+            <li>第一年保固期的記事重點</li>
+            <li>何時該找原工班、何時自己處理</li>
+            <li>長期居住的改修判斷</li>
+          </ul>
+        </details>
+      </div>
+      <p class="syllabus-note">內容涵蓋一般裝修案從簽約到完工、再到一年保固期的完整時程。</p>
+    </div>
+  </section>
+
+  <!-- 伍：授課老師 -->
+  <section class="tinted" id="teacher">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">伍<span class="dim"></span>授課老師</div>
+        <h2 class="sec-title">為什麼是<em>王采元</em>教這堂課</h2>
+      </div>
+      <div class="teacher">
+        <div class="teacher-side">
+          <figure class="portrait">
+            <img src="images/不要賭_銷售頁_260613/09-王采元形象照.jpg" alt="王采元形象照">
+          </figure>
+          <figure class="cert">
+            <img src="images/不要賭_銷售頁_260613/10-Luxury-Lifestyle-Awards-2024-得獎通知函.jpg"
+              alt="Luxury Lifestyle Awards 2024 得獎通知函">
+            <div class="photo-cap">Luxury Lifestyle Awards 2024 得獎通知</div>
+          </figure>
         </div>
-      </article>
-      <article class="vouch">
-        <div class="vimg"><img src="images/不要賭_銷售頁_260613/13-於工地現場與師傅核對手繪施工圖.jpg" alt="於工地現場與師傅核對手繪施工圖"></div>
-        <div class="vbody">
-          <span class="open-q">「</span>
-          <div class="who">林位圳</div>
-          <div class="tag">金剛水電・合作十二年的水電師傅</div>
-          <p>施工環境再熱再悶，都像漢子一般看顧現場；碰上不合理的施工規範，更會挺身替師傅們捍衛尊嚴。合作過這麼多設計師，<b>只有采元的施工圖是純手繪出圖</b>，平面、立面都詳附比例與方位——從每一份手繪施工圖，都能感受到她珍視每一個委託案件。</p>
-          <a href="https://yuan-gallery.com/article175/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+        <div>
+          <h3>王采元</h3>
+          <div class="en">TANYA WANG</div>
+          <div class="role">元設計 Yuan-Gallery Design Studio・創辦人</div>
+          <p class="bio">台北人，畢業於國立台灣大學物理系。2002 年畢業後，開始跟著父親（建築學者王鎮華）自學建築，並在 2004 年接下第一個室內設計案。</p>
+          <ul class="creds">
+            <li>執業超過 23 年，累積近 50 個住宅設計作品</li>
+            <li>不綁工班、不包工程、全手繪、全程監工</li>
+            <li>著作：《朗然小徑》、《不會整理沒關係》、《人的自然》</li>
+            <li>獲獎：Luxury Lifestyle Awards Best Contemporary Interior</li>
+          </ul>
+          <div class="whyme">
+            <h4>超過 23 年累積的口碑</h4>
+            <p>每一個王采元接過的案子，從第一次需求討論到完工後的維修，都用同樣的細膩處理。這堂課，就是把這些散落在二十年寫作中的「危機預防學」，首次系統化公開。</p>
+          </div>
         </div>
-      </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- 柒：FAQ -->
-<section id="faq">
-  <div class="wrap narrow">
-    <div class="sec-head">
-      <div class="sec-no">柒<span class="dim"></span>常見問題</div>
-      <h2 class="sec-title">購課前，你可能想問</h2>
+  <!-- 陸：推薦 -->
+  <section id="vouch">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-no">陸<span class="dim"></span>業主與工作夥伴推薦</div>
+        <h2 class="sec-title">與她共事過的人，怎麼說</h2>
+      </div>
+      <div class="vouch-list">
+        <article class="vouch">
+          <div class="vimg"><img src="images/不要賭_銷售頁_260613/11-都市田園居完工後的客廳.jpg" alt="都市田園居完工後的客廳"></div>
+          <div class="vbody">
+            <span class="open-q">「</span>
+            <div class="who">黃維霓</div>
+            <div class="tag">都市田園居・業主</div>
+            <p>采元懷孕仍每天進工地、隨時回報進度，讓常在國外的他們安心放心；趕工、鄰損、颱風等突發狀況都負責處理到位。她<b>管理工班嚴謹有紀律，收費公開透明</b>，堅持徹底溝通的設計哲學，事後證明都是對的。</p>
+            <a href="https://yuan-gallery.com/article162/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+          </div>
+        </article>
+        <article class="vouch">
+          <div class="vimg"><img src="images/不要賭_銷售頁_260613/12-與鄰居協調打開牆面追查漏水源頭.jpg" alt="與鄰居協調打開牆面追查漏水源頭"></div>
+          <div class="vbody">
+            <span class="open-q">「</span>
+            <div class="who">「陸吾書居」業主</div>
+            <div class="tag">屋齡近五十年・老公寓改造</div>
+            <p>
+              拆除廚房舊裝修後發現共同壁長期潮濕，采元團隊不只做表面防水，更與鄰居協調打開牆面追查源頭，更換老舊管線徹底解決，<b>連鄰居的居住環境也一併升級</b>。面對鋼筋鏽蝕、管線老舊等老屋問題，都能找出根源並提供多種報價方案。他形容采元就像屋主的「司空」——處變不驚、臨危不亂。
+            </p>
+            <a href="https://yuan-gallery.com/project/works-28/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+          </div>
+        </article>
+        <article class="vouch">
+          <div class="vimg"><img src="images/不要賭_銷售頁_260613/13-於工地現場與師傅核對手繪施工圖.jpg" alt="於工地現場與師傅核對手繪施工圖"></div>
+          <div class="vbody">
+            <span class="open-q">「</span>
+            <div class="who">林位圳</div>
+            <div class="tag">金剛水電・合作十二年的水電師傅</div>
+            <p>
+              施工環境再熱再悶，都像漢子一般看顧現場；碰上不合理的施工規範，更會挺身替師傅們捍衛尊嚴。合作過這麼多設計師，<b>只有采元的施工圖是純手繪出圖</b>，平面、立面都詳附比例與方位——從每一份手繪施工圖，都能感受到她珍視每一個委託案件。
+            </p>
+            <a href="https://yuan-gallery.com/article175/" target="_blank" rel="noopener">閱讀完整推薦 →</a>
+          </div>
+        </article>
+      </div>
     </div>
-    <div class="faq">
-      <details>
-        <summary><span class="q">Q1</span>這堂課和坊間的「裝修指南」有什麼不同？<span class="ch-mark">＋</span></summary>
-        <p class="a">坊間裝修內容大多停留在「材質介紹」或「風格分享」。這堂課是采元二十多年累積下來的「住家裝修風險管理學」——把那些書上不會寫、設計師不會主動講、但會直接決定你裝修品質的關鍵點，系統性公開。</p>
-      </details>
-      <details>
-        <summary><span class="q">Q2</span>不會室內設計也聽得懂嗎？<span class="ch-mark">＋</span></summary>
-        <p class="a">完全聽得懂。這堂課的設計初衷，就是讓一般人（包含準屋主、空間設計愛好者）也能擁有業主端的判斷力。老師會用平實的語言講解，搭配大量真實案例。</p>
-      </details>
-      <details>
-        <summary><span class="q">Q3</span>這堂課有沒有直播 Q&amp;A？<span class="ch-mark">＋</span></summary>
-        <p class="a">單堂購買為純錄播課程。直播 Q&amp;A 是《王采元的家學雙修》合購方案的限定贈品——課程結束後，老師親自回答合購學員的提問（本課程不接受請老師設計或修改設計圖的提問）。</p>
-      </details>
-      <details>
-        <summary><span class="q">Q4</span>影片有觀看期限嗎？<span class="ch-mark">＋</span></summary>
-        <p class="a">購課享有無限次觀看權——在 MasterTalks 平台營運期間都可觀看。內容涵蓋一般裝修案從簽約到完工再到一年保固期的完整時程，所有附件 PDF 可下載永久留存。</p>
-      </details>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- 尾段 -->
-<section class="final">
-  <div class="wrap">
-    <div class="final-photo">
-      <img src="images/不要賭_銷售頁_260613/14-明朗與靜謐-屋主坐在窗前長桌-眺望城市與山景.jpg" alt="「明朗與靜謐」屋主坐在窗前長桌，眺望城市與山景">
-      <div class="photo-cap">完工，只是好好生活的開始</div>
+  <!-- 柒：FAQ -->
+  <section id="faq">
+    <div class="wrap narrow">
+      <div class="sec-head">
+        <div class="sec-no">柒<span class="dim"></span>常見問題</div>
+        <h2 class="sec-title">購課前，你可能想問</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary><span class="q">Q1</span>這堂課和坊間的「裝修指南」有什麼不同？<span class="ch-mark">＋</span></summary>
+          <p class="a">坊間裝修內容大多停留在「材質介紹」或「風格分享」。這堂課是采元二十多年累積下來的「住家裝修風險管理學」——把那些書上不會寫、設計師不會主動講、但會直接決定你裝修品質的關鍵點，系統性公開。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q2</span>不會室內設計也聽得懂嗎？<span class="ch-mark">＋</span></summary>
+          <p class="a">完全聽得懂。這堂課的設計初衷，就是讓一般人（包含準屋主、空間設計愛好者）也能擁有業主端的判斷力。老師會用平實的語言講解，搭配大量真實案例。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q3</span>這堂課有沒有直播 Q&amp;A？<span class="ch-mark">＋</span></summary>
+          <p class="a">單堂購買為純錄播課程。直播 Q&amp;A 是《王采元的家學雙修》合購方案的限定贈品——課程結束後，老師親自回答合購學員的提問（本課程不接受請老師設計或修改設計圖的提問）。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q4</span>影片有觀看期限嗎？<span class="ch-mark">＋</span></summary>
+          <p class="a">購課享有無限次觀看權——在 MasterTalks 平台營運期間都可觀看。內容涵蓋一般裝修案從簽約到完工再到一年保固期的完整時程，所有附件 PDF 可下載永久留存。</p>
+        </details>
+      </div>
     </div>
-    <h2>裝修，不是<em>賭</em>運氣的事</h2>
-    <p>一個小觀念提早知道，就可能省下後面好幾個月的麻煩以及金錢損失。把 23 年的實戰經驗，變成你自己的判斷力。</p>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap">
-    <div>© 元設計 Yuan-Gallery Design Studio × MasterTalks</div>
-    <div><a href="https://yuan-gallery.com/" target="_blank" rel="noopener">采元跟你聊幾句・每週更新</a></div>
-  </div>
-</footer>
+  <!-- 尾段 -->
+  <section class="final">
+    <div class="wrap">
+      <div class="final-photo">
+        <img src="images/不要賭_銷售頁_260613/14-明朗與靜謐-屋主坐在窗前長桌-眺望城市與山景.jpg" alt="「明朗與靜謐」屋主坐在窗前長桌，眺望城市與山景">
+        <div class="photo-cap">完工，只是好好生活的開始</div>
+      </div>
+      <h2>裝修，不是<em>賭</em>運氣的事</h2>
+      <p>一個小觀念提早知道，就可能省下後面好幾個月的麻煩以及金錢損失。把 23 年的實戰經驗，變成你自己的判斷力。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© 元設計 Yuan-Gallery Design Studio × MasterTalks</div>
+      <div><a href="https://yuan-gallery.com/" target="_blank" rel="noopener">采元跟你聊幾句・每週更新</a></div>
+    </div>
+  </footer>
 
 </body>
+
 </html>
