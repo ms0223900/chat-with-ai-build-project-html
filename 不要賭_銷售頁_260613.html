@@ -234,7 +234,7 @@
       grid-template-columns: 1.25fr 1fr;
       gap: 48px;
       align-items: stretch;
-      margin: -8px 0 44px;
+      margin: -8px 0 14px;
     }
 
     .intro-grid .intro-prose {
@@ -260,7 +260,6 @@
 
     .intro-grid .photo-cap {
       flex: none;
-      margin-top: auto;
     }
 
     .site-photos {
@@ -297,7 +296,7 @@
 
     .quote-grid {
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: 1.15fr 1.3fr;
       gap: 52px;
       align-items: center;
     }
@@ -408,6 +407,7 @@
       margin-top: 10px;
       font-weight: 350;
       max-width: 40em;
+      white-space: pre-line;
     }
 
     /* ── 十三件事 ─────────────────────── */
@@ -542,6 +542,7 @@
       padding: 30px 28px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
 
     .post h3 {
@@ -994,6 +995,10 @@
       margin: 0 auto;
     }
 
+    .final .quote {
+      white-space: pre-line;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 34px 0 60px;
@@ -1105,6 +1110,14 @@
       }
 
       .hero-copy .lede {
+        white-space: normal;
+      }
+
+      .sec-sub {
+        white-space: normal;
+      }
+
+      .final .quote {
         white-space: normal;
       }
     }
@@ -1239,28 +1252,35 @@
       <div class="sec-head">
         <div class="sec-no">貳<span class="dim"></span>王采元觀點</div>
         <h2 class="sec-title">不是教科書，是現場<em>淬鍊出的解方</em></h2>
-        <p class="sec-sub">「采元跟你聊幾句」專欄持續更新六年、近三百篇實戰筆記，在網路上獲得廣大迴響。先讀三篇，感受這堂課的密度。</p>
+        <p class="sec-sub">「采元跟你聊幾句」專欄持續更新六年、近三百篇實戰筆記，在網路上獲得廣大迴響。
+          先讀三篇，感受這堂課的密度。</p>
       </div>
       <div class="posts">
         <article class="post">
-          <div class="pimg"><img src="images/不要賭_銷售頁_260613/03-購入老屋後的拆除現場.jpg" alt="購入老屋後的拆除現場"></div>
-          <h3>最貴的裝潢，是你在買房時以為不必裝潢</h3>
-          <p class="gist">舊屋屋齡 × 使用目的 × 持有年限，會直接決定你「必須」面對的工程成本與風險。</p>
-          <p>買房只看外在條件，容易忽略中古屋防水失效、電線走火、結構受損等隱形危機，導致入住後預算從數十萬暴增至數百萬。她強烈建議：長期自住者應在購屋前就帶設計師陪同看診、評估風險，才能避免買房後人生失控。</p>
+          <div>
+            <div class="pimg"><img src="images/不要賭_銷售頁_260613/03-購入老屋後的拆除現場.jpg" alt="購入老屋後的拆除現場"></div>
+            <h3>最貴的裝潢，是你在買房時以為不必裝潢</h3>
+            <p class="gist">舊屋屋齡 × 使用目的 × 持有年限，會直接決定你「必須」面對的工程成本與風險。</p>
+            <p>買房只看外在條件，容易忽略中古屋防水失效、電線走火、結構受損等隱形危機，導致入住後預算從數十萬暴增至數百萬。她強烈建議：長期自住者應在購屋前就帶設計師陪同看診、評估風險，才能避免買房後人生失控。</p>
+          </div>
           <a href="https://yuan-gallery.com/article276/" target="_blank" rel="noopener">閱讀原文 →</a>
         </article>
         <article class="post">
-          <div class="pimg"><img src="images/不要賭_銷售頁_260613/04-管道間內密集的給排水管線.jpg" alt="管道間內密集的給排水管線"></div>
-          <h3>嚴禁工班動管道間</h3>
-          <p class="gist">管道間嚴禁修打——任何打鑿都可能讓碎磚砸破給排水管線，引發無預期的漏水災難。</p>
-          <p>住戶裝修時若盲目拆除或修打管道間磚面，極易使碎磚掉落砸破密集的給排水主管，引發整棟樓層滲漏水、木作發霉腐爛的災情。早期公寓多缺乏防火、遮煙的「防火區劃」概念，設計師應嚴禁工班變動管道間，守護其完整。</p>
+          <div>
+            <div class="pimg"><img src="images/不要賭_銷售頁_260613/04-管道間內密集的給排水管線.jpg" alt="管道間內密集的給排水管線"></div>
+            <h3>嚴禁工班動管道間</h3>
+            <p class="gist">管道間嚴禁修打——任何打鑿都可能讓碎磚砸破給排水管線，引發無預期的漏水災難。</p>
+            <p>住戶裝修時若盲目拆除或修打管道間磚面，極易使碎磚掉落砸破密集的給排水主管，引發整棟樓層滲漏水、木作發霉腐爛的災情。早期公寓多缺乏防火、遮煙的「防火區劃」概念，設計師應嚴禁工班變動管道間，守護其完整。</p>
+          </div>
           <a href="https://yuan-gallery.com/article130/" target="_blank" rel="noopener">閱讀原文 →</a>
         </article>
         <article class="post">
-          <div class="pimg"><img src="images/不要賭_銷售頁_260613/05-老屋天花板的漏水水漬.jpg" alt="老屋天花板的漏水水漬"></div>
-          <h3>我家天花板漏水了！</h3>
-          <p class="gist">漏水時間規律藏著源頭線索——24 小時持續、特定時段、雨天才滲，完全是不同問題。</p>
-          <p>不分天候 24 小時持續滲漏，多為「進水管漏水」；特定時間發生，多與樓上住戶使用習慣有關的「排污水管漏水」；下雨才漏，則是「外牆或屋頂防水層老化失效」——釐清原因，才能根治。</p>
+          <div>
+            <div class="pimg"><img src="images/不要賭_銷售頁_260613/05-老屋天花板的漏水水漬.jpg" alt="老屋天花板的漏水水漬"></div>
+            <h3>我家天花板漏水了！</h3>
+            <p class="gist">漏水時間規律藏著源頭線索——24 小時持續、特定時段、雨天才滲，完全是不同問題。</p>
+            <p>不分天候 24 小時持續滲漏，多為「進水管漏水」；特定時間發生，多與樓上住戶使用習慣有關的「排污水管漏水」；下雨才漏，則是「外牆或屋頂防水層老化失效」——釐清原因，才能根治。</p>
+          </div>
           <a href="https://yuan-gallery.com/article126/" target="_blank" rel="noopener">閱讀原文 →</a>
         </article>
       </div>
@@ -1495,7 +1515,8 @@
         <div class="photo-cap">完工，只是好好生活的開始</div>
       </div>
       <h2>裝修，不是<em>賭</em>運氣的事</h2>
-      <p>一個小觀念提早知道，就可能省下後面好幾個月的麻煩以及金錢損失。把 23 年的實戰經驗，變成你自己的判斷力。</p>
+      <p class="quote">一個小觀念提早知道，就可能省下後面好幾個月的麻煩以及金錢損失。
+        把 23 年的實戰經驗，變成你自己的判斷力。</p>
     </div>
   </section>
 
