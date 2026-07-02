@@ -386,7 +386,7 @@
 
   .wcy-rn .value-lead {
     max-width: 880px;
-    margin: 0 auto;
+    margin: 0 auto 44px;
     text-align: center;
   }
 
@@ -664,7 +664,8 @@
     margin: 0 auto 28px;
     border-radius: 6px;
     max-width: 920px;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-ideograph;
   }
 
   .wcy-rn .pain-intro b {
@@ -1069,26 +1070,40 @@
 
   .wcy-rn .owner-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 24px;
   }
 
   .wcy-rn .ocard {
-    flex: 1 1 calc(50% - 12px);
-    min-width: var(--flex-min-width);
     background: rgba(255, 255, 255, .04);
     border: 1px solid rgba(169, 190, 156, .22);
     border-radius: 4px;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
   }
 
   .wcy-rn .ocard img {
-    width: 100%;
-    height: 230px;
+    width: 340px;
+    flex: 0 0 340px;
+    height: auto;
+    min-height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  @media(max-width:760px) {
+    .wcy-rn .ocard {
+      flex-direction: column;
+    }
+
+    .wcy-rn .ocard img {
+      width: 100%;
+      flex: none;
+      height: 210px;
+      min-height: 0;
+    }
   }
 
   .wcy-rn .ocard .ob {
@@ -1626,7 +1641,7 @@
   <header class="hero"
     style="background-image:linear-gradient(rgba(20,24,19,.84),rgba(20,24,19,.66)),url('https://cdn.shopify.com/s/files/1/0304/1083/4051/files/08-hero-dark-interior.jpg?v=1782655051');background-size:cover;background-position:center;">
     <div class="narrow">
-      <div class="eyebrow">王采元 · 居住行為設計學</div>
+      <div class="eyebrow">王采元・居住行為設計學</div>
       <div class="hero-title">人的自然</div>
       <div class="hero-lines">裝修只有一次，<br><span class="accent">這堂課讓你一次住對</span></div>
     </div>
@@ -1635,11 +1650,10 @@
   <!-- 信任帶 -->
   <section class="trust-band">
     <div class="wrap">
-      <p>金獎設計師王采元，<b>首度公開</b> 23 年的設計心法</p>
+      <p>室內設計師王采元，<b>完整公開</b> 23 年的設計心法</p>
       <div class="chips">
-        <span>Luxury Lifestyle Awards 2024</span>
-        <span>執業 23 年 · 近 80 個住宅作品</span>
-        <span>需求會議方法首次完整公開</span>
+        <span>執業 23 年・近 80 個住宅作品</span>
+        <span>需求會議方法完整公開</span>
       </div>
     </div>
   </section>
@@ -1648,14 +1662,13 @@
   <section id="pain">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>裝修，你是不是也卡在這些地方？</h2>
-        <p>這些不是你不夠用心，而是少了「從自己出發」的那一步</p>
+        <p>設計的第一步，是聽懂每個家庭成員未說出口的需求</p>
       </div>
       <div class="pain-grid">
         <div class="pain">
           <div class="q" style="color:#B5362A;font-weight:700;">花大錢做滿一整面櫃子，住沒多久卻還是一樣亂</div>
-          <div class="d">問題往往不在櫃子做得夠不夠多，而是收納沒有貼著你的生活習慣設計，東西自然找不到家。</div>
+          <div class="d">問題往往不在櫃子做得夠不夠多，而是收納沒有貼緊生活習慣設計，東西自然找不到家。</div>
         </div>
         <div class="pain">
           <div class="q" style="color:#B5362A;font-weight:700;">心裡有畫面，卻怎麼也跟設計師講不清楚</div>
@@ -1669,7 +1682,7 @@
         </div>
         <div class="pain">
           <div class="q" style="color:#B5362A;font-weight:700;">照著網美風做，住進去才發現處處不順手</div>
-          <div class="d">好看的家不等於好住的家。沒有先釐清生活動線，再美的設計也會在日常裡卡卡的。</div>
+          <div class="d">好看的家不等於好住的家。沒有先釐清生活動線，再美的設計也會卡卡的。</div>
           <div class="stat">56% 的人最擔心「格局做錯、住進去才後悔」</div>
         </div>
       </div>
@@ -1680,17 +1693,16 @@
   <section id="case" class="case">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>當行為被讀懂，<em>坪數就不再是限制</em></h2>
-        <p>真實案例——改造的效果如何，讓住在裡面的人自己說</p>
+        <p>真實案例—改造的效果如何，讓住在裡面的人自己說</p>
       </div>
 
       <!-- 主案例：全能手作宅（上傳照片） -->
-      <div class="case-label">CASE · 01</div>
+      <div class="case-label">CASE・01</div>
       <div class="case-name">全能手作宅</div>
-      <div class="case-meta-line"><b>50</b> 坪　·　一家三口　·　收納為設計核心</div>
+      <div class="case-meta-line"><b>50</b> 坪　・　一家三口　・　收納為設計核心</div>
       <div class="pain-intro">
-        <b>屋主的難題：</b>女主人熱愛烘焙與手作，鍋具、工具、材料又多又雜，東西長年沒有固定的家——<b>再怎麼收，過幾天又回到原點</b>。問題不在櫃子不夠，而在收納沒有貼著她的手作行為設計。
+        <b>屋主的難題：</b>男主人熱愛烘焙，女主人熱愛手作，鍋具、工具、材料又多又雜，東西長年沒有固定的家—<b>再怎麼收，過幾天又回到原點</b>。問題不在櫃子不夠，而在收納沒有<b>貼緊使用者的習慣與行為設計</b>。
       </div>
 
       <div class="ba">
@@ -1707,7 +1719,7 @@
       </div>
       <div class="ba">
         <div class="ba-title">公共空間｜從被雜物淹沒，到清爽留白的生活場</div>
-        <div class="ba-desc">把收納藏進結構，公共空間回到單純、開闊，一家人終於有了可以好好待著的地方。</div>
+        <div class="ba-desc">依著生活動線順手收納，公共空間回到單純、開闊，一家人終於可以舒適地享受空間。</div>
         <div class="ba-pair">
           <figure class="ba-fig"><span class="ba-tag before">BEFORE</span><img
               src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/03_800d610f-423a-44fe-b131-81807c07a9be.jpg?v=1782655051"
@@ -1729,30 +1741,23 @@
               alt="手作空間 改造後"></figure>
         </div>
       </div>
-      <div class="detail-row">
-        <figure><img
-            src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/07_db18e7f7-8561-4fb4-9888-292a18f5ba88.jpg?v=1782655051"
-            alt="廚房收納吊桿細節">
-          <figcaption>沿檯面上方的吊桿，把鍋鏟、刷具、砧板全部「立起來收」，每樣工具都在伸手可及的位置。</figcaption>
-        </figure>
-        <figure><img src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/08-hero-dark-interior.jpg?v=1782655051"
-            alt="餐吧與咖啡角細節">
-          <figcaption>轉角延伸出的木作吧檯，銅製吊燈下既是早餐桌、也是手沖咖啡的儀式角落。</figcaption>
-        </figure>
+      <div class="case-links">
+        <a href="https://yuan-gallery.com/works-01/" target="_blank">作品介紹</a>
+        <a href="https://yuan-gallery.com/article153/" target="_blank">業主回饋全文</a>
       </div>
 
       <div class="case-divider"></div>
 
       <!-- 案例 02：綠藤生機宅 -->
-      <div class="case-label">CASE · 02</div>
+      <div class="case-label">CASE・02</div>
       <div class="case-name">綠藤生機宅</div>
-      <div class="case-meta-line">人均居住坪數僅 <b>6.5</b> 坪　·　一家四口　·　彈性可開的休憩空間作為第三房</div>
+      <div class="case-meta-line"><b>26</b> 坪　・　一家四口　・　彈性可開的休憩空間作為第三房</div>
       <div class="pain-intro">
-        <b>屋主的難題：</b>典型的老屋——<b>隔死的房間、老舊的廚衛</b>，坪數又緊。一家四口想要的不只是夠住，而是能一起閱讀、孩子能遊戲、大人能談心的空間。
+        <b>屋主的難題：</b>典型的老屋—<b>隔死的房間、老舊的廚衛</b>，坪數又緊。一家四口想要的不只是夠住，而是能一起閱讀、孩子能遊戲、大人能談心的空間。
       </div>
       <div class="ba">
-        <div class="ba-desc">
-          因為一家都喜歡閱讀，客廳不再以電視為中心，而成為極舒適的親子閱讀空間。隔死的房間打開，風與光自由流轉，主臥床頭壁燈還能隨孩子從同睡到分房彈性調整——空間感得以鬆動開展，靠的不是坪數，而是對「人」的理解。</div>
+        <div class="ba-desc" style="text-align:justify;text-align-last:center;text-justify:inter-ideograph;">
+          因一家都愛閱讀，客廳不再以電視為中心，而成為極舒適的親子閱讀空間。隔死的房間打開，風與光自由流轉，主臥床頭壁燈還能隨孩子從同睡到分房彈性調整—因著對「人」的理解，即便坪數有限，還是創造出開闊空間感。</div>
         <div class="ba-pair">
           <figure class="ba-fig"><span class="ba-tag before">BEFORE</span><img
               src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/02_94afaf11-dd47-4544-b6d0-d5e675e3ae45.jpg?v=1781432362"
@@ -1771,14 +1776,15 @@
       <div class="case-divider"></div>
 
       <!-- 案例 03：森之小步舞曲 -->
-      <div class="case-label">CASE · 03</div>
+      <div class="case-label">CASE・03</div>
       <div class="case-name">森之小步舞曲</div>
-      <div class="case-meta-line">室內 <b>24</b> 坪（含陽台）　·　玄關污衣櫃　·　三向櫃支援三個空間</div>
+      <div class="case-meta-line">室內 <b>24</b> 坪（含陽台）　・　玄關污衣櫃　・　三向櫃支援三個空間</div>
       <div class="pain-intro">
-        <b>屋主的難題：</b>需求會議中，女主人不好意思地承認大門附近總是散落二、三十個包包與衣物。采元順著動線一路追問，結合她生醫背景，歸納出她不自覺的內在邏輯——<b>凡與外界接觸的一切都是「髒」的，一進門就得全部卸下</b>。多年來夫妻間看似矛盾的家規，瞬間有了合理解釋。
+        <b>屋主的難題：</b>需求會議中，女主人不好意思地承認大門附近總是散落二、三十個包包與衣物。采元順著動線一路追問，結合她生醫背景，歸納出她不自覺的內在邏輯—<b>凡與外界接觸的一切都是「髒」的，一進門就得全部卸下</b>。多年來夫妻間看似矛盾的家規，瞬間有了合理解釋。
       </div>
       <div class="ba">
-        <div class="ba-desc">於是污衣櫃、外出首飾包包、甚至化妝櫃全數設在玄關，把「污染控管」變成順手的日常；雙冰箱大廚房、囤貨收納櫃、支援餐廳客廳小孩房三個空間的三向櫃，與滿足練舞的鏡門入口櫃，全部整合進 24
+        <div class="ba-desc" style="text-align:justify;text-align-last:center;text-justify:inter-ideograph;">
+          於是污衣櫃、外出首飾包包、甚至化妝櫃全數設在玄關，把「污染控管」變成順手的日常；雙冰箱大廚房、囤貨收納櫃、支援餐廳客廳小孩房三個空間的三向櫃，與滿足練舞的鏡門入口櫃，全部整合進 24
           坪裡。</div>
         <div class="ba-pair">
           <figure class="ba-fig"><img
@@ -1800,7 +1806,6 @@
   <section class="solve">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>這堂課，要解決的<em>四件事</em></h2>
       </div>
       <div class="solve-list">
@@ -1815,7 +1820,7 @@
           <div class="solve-num serif">貳</div>
           <div>
             <h3>市面上唯一從「個性與行為」發展設計</h3>
-            <p>不從風格出發、不套樣板格局——從你是誰、你怎麼生活開始，找出真正屬於你的需求。</p>
+            <p>不從風格出發、不套樣板格局—從你是誰、你怎麼生活開始，找出真正屬於你的需求。</p>
           </div>
         </div>
         <div class="solve-item">
@@ -1840,7 +1845,6 @@
   <section class="insight">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>空間感，決定一個家<em>好不好住</em></h2>
         <p>收納做滿了，家卻不好住？問題往往藏在三條看不見的線裡</p>
       </div>
@@ -1881,12 +1885,12 @@
         <h2>王采元　TANYA WANG</h2>
         <div class="role">創辦人</div>
         <p>台北人，畢業於台灣大學物理系。2002 年起跟著父親、建築學者王鎮華自學建築，2004 年接下第一個室內設計案，從此一邊旁聽建築課程自修、一邊獨立接案與全程監工。</p>
-        <p>她把「了解自己」變成一套方法——二十多年來，在每一場平均五小時的需求會議裡，陪業主挖掘說不出口的需要。</p>
-        <div class="tea-highlight">這堂課，就是把這套「行為轉化為設計」的訪談與判斷邏輯，<em>首次系統化公開</em>。</div>
+        <p>她把「了解自己」變成一套方法—二十多年來，在每一場平均 3.5 小時的需求會議裡，陪業主挖掘說不出口的需要。</p>
+        <div class="tea-highlight">這堂課，就是把這套「行為轉化為設計」的訪談與判斷邏輯，<em>完整系統化公開</em>。</div>
         <div class="creds">
           <span>台大物理系</span><span>自學建築</span><span>執業 23 年</span>
-          <span>近 80 個住宅作品</span><span>需求會議平均 5 小時</span>
-          <span>著作《朗然小徑》《不會整理沒關係》</span><span>Luxury Lifestyle Awards 2024</span>
+          <span>近 80 個住宅作品</span><span>需求會議平均 3.5 小時</span>
+          <span>著作《朗然小徑》《不用收的好家設計》</span>
         </div>
         <div class="tea-cert">
           <img
@@ -1906,7 +1910,6 @@
   <section id="outline">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>六堂基礎觀念＋<em>十五個場景實作</em></h2>
         <p>從「看懂人」到「落實設計」，逐一拆解行為如何轉化為空間</p>
       </div>
@@ -1967,28 +1970,28 @@
               <div class="n">07</div>
               <div class="t">
                 <h4>終於回家了／準備出門囉！</h4>
-                <p>寵物宅與頂客宅・親子與退休宅</p>
+                <p>寵物宅與頂客宅／親子與退休宅</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">08</div>
               <div class="t">
                 <h4>視聽與收藏</h4>
-                <p>想講究・隨遇而安</p>
+                <p>想講究／隨遇而安</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">09</div>
               <div class="t">
                 <h4>理想的家庭生活</h4>
-                <p>寵物宅與頂客宅・親子與退休宅</p>
+                <p>寵物宅與頂客宅／親子與退休宅</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">10</div>
               <div class="t">
                 <h4>吃飯囉！</h4>
-                <p>自家吃・招待客人</p>
+                <p>自家吃／招待客人</p>
               </div>
             </div>
             <div class="unit2">
@@ -2001,70 +2004,70 @@
               <div class="n">12</div>
               <div class="t">
                 <h4>今天要煮什麼？</h4>
-                <p>封閉式・開放式廚房・熱炒與輕食區</p>
+                <p>封閉式／開放式廚房／熱炒與輕食區</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">13</div>
               <div class="t">
                 <h4>今天我在家工作</h4>
-                <p>獨立書房・開放式書房</p>
+                <p>獨立書房／開放式書房</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">14</div>
               <div class="t">
                 <h4>要睡覺了</h4>
-                <p>一般臥室・退休宅</p>
+                <p>一般臥室／退休宅</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">15</div>
               <div class="t">
                 <h4>化妝與保養</h4>
-                <p>站著化妝・坐著化妝</p>
+                <p>站著化妝／坐著化妝</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">16</div>
               <div class="t">
                 <h4>衣服怎麼收？</h4>
-                <p>收納能力差異・收納方式對應設計</p>
+                <p>收納能力差異／收納方式對應設計</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">17</div>
               <div class="t">
                 <h4>如廁學問大</h4>
-                <p>男女差異・親子如廁習慣建立</p>
+                <p>男女差異／親子如廁習慣建立</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">18</div>
               <div class="t">
                 <h4>好好洗個澡</h4>
-                <p>洗澡習慣・無障礙</p>
+                <p>洗澡習慣／無障礙</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">19</div>
               <div class="t">
                 <h4>面部清潔差很大</h4>
-                <p>洗臉刮鬍習慣・面盆龍頭與鏡櫃浴櫃選擇</p>
+                <p>洗臉刮鬍習慣／面盆龍頭與鏡櫃浴櫃選擇</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">20</div>
               <div class="t">
                 <h4>洗晾衣服</h4>
-                <p>習慣對應設計・後陽台限制與洗烘衣機選擇</p>
+                <p>習慣對應設計／後陽台限制與洗烘衣機選擇</p>
               </div>
             </div>
             <div class="unit2">
               <div class="n">21</div>
               <div class="t">
                 <h4>清潔維護誰人知</h4>
-                <p>「看不看得見」差很大・收納方式</p>
+                <p>「看不看得見」差很大／收納方式</p>
               </div>
             </div>
           </div>
@@ -2077,12 +2080,12 @@
   <section class="value">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>為什麼，值得認真上<em>這一堂</em></h2>
       </div>
       <div class="value-lead">
         <p class="big">裝修，是少數「住進去才知道結果」的決定。</p>
-        <p class="sub">一次裝修動輒數十萬到數百萬，許多不順手卻要等住進去才發現——而那時，已經來不及。這堂課要幫你的，不是教你省錢，而是讓每一分錢，<b
+        <p class="sub">一次裝修動輒數十萬到數百萬，許多不順手卻要等住進去才發現—而那時，已經來不及。</p>
+        <p class="sub" style="margin-top:14px;">這堂課要幫你的，不是教你省錢，而是讓每一分錢，<b
             style="color:#F2855F;">花在真正貼著你生活的設計上，少走最貴的冤枉路</b>。</p>
       </div>
       <div class="take-grid">
@@ -2114,7 +2117,6 @@
   <section class="fit">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>這堂課，<em>適合這樣的你</em></h2>
       </div>
       <p class="fit-lead">不論你住的是哪一種房子、坪數多大，只要你在意「好不好住」，這堂課都用得上。</p>
@@ -2123,7 +2125,7 @@
           <div class="ck">✓</div>
           <div>
             <h4>不論坪數大小</h4>
-            <p>從十幾坪的小宅到大坪數，方法都適用——好住，從不是坪數的特權。</p>
+            <p>從十幾坪的小宅到大坪數，方法都適用—好住，從不是坪數的特權。</p>
           </div>
         </div>
         <div class="fit-item">
@@ -2169,7 +2171,6 @@
   <section class="reviews">
     <div class="wrap">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>他們眼中的<em>王采元</em></h2>
       </div>
       <div class="rv-grid">
@@ -2197,11 +2198,22 @@
       <div class="owner-grid">
         <div class="ocard">
           <img
+            src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/04_dbf0214b-a600-4d43-ac20-f38a753e03aa.jpg?v=1782655051"
+            alt="全能手作宅 改造後 公共空間">
+          <div class="ob">
+            <p>一切都要感謝采元的正義感跟責任心，除了消弭了我們的不安，也讓我們得到一個可以讓身心休憩的港灣。<b>有一句話可以代表我們所認識的采元：一生懸命</b>。</p>
+            <div class="who">全能手作宅・業主<small>50 坪・一家三口</small>
+              <a href="https://yuan-gallery.com/article153/" target="_blank">業主回饋全文 →</a>
+            </div>
+          </div>
+        </div>
+        <div class="ocard">
+          <img
             src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/03_d7ce83a1-19a4-4dfb-8e13-76734649cda6.jpg?v=1781432361"
             alt="綠藤生機宅 入住後 親子閱讀空間">
           <div class="ob">
-            <p>入住滿四年，我們依舊對這個半開放親子房<b>讚嘆不已</b>——空間獲得充分利用，家裡人多也不覺擁擠，拉門收合還能隨需要切換隱私。</p>
-            <div class="who">綠藤生機宅・業主<small>人均 6.5 坪・一家四口</small>
+            <p>入住滿四年，我們依舊對這個半開放親子房<b>讚嘆不已</b>—空間獲得充分利用，家裡人多也不覺擁擠，拉門收合還能隨需要切換隱私。</p>
+            <div class="who">綠藤生機宅・業主<small>26 坪・一家四口</small>
               <a href="https://yuan-gallery.com/article160/" target="_blank">業主入住四年後的回饋 →</a>
             </div>
           </div>
@@ -2210,7 +2222,7 @@
           <img src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/05-_-_-24.jpg?v=1781432362"
             alt="森之小步舞曲 24 坪住宅空間">
           <div class="ob">
-            <p>一開始的諮詢就像做了一次完整的心理諮詢，把我們對房子的想望梳理得清清楚楚——<b>因為采元的好宅設計，讓人好宅</b>。</p>
+            <p>一開始的諮詢就像做了一次完整的心理諮詢，把我們對房子的想望梳理得清清楚楚—<b>因為采元的好宅設計，讓人好宅</b>。</p>
             <div class="who">森之小步舞曲・女主人<small>室內 24 坪・玄關污衣櫃設計</small>
               <a href="https://yuan-gallery.com/article145/" target="_blank">完整收納推導與女主人全文 →</a>
             </div>
@@ -2221,7 +2233,7 @@
       <h3 class="sub-head">實體課學員回饋</h3>
       <div class="stu-grid">
         <div class="stu">貼緊著自己生命脈絡，<b>可以長出自己一個溫暖的家</b>。對正要弄一個家的人來說，這是很好建立概念的一堂課。<span class="src">實體課程學員</span></div>
-        <div class="stu">原來很多生活上沒說出口的事，<b>真的會成為摩擦吵架的導火線</b>——光是掛衣服的方式，每個人就不一樣。<span class="src">實體課程學員</span></div>
+        <div class="stu">原來很多生活上沒說出口的事，<b>真的會成為摩擦吵架的導火線</b>—光是掛衣服的方式，每個人就不一樣。<span class="src">實體課程學員</span></div>
       </div>
     </div>
   </section>
@@ -2230,12 +2242,11 @@
   <section id="faq" style="padding-top:0;">
     <div class="narrow">
       <div class="sec-head center">
-        <div class="rule"></div>
         <h2>購課前，你可能想問</h2>
       </div>
       <div class="faq-item">
         <h3>這堂課和坊間的收納、風格課有什麼不同？</h3>
-        <p>坊間課程多教「怎麼收納」或「什麼風格好看」，套用的是別人家的樣板。這堂課反過來——從你是誰、家人怎麼生活開始，找出屬於你的居住行為與需求，再把「行為」轉化成「設計」。</p>
+        <p>坊間課程多教「怎麼收納」或「什麼風格好看」，套用的是別人家的樣板。這堂課反過來—從你是誰、家人怎麼生活開始，找出屬於你的居住行為與需求，再把「行為」轉化成「設計」。</p>
       </div>
       <div class="faq-item">
         <h3>我沒有裝修計畫、也不會設計，適合上嗎？</h3>
@@ -2255,7 +2266,7 @@
   <footer>
     <div class="foot-philo">人是活的，生活是活的，設計，也是活的。<br>不照搬別人的範本，從你真實的生活，長出只屬於你的家。</div>
     <div class="seal serif">每個人，都活在自己的自然裡</div>
-    人的自然｜王采元的居住行為設計學
+    人的自然：王采元的居住行為設計學
   </footer>
 
 
