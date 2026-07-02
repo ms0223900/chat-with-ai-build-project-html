@@ -1632,6 +1632,12 @@
     font-size: clamp(15px, 2vw, 17px);
     color: var(--body);
     line-height: 1.95;
+    white-space: pre-line;
+
+    @media(max-width:760px) {
+      text-align: justify;
+      white-space: normal;
+    }
   }
 
   .wcy-ng .bet-grid {
@@ -2128,7 +2134,9 @@
       <div class="sec-head center">
         <h2>你正在賭的<em>十三件事</em></h2>
       </div>
-      <p class="bets-intro">一場裝修，從買房、釐清需求、找設計師到各階段工程與入住，是由無數關鍵決定積累而成<br>而每一個決定，背後都是一個「不要賭」。<br>每一條，都是真實案場付出代價換來的教訓。</p>
+      <p class="bets-intro">一場裝修，從買房、釐清需求、找設計師到各階段工程與入住，是由無數關鍵決定積累而成
+        而每一個決定，背後都是一個「不要賭」。
+        每一條，都是真實案場付出代價換來的教訓。</p>
       <div class="bet-grid">
         <div class="bet"><span class="bno">01</span><span class="blabel">不要賭</span>
           <p>買「全新裝潢屋」就可以省裝修費</p>
