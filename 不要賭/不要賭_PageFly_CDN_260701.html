@@ -17,6 +17,7 @@
     --tint: #F6ECE6;
     --tint-line: #E7D8CE;
     --dim: #C7CCBF;
+    --flex-min-width: 180px;
   }
 
   .wcy-ng * {
@@ -304,7 +305,7 @@
 
   .wcy-ng .solve-item {
     flex: 1 1 calc(50% - 15px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
     display: flex;
     gap: 20px;
     align-items: flex-start;
@@ -345,7 +346,7 @@
 
   .wcy-ng .ig-grid figure {
     flex: 1 1 calc(50% - 9px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
   }
 
   .wcy-ng .ig-grid img {
@@ -695,7 +696,7 @@
 
   .wcy-ng .ba-fig {
     flex: 1 1 calc(50% - 9px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
     position: relative;
   }
 
@@ -753,7 +754,7 @@
 
   .wcy-ng .detail-row figure {
     flex: 1 1 calc(50% - 9px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
   }
 
   .wcy-ng .detail-row img {
@@ -904,7 +905,7 @@
 
   .wcy-ng .unit2 {
     flex: 1 1 calc(50% - 0px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
     display: flex;
     gap: 16px;
     padding: 16px 10px;
@@ -1031,7 +1032,7 @@
 
   .wcy-ng .stu {
     flex: 1 1 calc(50% - 9px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
     background: rgba(255, 255, 255, .03);
     border-radius: 4px;
     padding: 24px 26px;
@@ -1070,7 +1071,7 @@
 
   .wcy-ng .ocard {
     flex: 1 1 calc(50% - 12px);
-    min-width: 300px;
+    min-width: var(--flex-min-width);
     background: rgba(255, 255, 255, .04);
     border: 1px solid rgba(169, 190, 156, .22);
     border-radius: 4px;
