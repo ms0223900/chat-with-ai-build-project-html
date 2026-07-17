@@ -1,0 +1,1203 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- PageFly Custom HTML｜連啓佑「應用 Codex Skill 做好 SEO 與 GEO 內容」課程頁 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@500;700&display=swap"
+  rel="stylesheet">
+<style>
+  #mt-seo-geo {
+    margin: 0;
+    padding: 0;
+  }
+
+  #mt-seo-geo h1,
+  #mt-seo-geo h2,
+  #mt-seo-geo h3,
+  #mt-seo-geo h4 {
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  #mt-seo-geo p {
+    color: inherit;
+    margin: 0;
+    text-decoration: none;
+  }
+
+  #mt-seo-geo a {
+    text-decoration: none;
+  }
+
+  #mt-seo-geo details,
+  #mt-seo-geo summary {
+    color: inherit;
+  }
+
+  #mt-seo-geo {
+    --navy: #FAF7F1;
+    --navy2: #F4EDE1;
+    --panel: #FFFFFF;
+    --teal: #D97757;
+    --teal-d: #C05F3C;
+    --ink: #262119;
+    --sub: #5D5546;
+    --dim: #8F8574;
+    --line: #E7DCC9;
+  }
+
+  #mt-seo-geo,
+  #mt-seo-geo * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #mt-seo-geo {
+    scroll-behavior: smooth;
+  }
+
+  #mt-seo-geo {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--navy);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  #mt-seo-geo img {
+    max-width: 100%;
+  }
+
+  #mt-seo-geo .container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  #mt-seo-geo section {
+    padding: 96px 0;
+  }
+
+  #mt-seo-geo .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    letter-spacing: 5px;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  #mt-seo-geo .eyebrow::before {
+    content: '';
+    width: 34px;
+    height: 2px;
+    background: var(--teal);
+  }
+
+  #mt-seo-geo h2 {
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-top: 18px;
+    line-height: 1.4;
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+
+  #mt-seo-geo .btn {
+    display: inline-block;
+    background: var(--teal);
+    color: #FFFFFF;
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: 2px;
+    padding: 18px 44px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 4px 14px rgba(217, 119, 87, .25);
+  }
+
+  #mt-seo-geo .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(217, 119, 87, .35);
+  }
+
+  #mt-seo-geo .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  #mt-seo-geo .hero {
+    padding: 110px 0 90px;
+    background:
+      radial-gradient(900px 600px at 85% -10%, #F6E2D0 0%, transparent 60%),
+      radial-gradient(700px 500px at -10% 110%, #F3E7D2 0%, transparent 60%), var(--navy);
+  }
+
+  #mt-seo-geo .hero h1 {
+    font-size: clamp(36px, 6.5vw, 68px);
+    font-weight: 900;
+    line-height: 1.28;
+    letter-spacing: 2px;
+    margin-top: 26px;
+  }
+
+  #mt-seo-geo .hero h1 .hl {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .hero .sub {
+    margin-top: 26px;
+    font-size: clamp(17px, 2.3vw, 21px);
+    color: var(--sub);
+    max-width: 760px;
+  }
+
+  #mt-seo-geo .hero .sub b {
+    color: var(--ink);
+  }
+
+  #mt-seo-geo .hero .meta {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  #mt-seo-geo .hero .meta span {
+    border: 1px solid var(--line);
+    background: #FFFFFF;
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--sub);
+    letter-spacing: 1px;
+  }
+
+  #mt-seo-geo .hero .meta span b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .hook {
+    background: var(--navy2);
+    border-bottom: 1px solid var(--line);
+    padding: 72px 0 64px;
+  }
+
+  #mt-seo-geo .hook .hnote {
+    margin-top: 30px;
+    font-size: 19px;
+    color: var(--dim);
+  }
+
+  #mt-seo-geo .hook .hq {
+    margin-top: 22px;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.5;
+    letter-spacing: 1px;
+    max-width: 900px;
+  }
+
+  #mt-seo-geo .hook .hq b {
+    color: var(--teal);
+    font-weight: 900;
+    border-bottom: 5px solid var(--teal);
+    padding-bottom: 2px;
+  }
+
+  #mt-seo-geo .pain .pstat {
+    margin-top: 22px;
+    font-size: 18px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .pain .pstat b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .geo .gstat {
+    margin-top: 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 32px;
+    max-width: 860px;
+  }
+
+  #mt-seo-geo .geo .gstat .gs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #mt-seo-geo .geo .gstat .gs b {
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1.1;
+  }
+
+  #mt-seo-geo .geo .gstat .gs span {
+    font-size: 17px;
+    color: var(--dim);
+    margin-top: 4px;
+  }
+
+  #mt-seo-geo .geo .gstat .gs-note {
+    flex: 1;
+    min-width: 240px;
+    font-size: 17px;
+    color: var(--sub);
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+
+  #mt-seo-geo .gift .ggrid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  #mt-seo-geo .gift .gcard {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 28px;
+  }
+
+  #mt-seo-geo .gift .gk {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  #mt-seo-geo .gift .gcard h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 12px 0 10px;
+    letter-spacing: 2px;
+  }
+
+  #mt-seo-geo .gift .gcard p {
+    font-size: 17px;
+    color: var(--sub);
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+
+  #mt-seo-geo .geo {
+    background: var(--navy2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  #mt-seo-geo .geo .def {
+    margin-top: 36px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--teal);
+    border-radius: 0 14px 14px 0;
+    padding: 28px 32px;
+    max-width: 860px;
+  }
+
+  #mt-seo-geo .geo .def .dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  #mt-seo-geo .geo .def .d1 {
+    font-size: 17px;
+    color: var(--dim);
+    letter-spacing: 1px;
+  }
+
+  #mt-seo-geo .geo .def .d2 {
+    margin-top: 8px;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.7;
+    text-align: justify;
+    text-justify: inter-ideograph;
+  }
+
+  #mt-seo-geo .geo .lead {
+    margin-top: 26px;
+    font-size: clamp(17px, 2.3vw, 20px);
+    color: var(--sub);
+    max-width: 820px;
+  }
+
+  #mt-seo-geo .geo .lead b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .geo .dual {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  #mt-seo-geo .geo .dcard {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px 30px;
+  }
+
+  #mt-seo-geo .geo .dcard .dk {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    color: var(--teal);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  #mt-seo-geo .geo .dcard p {
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .geo .close {
+    margin-top: 30px;
+    font-size: 17px;
+    color: var(--sub);
+    max-width: 820px;
+  }
+
+  #mt-seo-geo .geo .close b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .pain .grid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  #mt-seo-geo .pain .card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 30px;
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .pain .card b {
+    color: var(--ink);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 20px;
+    border-left: 4px solid var(--teal);
+    padding-left: 12px;
+    border-radius: 0;
+  }
+
+  #mt-seo-geo .pain .card .bf,
+  #mt-seo-geo .pain .card .af {
+    display: block;
+    padding: 6px 0;
+    line-height: 1.65;
+  }
+
+  #mt-seo-geo .pain .card .bf {
+    color: var(--dim);
+  }
+
+  #mt-seo-geo .pain .card .af {
+    color: var(--ink);
+  }
+
+  #mt-seo-geo .pain .card .bf::before {
+    content: '✕ ';
+    color: var(--dim);
+    font-weight: 900;
+  }
+
+  #mt-seo-geo .pain .card .af::before {
+    content: '✓ ';
+    color: var(--teal);
+    font-weight: 900;
+  }
+
+  #mt-seo-geo .pain .turn {
+    margin-top: 52px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: clamp(21px, 3.2vw, 30px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 1.6;
+  }
+
+  #mt-seo-geo .pain .turn .hl {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .sol .lead {
+    margin-top: 26px;
+    font-size: clamp(18px, 2.4vw, 22px);
+    color: var(--sub);
+    max-width: 820px;
+  }
+
+  #mt-seo-geo .sol .lead b {
+    color: var(--ink);
+  }
+
+  #mt-seo-geo .sol .three {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  #mt-seo-geo .sol .item {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px 28px;
+  }
+
+  #mt-seo-geo .sol .item .k {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    font-size: 17px;
+    letter-spacing: 2px;
+  }
+
+  #mt-seo-geo .sol .item h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin: 12px 0 10px;
+    letter-spacing: 2px;
+  }
+
+  #mt-seo-geo .sol .item p {
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .sol .note {
+    margin-top: 30px;
+    font-size: 17px;
+    color: var(--dim);
+    border-left: 3px solid var(--teal);
+    padding-left: 16px;
+    max-width: 820px;
+  }
+
+  #mt-seo-geo .tpl {
+    background: var(--navy2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  #mt-seo-geo .tpl .tlead {
+    margin-top: 24px;
+    font-size: 18px;
+    color: var(--sub);
+    max-width: 820px;
+    line-height: 1.8;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    margin-bottom: 36px;
+  }
+
+  #mt-seo-geo .tpl .fgroup {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 26px 26px 28px;
+    background: #FBF6EE;
+  }
+
+  #mt-seo-geo .tpl .fgroup.first {
+    margin-top: 44px;
+  }
+
+  #mt-seo-geo .tpl .glabel {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    letter-spacing: 2px;
+    color: var(--teal);
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  #mt-seo-geo .tpl .glabel::before {
+    content: '##';
+    color: var(--dim);
+  }
+
+  #mt-seo-geo .tpl .fstages {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  #mt-seo-geo .tpl .fstage {
+    flex: 1;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 20px;
+  }
+
+  #mt-seo-geo .tpl .fstage .sname {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  #mt-seo-geo .tpl .fstage .sname i {
+    font-style: normal;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+  }
+
+  #mt-seo-geo .tpl .fstage .sk {
+    font-size: 17px;
+    color: var(--sub);
+    padding: 5px 0;
+    display: flex;
+    gap: 9px;
+    align-items: baseline;
+  }
+
+  #mt-seo-geo .tpl .fstage .sk::before {
+    content: '$';
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  #mt-seo-geo .tpl .farr {
+    display: flex;
+    align-items: center;
+    color: var(--teal);
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  #mt-seo-geo .tpl .farr::before {
+    content: '\2192';
+  }
+
+  #mt-seo-geo .tpl .fconn {
+    display: flex;
+    justify-content: center;
+    padding: 16px 0;
+    color: var(--teal);
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  #mt-seo-geo .tpl .fconn::before {
+    content: '\2193';
+  }
+
+  #mt-seo-geo .tpl .cap {
+    margin-top: 26px;
+    text-align: center;
+    font-size: 17px;
+    color: var(--dim);
+  }
+
+  #mt-seo-geo .tpl .cap b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .chap {
+    background: var(--navy2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  #mt-seo-geo .chap .list {
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  #mt-seo-geo .chap .row {
+    display: flex;
+    gap: 28px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px 32px;
+    align-items: flex-start;
+  }
+
+  #mt-seo-geo .chap .no {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 17px;
+    color: var(--teal);
+    font-weight: 700;
+    white-space: nowrap;
+    padding-top: 6px;
+    letter-spacing: 1px;
+  }
+
+  #mt-seo-geo .chap .no small {
+    display: block;
+    color: var(--dim);
+    font-size: 17px;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  #mt-seo-geo .chap .row>div:last-child {
+    flex: 1;
+  }
+
+  #mt-seo-geo .chap h3 {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  #mt-seo-geo .chap p {
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .chap .nodes {
+    margin-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+
+  #mt-seo-geo .chap .node {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px dashed #E7DCC9;
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .chap .node .idx {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    min-width: 46px;
+    font-size: 17px;
+  }
+
+  #mt-seo-geo .chap .node .dur {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--dim);
+    font-size: 17px;
+    white-space: nowrap;
+    padding-left: 12px;
+  }
+
+  #mt-seo-geo .chap .highlight {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .chap .highlight b {
+    color: var(--teal);
+  }
+
+  #mt-seo-geo .out .grid {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+
+  #mt-seo-geo .out .o {
+    display: flex;
+    gap: 18px;
+    align-items: baseline;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  #mt-seo-geo .out .o .n {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    font-size: 17px;
+  }
+
+  #mt-seo-geo .out .scope {
+    margin-top: 28px;
+    font-size: 17px;
+    color: var(--dim);
+    border-left: 3px solid var(--teal);
+    padding-left: 16px;
+  }
+
+  #mt-seo-geo .out .scope b {
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .aud {
+    background: var(--navy2);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  #mt-seo-geo .aud .who {
+    margin-top: 44px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  #mt-seo-geo .aud .wcard {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px 30px;
+  }
+
+  #mt-seo-geo .aud .wcard h3 {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+
+  #mt-seo-geo .aud .wcard p {
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  #mt-seo-geo .faq details {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-top: 16px;
+    overflow: hidden;
+  }
+
+  #mt-seo-geo .faq summary {
+    cursor: pointer;
+    padding: 22px 26px;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    list-style: none;
+    position: relative;
+    padding-right: 56px;
+  }
+
+  #mt-seo-geo .faq summary::after {
+    content: '＋';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--teal);
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  #mt-seo-geo .faq details[open] summary::after {
+    content: '－';
+  }
+
+  #mt-seo-geo .faq .a {
+    padding: 0 26px 24px;
+    font-size: 17px;
+    color: var(--sub);
+  }
+
+  @media (max-width:1100px) {
+    #mt-seo-geo .tpl .fstages {
+      flex-direction: column;
+    }
+
+    #mt-seo-geo .tpl .farr {
+      justify-content: center;
+    }
+
+    #mt-seo-geo .tpl .farr::before {
+      content: '\2193';
+    }
+  }
+
+  @media (max-width:820px) {
+    #mt-seo-geo section {
+      padding: 68px 0;
+    }
+
+    #mt-seo-geo .pain .grid,
+    #mt-seo-geo .sol .three,
+    #mt-seo-geo .out .grid,
+    #mt-seo-geo .aud .who,
+    #mt-seo-geo .gift .ggrid {
+      grid-template-columns: 1fr;
+    }
+
+    #mt-seo-geo .chap .row {
+      flex-direction: column;
+      gap: 12px;
+      padding: 26px 22px;
+    }
+
+    #mt-seo-geo .geo .def {
+      flex-direction: column;
+      gap: 14px;
+      padding: 24px 24px;
+    }
+
+    #mt-seo-geo .geo .dual {
+      grid-template-columns: 1fr;
+    }
+
+    #mt-seo-geo .tpl .fstages {
+      flex-direction: column;
+    }
+
+    #mt-seo-geo .tpl .farr {
+      justify-content: center;
+    }
+
+    #mt-seo-geo .tpl .farr::before {
+      content: '\2193';
+    }
+  }
+</style>
+<div id="mt-seo-geo">
+  <!-- HOOK -->
+  <section class="hook">
+    <div class="container">
+      <div class="eyebrow">搜尋行為正在改變</div>
+      <p class="hnote">越來越多人不再逐一點開網站比較，而是直接把問題丟給 ChatGPT、Gemini。</p>
+      <p class="hq">當 AI 直接整理答案——<b>你的內容，會被 AI 找到、引用，甚至主動推薦嗎？</b></p>
+    </div>
+  </section>
+
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">連啓佑・直播課</div>
+      <h1>一個人，也能擁有一條<span class="hl">SEO＋GEO 內容生產線</span></h1>
+      <p class="sub">SEO 老將連啓佑親授——用 Codex Skill 把關鍵字研究、內容產出變成<b>可複製、品質可控</b>的流程。原本一整個工作天的事，兩小時左右完成。</p>
+      <div class="meta">
+        <span>送<b>AI SEO 完整流程</b>10 個 Skill</span>
+        <span>送<b>課程電子講義</b></span>
+        <span><b>9 月中</b>直播 2–2.5 小時・含回放</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- GIFT -->
+  <section class="gift">
+    <div class="container">
+      <div class="eyebrow">課程附贈</div>
+      <h2>報名就送：一整套 AI SEO 完整流程</h2>
+      <div class="ggrid">
+        <div class="gcard">
+          <div class="gk">01 / SKILLS</div>
+          <h3>10 個 Skill 模板</h3>
+          <p>AI SEO 完整流程——關鍵字研究 7 個＋內容生成 3 個，把你的產業丟進流程，上完課直接開跑。</p>
+        </div>
+        <div class="gcard">
+          <div class="gk">02 / SLIDES</div>
+          <h3>課程電子講義</h3>
+          <p>課程簡報 PDF 完整提供，上課專心聽，複習不用抄筆記。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEO -->
+  <section class="geo">
+    <div class="container">
+      <div class="eyebrow">遊戲規則變了</div>
+      <h2>為什麼有些內容，會被 AI 推薦？</h2>
+      <div class="def">
+        <div class="dt">GEO</div>
+        <div class="dd">
+          <p class="d1">Generative Engine Optimization・生成式引擎優化</p>
+          <p class="d2">白話說：SEO 是讓 Google 搜尋「找到你」；GEO 是讓 ChatGPT、Gemini 這些 AI 在回答問題時「引用你、推薦你」。</p>
+        </div>
+      </div>
+      <p class="lead">兩者的邏輯不同，但不必做兩次工——這堂課教的是一套 <b>SEO/GEO 兼容的工作流程</b>，同一份努力，兩邊都吃到。</p>
+      <div class="gstat">
+        <div class="gs"><b>86%</b><span>聽過 GEO</span></div>
+        <div class="gs"><b>僅 3 成</b><span>真正開始做</span></div>
+        <div class="gs-note">開課前問卷：最多人卡在「聽過，但不知道怎麼做」——現在開始，你就比多數人早一步。</div>
+      </div>
+      <div class="dual">
+        <div class="dcard">
+          <div class="dk">課程怎麼處理 GEO 關鍵字</div>
+          <p>關鍵字研究流程中，「找出 GEO 關鍵字」「篩選 GEO 關鍵字」是獨立的 Skill 模板——GEO 不是 SEO 的附註，而是流程裡明確的工作項目。</p>
+        </div>
+        <div class="dcard">
+          <div class="dk">課程怎麼處理 GEO 內容</div>
+          <p>內容生成走「產出 → 潤飾 → 優化」流程，課程第 3-1 節會先講清楚什麼是 SEO、什麼是 GEO、兩者的關係，再帶你把兼容流程實際跑一遍。</p>
+        </div>
+      </div>
+      <p class="close">目標只有一個：<b>讓你的內容同時被 Google 找到、被 AI 引用。</b></p>
+    </div>
+  </section>
+
+  <!-- PAIN → UPGRADE -->
+  <section class="pain">
+    <div class="container">
+      <div class="eyebrow">AI 能幫你升級什麼</div>
+      <h2>你的 SEO 工作，AI 可以這樣升級</h2>
+      <p class="pstat">開課前問卷：做過 SEO 文章的人，<b>近 8 成一篇要花半天以上</b>。</p>
+      <div class="grid">
+        <div class="card"><b>關鍵字研究</b><span class="bf">現在：盯著關鍵字表格兩小時，還在複製、貼上、去重</span><span class="af">升級後：AI
+            照你定義的流程自動拓展、篩選、規劃主題群集，連建議報告都幫你產出</span></div>
+        <div class="card"><b>內容產出</b><span class="bf">現在：面對空白頁半小時，第一段還沒寫出來</span><span
+            class="af">升級後：草稿、段落擴寫、標題標記與中繼說明，AI 沿著流程一站一站做完</span></div>
+        <div class="card"><b>品質穩定度</b><span class="bf">現在：產出忽好忽壞，還擔心被搜尋引擎當成 AI 垃圾內容</span><span class="af">升級後：Skill
+            把標準與格式固定下來，每一篇的品質都一致</span></div>
+        <div class="card"><b>兼顧 SEO 與 GEO</b><span class="bf">現在：排名做上去了，客人卻說「我問 ChatGPT，它推薦的是別家」</span><span
+            class="af">升級後：同一套流程兼顧 GEO，讓 ChatGPT、Gemini 回答問題時也引用你</span></div>
+      </div>
+      <p class="turn"><span class="hl">你定標準，AI 跑流程。</span>把 AI 從「偶爾幫忙的工具」，變成你的內容生產線。</p>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="sol">
+    <div class="container">
+      <div class="eyebrow">解決方法</div>
+      <h2>不是再學一個 AI 工具，而是把你的專業「封裝」成 Skill</h2>
+      <p class="lead">寫一次，次次能用。Codex Skill 讓 AI 每次都按照你定義的流程、標準、格式執行，做到三件事：</p>
+      <div class="three">
+        <div class="item">
+          <div class="k">01 / SIMPLIFY</div>
+          <h3>工作簡化</h3>
+          <p>關鍵字研究＋內容生成，原本需要一整個工作天，透過 Skill 縮減到兩小時左右。（老師實際使用經驗）</p>
+        </div>
+        <div class="item">
+          <div class="k">02 / REPLICATE</div>
+          <h3>可複製</h3>
+          <p>流程封裝成模板——個人換專案直接沿用；企業搭配模板培訓，快速複製人才，不怕人走了流程跟著斷。</p>
+        </div>
+        <div class="item">
+          <div class="k">03 / CONTROL</div>
+          <h3>品質可控</h3>
+          <p>AI 每次都按同一套標準執行，產出品質維持一致，不再忽好忽壞。</p>
+        </div>
+      </div>
+      <p class="note">課程完整涵蓋 Skill 的建立、測試、檢查與優化方法。Skill 採用開放的 Agent Skills 標準，不綁定單一工具——你建立的流程資產，在其他支援此標準的 AI 工具中也能沿用。
+      </p>
+    </div>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="chap">
+    <div class="container">
+      <div class="eyebrow">課程大綱</div>
+      <h2>三個章節，從觀念到實戰</h2>
+      <div class="list">
+        <div class="row">
+          <div class="no">CH.1</div>
+          <div>
+            <h3>Codex Skill 基本觀念</h3>
+            <p>搞懂 Codex、Skill、Prompt、AI 代理這四個詞的關係，之後的每一步都建立在這裡。</p>
+            <div class="nodes">
+              <div class="node"><span class="idx">1-1</span>什麼是 Codex？（與 ChatGPT 的差別）</div>
+              <div class="node"><span class="idx">1-2</span>什麼是技能（Skill）</div>
+              <div class="node"><span class="idx">1-3</span>Skill 與一般指令（Prompt）有什麼不同？</div>
+              <div class="node"><span class="idx">1-4</span>Skill 與 AI 代理運作</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="no">CH.2</div>
+          <div>
+            <h3>親手做出你的第一個 Skill</h3>
+            <p>從選題到上線的完整八步——這套方法不只用在 SEO，之後任何重複性工作都能 Skill 化。</p>
+            <div class="nodes">
+              <div class="node"><span class="idx">2-1</span>選定一項重複性工作</div>
+              <div class="node"><span class="idx">2-2</span>定義輸入與輸出</div>
+              <div class="node"><span class="idx">2-3</span>啟動 Skill Creator</div>
+              <div class="node"><span class="idx">2-4</span>建立 Skill 資料夾</div>
+              <div class="node"><span class="idx">2-5</span>撰寫 SKILL.md</div>
+              <div class="node"><span class="idx">2-6</span>加入參考資料與程式</div>
+              <div class="node"><span class="idx">2-7</span>儲存到技能目錄</div>
+              <div class="node"><span class="idx">2-8</span>實際測試與修正</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="no">CH.3</div>
+          <div>
+            <h3>SEO / GEO 關鍵字研究與內容生成</h3>
+            <p>本課核心：SEO/GEO 兼容的關鍵字研究與內容生成流程，搭配 10 個模板逐一實例演練。</p>
+            <div class="nodes">
+              <div class="node"><span class="idx">3-1</span>SEO/GEO 介紹：兩者的關係與兼容工作流程</div>
+              <div class="node"><span class="idx">3-2</span>關鍵字研究流程：拓展 → 篩選 → 規劃</div>
+              <div class="node"><span class="idx">3-3</span>關鍵字研究要點、Codex 模板講解、實例演練</div>
+              <div class="node"><span class="idx">3-4</span>內容生成流程：產出 → 潤飾 → 優化</div>
+              <div class="node"><span class="idx">3-5</span>內容生成要點、Codex 模板講解、實例演練</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="highlight">不只講觀念——關鍵字研究與內容生成，都有<b>完整的模板講解與實例演練</b>，看老師實際跑一次給你看。</p>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section class="out">
+    <div class="container">
+      <div class="eyebrow">學習成果</div>
+      <h2>上完課，你會的七件事</h2>
+      <div class="grid">
+        <div class="o"><span class="n">01</span>Codex Skill 基本觀念</div>
+        <div class="o"><span class="n">02</span>如何製作 Skill</div>
+        <div class="o"><span class="n">03</span>什麼是 SEO / GEO</div>
+        <div class="o"><span class="n">04</span>SEO / GEO 關鍵字研究流程</div>
+        <div class="o"><span class="n">05</span>應用 Codex 技能研究 SEO / GEO 關鍵字</div>
+        <div class="o"><span class="n">06</span>SEO / GEO 內容生成流程</div>
+        <div class="o"><span class="n">07</span>應用 Codex 技能生成 SEO / GEO 內容</div>
+      </div>
+      <p class="scope">這套能力不只用在搜尋優化——可直接應用於 <b>SEO、GEO、內容製作與內容行銷</b>。</p>
+    </div>
+  </section>
+
+  <!-- TEMPLATES -->
+  <section class="tpl">
+    <div class="container">
+      <div class="eyebrow">你的內容生產線</div>
+      <h2>10 個模板，接成一條內容生產線</h2>
+      <p class="tlead">不是零散的指令集——從找關鍵字到上稿前優化，六個階段一站接一站，同時做好 SEO 與 GEO。</p>
+      <div class="fgroup first">
+        <div class="glabel">關鍵字研究流程（7 個 Skill）</div>
+        <div class="fstages">
+          <div class="fstage">
+            <div class="sname"><i>STEP 1</i>拓展</div>
+            <div class="sk">找出 SEO 關鍵字</div>
+            <div class="sk">找出 GEO 關鍵字</div>
+          </div>
+          <div class="farr"></div>
+          <div class="fstage">
+            <div class="sname"><i>STEP 2</i>篩選</div>
+            <div class="sk">篩選 SEO 關鍵字</div>
+            <div class="sk">篩選 GEO 關鍵字</div>
+          </div>
+          <div class="farr"></div>
+          <div class="fstage">
+            <div class="sname"><i>STEP 3</i>規劃</div>
+            <div class="sk">規劃 SEO 關鍵字主題群集</div>
+            <div class="sk">產出關鍵字建議報告</div>
+            <div class="sk">產出內容地圖</div>
+          </div>
+        </div>
+      </div>
+      <div class="fconn"></div>
+      <div class="fgroup">
+        <div class="glabel">內容生成流程（3 個 Skill）</div>
+        <div class="fstages">
+          <div class="fstage">
+            <div class="sname"><i>STEP 4</i>產出</div>
+            <div class="sk">產出內容草稿</div>
+          </div>
+          <div class="farr"></div>
+          <div class="fstage">
+            <div class="sname"><i>STEP 5</i>潤飾</div>
+            <div class="sk">擴寫段落</div>
+          </div>
+          <div class="farr"></div>
+          <div class="fstage">
+            <div class="sname"><i>STEP 6</i>優化</div>
+            <div class="sk">撰寫標題標記與中繼說明</div>
+          </div>
+        </div>
+      </div>
+      <p class="cap">從找關鍵字到上稿前的最後優化，<b>每一段都有對應模板</b>——原本一天的工作，兩小時左右完成。</p>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="aud">
+    <div class="container">
+      <div class="eyebrow">適合對象</div>
+      <h2>你為什麼需要這堂課</h2>
+      <div class="who">
+        <div class="wcard">
+          <h3>SEO／數位行銷從業者</h3>
+          <p>客戶已經開始問「AI 搜尋要怎麼做」。這堂課讓你用同一套兼容流程，同時交付 SEO 與 GEO——不用重學一套，專業直接升級成雙軌服務。</p>
+        </div>
+        <div class="wcard">
+          <h3>內容行銷／編輯</h3>
+          <p>每天都在產內容，最怕品質不穩、改稿無限迴圈。把產出、潤飾、優化、標題與中繼說明全部變成固定流程，寫得快，而且每一篇都穩。</p>
+        </div>
+        <div class="wcard">
+          <h3>自媒體／電商經營者</h3>
+          <p>一人身兼十職，沒時間從零學 SEO。10 個模板直接套用，讓 Google 找得到你、AI 引用你，把省下的時間留給產品和粉絲。</p>
+        </div>
+        <div class="wcard">
+          <h3>行銷主管</h3>
+          <p>內容 know-how 都鎖在某個同事腦裡？把流程封裝成 Skill 模板——培訓有教材、交接不斷層，團隊產能變成可複製的資產。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <div class="eyebrow">常見問題</div>
+      <h2>報名前，先弄清楚</h2>
+      <details>
+        <summary>需要付費工具嗎？</summary>
+        <div class="a">課程以 OpenAI Codex 示範。10 個模板中，7 個使用免費版即可；「找出 SEO 關鍵字」「篩選 SEO 關鍵字」「產出內容地圖」3 個需 Codex 付費版，並另購 Data
+          for SEO API。</div>
+      </details>
+      <details>
+        <summary>直播當天沒空怎麼辦？</summary>
+        <div class="a">報名即含完整回放，錯過直播也能看。差別只在無法參與當天的即時 QA。</div>
+      </details>
+      <!-- 待老師確認後補上：不會寫程式可以上嗎／模板授權範圍／API 費用細節 -->
+    </div>
+  </section>
+</div>
