@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "skills": {
+    "adjust": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/adjust/SKILL.md",
+      "computedHash": "e524ff39d686c0a8fdb323bb766393678138d7d0576c241fac92329edcfbcc5b"
+    },
+    "change-report": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/change-report/SKILL.md",
+      "computedHash": "54a3ee32bb87bad8a68c3e88f19b4370ad20cd2b4a3676e8aeb3a61e21047a4e"
+    },
+    "comment-trim": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/comment-trim/SKILL.md",
+      "computedHash": "2f87308eb0598b4321975c29ee466ca9de93ef9fabce456de6db5073876a2e41"
+    },
+    "distill-playbook": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/distill-playbook/SKILL.md",
+      "computedHash": "35bfdb4997ea597923fdf3c297da3fb8468de41e0f3c67496167386f77ebbccf"
+    },
+    "doc-trim": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/doc-trim/SKILL.md",
+      "computedHash": "b026590750e68cbc916252ea0594cc856b77505205a30808b8cae6450bbae34e"
+    },
+    "e2e-test": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/e2e-test/SKILL.md",
+      "computedHash": "0ef24e73ad4005da90c6ec6b8791f846055760ea5a0e2358773dc7e98a089dba"
+    },
+    "feature": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/feature/SKILL.md",
+      "computedHash": "1d995be49e608ead1433e161dff7fbc8132021a24b7fd27a99c97e34aa69af29"
+    },
+    "find-component-render-path": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/find-component-render-path/SKILL.md",
+      "computedHash": "64712f75067a566ba980a6fc1541ca3ef155d40d68635c5496e224dde5b750a7"
+    },
+    "fix": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/fix/SKILL.md",
+      "computedHash": "f638c20a5092b774637860ef0c62c4a884d287ce4c8c6f25f31ba62094100153"
+    },
+    "independent-review": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/independent-review/SKILL.md",
+      "computedHash": "ec9f289c93746be77578c2c41dfa3dc73dd5283a7bf2e3c21d5f58db4a9180a7"
+    },
+    "new-branch-feature": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/new-branch-feature/SKILL.md",
+      "computedHash": "bd8c98a0eb85f54b5e88701aa05b16606e9203e1d1af901a82f40ab493da0d09"
+    },
+    "next-task": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/next-task/SKILL.md",
+      "computedHash": "960db11fdce37a58d8e14c469747d6de56f8fa322c5e030177ab4af2b6263740"
+    },
+    "pr-acceptance-checklist": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/pr-acceptance-checklist/SKILL.md",
+      "computedHash": "76ad3ccdf182d78a64b08608f789c1b5fdd510d817a9a85e1d260c76d7327dc0"
+    },
+    "pr-delivery": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/pr-delivery/SKILL.md",
+      "computedHash": "cbbf3b92752ab9d9fe3c292ff567823975edbb00e63f16485887491b4604bb81"
+    },
+    "quick-debug": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/quick-debug/SKILL.md",
+      "computedHash": "bbda981368609eac92da806e1a886d747872cd1230657454edf018ea59eb77ee"
+    },
+    "react-integration-test": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/react-integration-test/SKILL.md",
+      "computedHash": "61cc847db59593f771ce19d07b1500f6ffa8e8c56c9f09e002666473a412a43f"
+    },
+    "refactor": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/refactor/SKILL.md",
+      "computedHash": "f47f08612722f2b2a70d6b8bf892c87f0f3a94822f61e5fa614dc1eef5864514"
+    },
+    "refactor-scan": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/refactor-scan/SKILL.md",
+      "computedHash": "bf79c3ea0af85c881719cdab07680f66625fd377a8a369331e66ee69752f9907"
+    },
+    "ticket-to-ai-spec": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/ticket-to-ai-spec/SKILL.md",
+      "computedHash": "de6d35a9ac0d84cab8d1034665bdd3a33ebc3e85548a4d1ce6fdb5cf80a408b8"
+    },
+    "unit-test": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/unit-test/SKILL.md",
+      "computedHash": "a2cfbdc468a94c243babb15dab38cf7dc2a1b163262115b2b7823dfa473163af"
+    },
+    "us-acceptance-check": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/us-acceptance-check/SKILL.md",
+      "computedHash": "6561fd61cc8a55073df34310af6fa0ea8b3c96b75258335e3360ac913b087974"
+    },
+    "user-stories": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/user-stories/SKILL.md",
+      "computedHash": "adc87366702ed20bf8dad99c6415c9c65ff58e460025793baf9e7c75e8a5abeb"
+    },
+    "vue-integration-test": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/vue-integration-test/SKILL.md",
+      "computedHash": "06d47a6990f176cd0e9deacede5cde51e6bcd89a861d19eccb03cc673fb820a1"
+    },
+    "weekly-branch-report": {
+      "source": "ms0223900/agent-skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/weekly-branch-report/SKILL.md",
+      "computedHash": "c0717a84cb5c0cb30840cca6927ecf5401fdb2ab62413c07e70ac48abac0fc15"
+    }
+  }
+}
