@@ -41,7 +41,7 @@
       "source": "ms0223900/chat-with-ai-build-project-html",
       "sourceType": "github",
       "skillPath": ".claude/skills/host-static-html/SKILL.md",
-      "computedHash": "4b20e826bf9e730ed6842ee19af3504cb3a3bfdc004109187a6049a3dd1eee74"
+      "computedHash": "3bf11254a00523643edc16d68bfea5d4f906566fc76838dfc1102d961f1dfcfd"
     },
     "e2e-test": {
       "source": "ms0223900/agent-skills",
@@ -126,12 +126,6 @@
       "sourceType": "github",
       "skillPath": ".claude/skills/ticket-to-ai-spec/SKILL.md",
       "computedHash": "de6d35a9ac0d84cab8d1034665bdd3a33ebc3e85548a4d1ce6fdb5cf80a408b8"
-    },
-    "update-master-talks-html": {
-      "source": "ms0223900/chat-with-ai-build-project-html",
-      "sourceType": "github",
-      "skillPath": ".claude/skills/update-master-talks-html/SKILL.md",
-      "computedHash": "d7805958814115e934a605c003b3e66a94beacb04df8d3c8cb7d85b39eb0e701"
     },
     "unit-test": {
       "source": "ms0223900/agent-skills",

@@ -105,4 +105,4 @@ Then open `http://127.0.0.1:8080/<filename>.html` in a browser, or double-click 
 - **Stack**: Python `http.server` + `localtunnel` via `npx`. No Nginx, Docker, or build step.
 - **Persistence**: Servers live in tmux sessions; reuse an existing session if one is already running for the same port.
 - **Egress**: Cloud Agent environments typically allow outbound network for `npx localtunnel`.
-- **Screenshots**: For modal/UI checks, use `playwright-core` with system Chrome if available; see `update-master-talks-html` skill for curriculum modal verification.
+- **Screenshots**: For modal/UI checks, use `playwright-core` with system Chrome if available.
