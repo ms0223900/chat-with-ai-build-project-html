@@ -31,6 +31,18 @@
       "skillPath": ".claude/skills/doc-trim/SKILL.md",
       "computedHash": "b026590750e68cbc916252ea0594cc856b77505205a30808b8cae6450bbae34e"
     },
+    "extract-html-data-uri-images": {
+      "source": "ms0223900/chat-with-ai-build-project-html",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/extract-html-data-uri-images/SKILL.md",
+      "computedHash": "2c7e953481133571027184c2ef7f1e6f368d996275ead905ef05e1abcc8d2cb5"
+    },
+    "host-static-html": {
+      "source": "ms0223900/chat-with-ai-build-project-html",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/host-static-html/SKILL.md",
+      "computedHash": "3bf11254a00523643edc16d68bfea5d4f906566fc76838dfc1102d961f1dfcfd"
+    },
     "e2e-test": {
       "source": "ms0223900/agent-skills",
       "sourceType": "github",
