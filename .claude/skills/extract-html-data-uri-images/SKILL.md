@@ -25,7 +25,7 @@ Task Progress:
 From the project root (directory containing the target HTML):
 
 ```bash
-python3 .cursor/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py --dry-run "path/to/page.html"
+python3 .claude/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py --dry-run "path/to/page.html"
 ```
 
 Confirm output filenames and `images/<html-stem>/` target directory.
@@ -33,13 +33,13 @@ Confirm output filenames and `images/<html-stem>/` target directory.
 ### Step 2: Extract and replace
 
 ```bash
-python3 .cursor/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py "path/to/page.html"
+python3 .claude/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py "path/to/page.html"
 ```
 
 Optional custom output directory:
 
 ```bash
-python3 .cursor/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py "path/to/page.html" -o images/custom-folder
+python3 .claude/skills/extract-html-data-uri-images/scripts/extract_data_uri_images.py "path/to/page.html" -o images/custom-folder
 ```
 
 ### Step 3: Verify
