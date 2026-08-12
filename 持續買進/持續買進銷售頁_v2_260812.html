@@ -1,0 +1,2058 @@
+<!-- ═══════════════════════════════════════════════
+  持續買進大師課 銷售頁 — PageFly 嵌入版
+  使用方式:
+  1. PageFly 編輯器中拖入「HTML/Liquid」元素
+  2. 將本檔全部內容貼入
+  3. 該元素外層不要再包欄位(Column)寬度限制,直接放滿版 Section
+  ═══════════════════════════════════════════════ -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+  rel="stylesheet" />
+<style>
+  :root,
+  #kb-page {
+    --green-dark: #1C4332;
+    --green-mid: #2D6A4F;
+    --green-accent: #40916C;
+    --green-light: #D8F3DC;
+    --green-pale: #F0FAF3;
+    --orange: #E07B39;
+    --orange-light: #FFF3E8;
+    --gold: #C9A84C;
+    --text-dark: #1A1A1A;
+    --text-mid: #444444;
+    --text-light: #888888;
+    --white: #FFFFFF;
+    --bg-light: #F8FAF9;
+    --border: #E2EDE6;
+    --shadow: rgba(28, 67, 50, 0.12);
+  }
+
+  #kb-page *,
+  #kb-page *::before,
+  #kb-page *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+  #kb-page {
+    font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-size: 16px;
+    background: var(--white);
+    letter-spacing: 0.09em;
+  }
+
+  #kb-page h1,
+  #kb-page h2,
+  #kb-page h3,
+  #kb-page h4 {
+    font-family: 'Noto Serif TC', 'Georgia', serif;
+    line-height: 1.4;
+    letter-spacing: 0.07em;
+  }
+
+  #kb-page a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #kb-page img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ─── STICKY NAV ─── */
+  #kb-page .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--green-dark);
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 12px var(--shadow);
+  }
+
+  #kb-page .nav-logo {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 1px;
+  }
+
+  #kb-page .nav-logo span {
+    color: var(--orange);
+  }
+
+  #kb-page .nav-cta {
+    background: var(--orange);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  #kb-page .nav-cta:hover {
+    background: #c96a2a;
+  }
+
+  /* ─── HERO ─── */
+  #kb-page .hero {
+    background: linear-gradient(135deg, var(--green-dark) 0%, #163827 100%);
+    color: var(--white);
+    padding: 80px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #kb-page .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  #kb-page .hero-badge {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 18px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+
+  #kb-page .hero h1 {
+    font-size: clamp(28px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.35;
+    max-width: 820px;
+    margin: 0 auto 24px;
+    letter-spacing: 0.1em;
+  }
+
+  #kb-page .hero h1 em {
+    font-style: normal;
+    color: #7ED9A0;
+  }
+
+  #kb-page .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 620px;
+    margin: 0 auto 40px;
+    line-height: 1.75;
+  }
+
+  #kb-page .hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #kb-page .btn-primary {
+    background: var(--orange);
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 48px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(224, 123, 57, 0.4);
+  }
+
+  #kb-page .btn-primary:hover {
+    background: #c96a2a;
+    transform: translateY(-2px);
+  }
+
+  #kb-page .btn-ghost {
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    padding: 18px 32px;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  #kb-page .btn-ghost:hover {
+    border-color: var(--white);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  #kb-page .hero-stats {
+    margin-top: 60px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  #kb-page .hero-stat strong {
+    display: block;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #7ED9A0;
+  }
+
+  #kb-page .hero-stat span {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* ─── TRUST BAR ─── */
+  #kb-page .trust-bar {
+    background: var(--green-pale);
+    border-bottom: 1px solid var(--border);
+    padding: 22px 24px;
+  }
+
+  #kb-page .trust-bar-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+
+  #kb-page .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--green-mid);
+    font-weight: 500;
+  }
+
+  #kb-page .trust-icon {
+    width: 28px;
+    height: 28px;
+    background: var(--green-mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  #kb-page .trust-icon svg {
+    fill: white;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  #kb-page .section {
+    padding: 80px 24px;
+  }
+
+  #kb-page .section-alt {
+    background: var(--bg-light);
+  }
+
+  #kb-page .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  #kb-page .container-wide {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  #kb-page .section-label {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  #kb-page .section-title {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 900;
+    margin-bottom: 16px;
+    color: var(--text-dark);
+  }
+
+  #kb-page .section-sub {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 640px;
+    line-height: 1.75;
+  }
+
+  #kb-page .section-header {
+    margin-bottom: 52px;
+  }
+
+  /* ─── PAIN POINTS ─── */
+  #kb-page .pains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  #kb-page .pain-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-left: 4px solid var(--orange);
+    border-radius: 8px;
+    padding: 24px;
+    transition: box-shadow 0.2s;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+
+  #kb-page .pain-card:hover {
+    box-shadow: 0 6px 24px var(--shadow);
+  }
+
+  #kb-page .pain-emoji {
+    font-size: 26px;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  #kb-page .pain-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-dark);
+  }
+
+  #kb-page .pain-card p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    grid-column: 2;
+    margin-top: 8px;
+  }
+
+  /* ─── HIGHLIGHT QUOTE ─── */
+  #kb-page .highlight-box {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+    color: var(--white);
+    border-radius: 16px;
+    padding: 60px 48px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  #kb-page .highlight-box blockquote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  #kb-page .highlight-box blockquote em {
+    font-style: normal;
+    color: #7ED9A0;
+    display: inline-block;
+    border-bottom: 2px solid #7ED9A0;
+    padding-bottom: 2px;
+  }
+
+  #kb-page .highlight-box cite {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    font-style: normal;
+  }
+
+  /* ─── DATA CALLOUTS ─── */
+  #kb-page .data-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  #kb-page .data-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  #kb-page .data-card .num {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--green-dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  #kb-page .data-card .num-sub {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  #kb-page .data-card p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ─── CURRICULUM ─── */
+  #kb-page .curriculum {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #kb-page .lesson {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 0;
+    border: 1.5px solid var(--border);
+    border-radius: 0;
+    margin-bottom: -1px;
+    background: var(--white);
+    transition: background 0.2s;
+    overflow: hidden;
+  }
+
+  #kb-page .lesson:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+
+  #kb-page .lesson:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+
+  #kb-page .lesson:hover {
+    background: var(--green-pale);
+    z-index: 1;
+    position: relative;
+  }
+
+  #kb-page .lesson-num {
+    background: var(--green-dark);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 18px;
+    font-weight: 900;
+    min-height: 80px;
+    flex-shrink: 0;
+  }
+
+  #kb-page .lesson-body {
+    padding: 22px 28px;
+    border-left: 1px solid var(--border);
+  }
+
+  #kb-page .lesson-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+  }
+
+  #kb-page .lesson-body p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.65;
+  }
+
+  #kb-page .lesson-tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  #kb-page .tag {
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  #kb-page .tag-orange {
+    background: var(--orange-light);
+    color: var(--orange);
+  }
+
+  /* ─── ASSETS ─── */
+  #kb-page .assets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+
+  #kb-page .asset-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    column-gap: 13px;
+    align-items: center;
+    align-content: start;
+  }
+
+  #kb-page .asset-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--green-accent);
+  }
+
+  #kb-page .asset-icon {
+    font-size: 28px;
+    margin-bottom: 0;
+    line-height: 1;
+  }
+
+  #kb-page .asset-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  #kb-page .asset-return {
+    display: inline-block;
+    justify-self: start;
+    grid-column: 2;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+
+  #kb-page .asset-card p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    grid-column: 2;
+    margin-top: 8px;
+  }
+
+  /* ─── INSTRUCTOR ─── */
+  #kb-page .instructor-wrap {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  #kb-page .instructor-photo {
+    box-shadow: 0 8px 32px var(--shadow);
+    border-radius: 16px;
+    overflow: hidden;
+    line-height: 0;
+    flex-shrink: 0;
+    max-width: 480px;
+  }
+
+  #kb-page .instructor-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+  }
+
+  #kb-page .instructor-name {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 8px;
+  }
+
+  #kb-page .instructor-title {
+    font-size: 15px;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  #kb-page .instructor-bio p {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  #kb-page .credentials {
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #kb-page .credential {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+
+  #kb-page .credential-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green-accent);
+    border-radius: 50%;
+    margin-top: 9px;
+    flex-shrink: 0;
+  }
+
+  /* ─── 名人推薦 ─── */
+  #kb-page .endorsements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  #kb-page .endorsement {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px 28px;
+    position: relative;
+    border-top: 4px solid var(--green-accent);
+    transition: box-shadow 0.2s;
+  }
+
+  #kb-page .endorsement:hover {
+    box-shadow: 0 8px 32px var(--shadow);
+  }
+
+  #kb-page .endorsement-icon {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+
+  #kb-page .endorsement-quote {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  #kb-page .endorsement-quote::before {
+    content: '\201C';
+    font-family: 'Noto Serif TC', serif;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--green-light);
+    position: absolute;
+    top: -10px;
+    left: -8px;
+  }
+
+  #kb-page .endorsement-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--green-dark);
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+
+  #kb-page .author-name {
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  #kb-page .author-desc {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  #kb-page .stars {
+    color: #F5A623;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  /* ─── WHAT YOU GET ─── */
+  #kb-page .gets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  #kb-page .get-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  #kb-page .get-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+  }
+
+  #kb-page .get-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  #kb-page .get-card p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  /* ─── PORTFOLIO BOX ─── */
+  #kb-page .portfolio-box {
+    background: var(--green-dark);
+    color: var(--white);
+    border-radius: 16px;
+    padding: 48px 40px;
+  }
+
+  #kb-page .portfolio-box h3 {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 8px;
+    color: #7ED9A0;
+  }
+
+  #kb-page .portfolio-box .sub {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 32px;
+  }
+
+  #kb-page .portfolio-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  #kb-page .portfolio-bar-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 60px;
+    align-items: center;
+    gap: 14px;
+    font-size: 15px;
+  }
+
+  #kb-page .portfolio-bar-row .label {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  #kb-page .bar-track {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  #kb-page .bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #40916C, #7ED9A0);
+  }
+
+  #kb-page .portfolio-bar-row .pct {
+    font-weight: 700;
+    color: #7ED9A0;
+    text-align: right;
+  }
+
+  /* ─── PRICING ─── */
+  #kb-page .pricing-section {
+    background: linear-gradient(135deg, var(--green-dark) 0%, #163827 100%);
+    color: var(--white);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  #kb-page .pricing-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 14px;
+  }
+
+  #kb-page .pricing-section h2 {
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 900;
+    margin-bottom: 12px;
+  }
+
+  #kb-page .pricing-section .sub {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 540px;
+    margin: 0 auto 52px;
+  }
+
+  #kb-page .pricing-card {
+    max-width: 520px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 48px 40px;
+    backdrop-filter: blur(8px);
+  }
+
+  #kb-page .pricing-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  #kb-page .pricing-price {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 68px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  #kb-page .pricing-price sup {
+    font-size: 28px;
+    vertical-align: super;
+    font-weight: 700;
+  }
+
+  #kb-page .pricing-original {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: line-through;
+    margin-bottom: 28px;
+  }
+
+  #kb-page .pricing-includes {
+    list-style: none;
+    margin-bottom: 36px;
+    text-align: left;
+  }
+
+  #kb-page .pricing-includes li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  #kb-page .pricing-includes li::before {
+    content: '✓';
+    color: #7ED9A0;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  #kb-page .pricing-cta {
+    display: block;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    padding: 20px 48px;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.2s;
+    box-shadow: 0 6px 24px rgba(224, 123, 57, 0.45);
+  }
+
+  #kb-page .pricing-cta:hover {
+    background: #c96a2a;
+    transform: translateY(-2px);
+  }
+
+  #kb-page .pricing-note {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 16px;
+  }
+
+  /* ─── FAQ ─── */
+  #kb-page .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #kb-page .faq-item {
+    border: 1.5px solid var(--border);
+    border-radius: 0;
+    margin-bottom: -1px;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  #kb-page .faq-item:first-child {
+    border-radius: 12px 12px 0 0;
+  }
+
+  #kb-page .faq-item:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+
+  #kb-page .faq-q {
+    padding: 22px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+  }
+
+  #kb-page .faq-q::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--green-accent);
+    flex-shrink: 0;
+  }
+
+  #kb-page .faq-q.open::after {
+    content: '−';
+  }
+
+  #kb-page .faq-a {
+    padding: 0 28px 22px;
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    display: none;
+  }
+
+  #kb-page .faq-a.open {
+    display: block;
+  }
+
+  /* ─── FINAL CTA ─── */
+  #kb-page .final-cta {
+    background: var(--green-pale);
+    border-top: 2px solid var(--border);
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  #kb-page .final-cta h2 {
+    font-size: clamp(24px, 4vw, 40px);
+    font-weight: 900;
+    max-width: 680px;
+    margin: 0 auto 20px;
+  }
+
+  #kb-page .final-cta p {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+
+  /* ─── FOOTER ─── */
+  #kb-page footer {
+    background: var(--green-dark);
+    color: rgba(255, 255, 255, 0.55);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  #kb-page footer strong {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ─── UTILITIES ─── */
+  #kb-page .text-center {
+    text-align: center;
+  }
+
+  #kb-page .mt-12 {
+    margin-top: 12px;
+  }
+
+  #kb-page .mt-24 {
+    margin-top: 24px;
+  }
+
+  #kb-page .mt-48 {
+    margin-top: 48px;
+  }
+
+  #kb-page .divider {
+    width: 60px;
+    height: 4px;
+    background: var(--orange);
+    border-radius: 2px;
+    margin: 20px 0;
+  }
+
+  #kb-page .divider-center {
+    margin: 20px auto;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    #kb-page .nav {
+      padding: 12px 20px;
+    }
+
+    #kb-page .hero {
+      padding: 56px 20px 64px;
+    }
+
+    #kb-page .highlight-box {
+      padding: 40px 24px;
+    }
+
+    #kb-page .instructor-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    #kb-page .instructor-photo {
+      height: auto;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    #kb-page .pricing-card {
+      padding: 36px 24px;
+    }
+
+    #kb-page .pricing-price {
+      font-size: 52px;
+    }
+
+    #kb-page .portfolio-bar-row {
+      grid-template-columns: 110px 1fr 50px;
+    }
+
+    #kb-page .faq-q {
+      font-size: 15px;
+      padding: 18px 20px;
+    }
+
+    #kb-page .faq-a {
+      padding: 0 20px 18px;
+    }
+
+    #kb-page .lesson-body {
+      padding: 18px 20px;
+    }
+
+  }
+
+  /* ─── CHART IMAGES ─── */
+  #kb-page .chart-block {
+    margin: 52px auto 0;
+    max-width: 820px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  #kb-page .chart-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #kb-page .chart-caption {
+    padding: 16px 24px;
+    font-size: 15px;
+    color: var(--text-light);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--bg-light);
+  }
+
+
+  /* ═══════════ 親切版圖表 ═══════════ */
+  #kb-page .chart-headline {
+    text-align: center;
+    padding: 26px 24px 6px;
+  }
+
+  #kb-page .chart-headline strong {
+    display: block;
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(17px, 2.4vw, 23px);
+    font-weight: 900;
+    color: var(--green-dark);
+    line-height: 1.55;
+    margin-bottom: 6px;
+  }
+
+  #kb-page .chart-headline span {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  #kb-page .chart-headline-sm {
+    padding: 16px 16px 2px;
+  }
+
+  #kb-page .chart-headline-sm strong {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+
+  #kb-page .infl-chart {
+    max-width: 640px;
+    margin: 44px auto 0;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 28px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  #kb-page .infl-row {
+    display: grid !important;
+    grid-template-columns: 56px 1fr 64px;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+  }
+
+  #kb-page .infl-rate {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-mid);
+    text-align: right;
+  }
+
+  #kb-page .infl-track {
+    background: var(--green-pale);
+    border-radius: 99px;
+    height: 20px;
+  }
+
+  #kb-page .infl-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-mid), var(--green-accent));
+    border-radius: 99px;
+  }
+
+  #kb-page .infl-years {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--green-mid);
+  }
+
+  #kb-page .infl-src {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--text-light);
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) {
+    #kb-page .infl-chart {
+      padding: 22px 16px 16px;
+    }
+  }
+
+  /* 主題 !important 字級防禦 */
+  #kb-page .hero h1 {
+    font-size: clamp(28px, 5vw, 56px) !important;
+    font-weight: 900 !important;
+  }
+
+  #kb-page .section-title {
+    font-size: clamp(24px, 4vw, 40px) !important;
+    font-weight: 900 !important;
+  }
+
+  #kb-page .hero-sub {
+    font-size: clamp(16px, 2vw, 20px) !important;
+  }
+
+  #kb-page .instructor-name {
+    font-size: 32px !important;
+  }
+
+  #kb-page .pain-card h3,
+  #kb-page .asset-card h3 {
+    font-size: 17px !important;
+  }
+
+  #kb-page .lesson-body h3 {
+    font-size: 17px !important;
+  }
+
+  #kb-page .faq-q {
+    font-size: 16px !important;
+  }
+
+  /* PageFly / 主題按鈕防禦 */
+  #kb-page a.btn-primary,
+  #kb-page a.btn-ghost,
+  #kb-page a.nav-cta {
+    display: inline-block !important;
+    line-height: 1.5 !important;
+    height: auto !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+  }
+
+  #kb-page h1,
+  #kb-page h2,
+  #kb-page h3,
+  #kb-page h4 {
+    text-transform: none;
+  }
+
+  /* ═══════════ 嵌入防禦層(Shopify / PageFly 佈景相容) ═══════════ */
+  #kb-page {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 100% !important;
+    float: none !important;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  #kb-page * {
+    min-width: 0;
+  }
+
+  #kb-page section {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    float: none !important;
+  }
+
+  #kb-page img {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  #kb-page .container,
+  #kb-page .container-wide {
+    width: 100%;
+  }
+
+  #kb-page .split-2col {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  #kb-page .pains-grid,
+  #kb-page .data-row,
+  #kb-page .assets-grid,
+  #kb-page .endorsements-grid,
+  #kb-page .gets-grid {
+    display: grid !important;
+  }
+
+  #kb-page .lesson {
+    display: grid !important;
+    grid-template-columns: 60px 1fr !important;
+  }
+
+  #kb-page .instructor-wrap {
+    display: grid !important;
+  }
+
+  #kb-page .portfolio-bars {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #kb-page .portfolio-bar-row {
+    display: grid !important;
+  }
+
+  #kb-page .hero-ctas,
+  #kb-page .hero-stats,
+  #kb-page .trust-bar-inner {
+    display: flex !important;
+  }
+
+  @media (max-width: 768px) {
+    #kb-page .split-2col {
+      grid-template-columns: 1fr !important;
+      gap: 28px;
+    }
+
+    #kb-page .instructor-wrap {
+      grid-template-columns: 1fr !important;
+    }
+
+    #kb-page .pains-grid,
+    #kb-page .data-row,
+    #kb-page .assets-grid,
+    #kb-page .endorsements-grid,
+    #kb-page .gets-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    #kb-page .portfolio-box {
+      padding: 32px 20px;
+    }
+
+    #kb-page .portfolio-bar-row {
+      grid-template-columns: 92px 1fr 42px !important;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    #kb-page .portfolio-bar-row .label {
+      letter-spacing: 0;
+    }
+
+    #kb-page .hero-sub br,
+    #kb-page .highlight-box blockquote br {
+      display: none;
+    }
+  }
+</style>
+
+<div id="kb-page">
+
+
+  <!-- ═══════════════════ STICKY NAV ═══════════════════ -->
+  <nav class="nav">
+    <div class="nav-logo">Master<span>Talks</span></div>
+  </nav>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <h1>
+        不需要完美時機<br />
+        只需要<em>持續買進</em>
+      </h1>
+      <p class="hero-sub">
+        當華爾街頂尖數據科學家，把他自己親身實踐的投資哲學，<br />
+        第一次用繁體中文完整呈現給台灣人——<br />
+        這不是理論，這是他每個月都在執行的真實計劃
+      </p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>10</strong>
+          <span>個完整章節</span>
+        </div>
+        <div class="hero-stat">
+          <strong>7</strong>
+          <span>種能生錢的資產</span>
+        </div>
+        <div class="hero-stat">
+          <strong>35年</strong>
+          <span>通膨吞掉一半財富的事實</span>
+        </div>
+        <div class="hero-stat">
+          <strong>10年</strong>
+          <span>完整財富行動藍圖</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TRUST BAR ═══════════════════ -->
+  <div class="trust-bar">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        《持續買進》暢銷書作者
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+        </div>
+        資料驅動‧有數據才說話
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        </div>
+        專為台灣投資環境量身設計
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24">
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+        </div>
+        繁體中文字幕完整翻譯
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════ PAIN POINTS ═══════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+
+        <h2 class="section-title">很多人存了一輩子的錢<br />卻從來沒有真正「富起來」</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="pains-grid">
+        <div class="pain-card">
+          <div class="pain-emoji">📉</div>
+          <h3>市場漲了怕買貴，跌了又不敢買</h3>
+          <p>永遠在等「完美時機」，卻永遠沒有等到——不知不覺又錯過了好幾年的複利時間</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-emoji">✂️</div>
+          <h3>省吃儉用，但資產就是長不大</h3>
+          <p>每個月記帳、削減支出，卻發現存款的增速根本追不上通膨，越存越窮心理</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-emoji">🎰</div>
+          <h3>不知道要買什麼，每次都靠感覺</h3>
+          <p>朋友說買這支，社群說買那個，ETF那麼多不知從哪選起，索性放著不動</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-emoji">💸</div>
+          <h3>加薪了，但錢就是不知道去哪了</h3>
+          <p>明明薪水漲了，生活費卻也跟著漲。每個月到底應該存多少、投多少，從來沒有清楚的計劃</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-emoji">😰</div>
+          <h3>市場崩跌就驚慌失措，忍不住賣掉</h3>
+          <p>知道應該長期持有，但股價大跌時還是睡不著覺，最終在最低點認賠殺出</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-emoji">🌀</div>
+          <h3>光靠薪水，根本無法積累真正的財富</h3>
+          <p>台灣最低收入族群每年平均「倒貼」18,214元，投資不是選項，而是現代人的必修課</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ HIGHLIGHT QUOTE ═══════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="highlight-box">
+        <blockquote>
+          「持續買進<em>一組多元</em>而且會<em>源源不絕產生收入</em>的資產」<br />
+          ——這不是一句口號，這是數據驗證、跨越市場週期、<br />
+          真正可以執行的長期投資策略
+        </blockquote>
+        <cite>— Nick Maggiulli，《持續買進》作者</cite>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">數據證明</div>
+        <h2 class="section-title">等跌了才買，其實沒有比較划算</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-sub" style="margin:0 auto;">用真實市場數據比較「等低點買進」vs「持續買進」，結果幾乎沒有差異——但等待的人損失了時間複利</p>
+      </div>
+      <div class="chart-block">
+        <div class="chart-headline">
+          <strong>等低點才買的人 vs 每個月固定買的人<br />十年下來，資產幾乎一樣</strong>
+          <span>黑線＝持續買進｜藍線＝每次等市場回檔（延遲兩個月）才進場</span>
+        </div>
+        <img src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/01-_-vs.png?v=1786496194"
+          alt="逢低買進 vs 持續買進比較" />
+        <div class="chart-caption">資料來源：課程 L6 — 逢低買進 vs. 持續買進實測數據</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ DATA SECTION ═══════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="section-label">數據不說謊</div>
+        <h2 class="section-title">為什麼你非學這套方法不可</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-sub" style="margin:0 auto;">以下都是真實數據，不是激勵人心的口號——這就是這門課的基調</p>
+      </div>
+      <div class="data-row mt-48">
+        <div class="data-card">
+          <div class="num">-18,214</div>
+          <div class="num-sub">元 / 年</div>
+          <p>台灣最低收入族群每年平均儲蓄是「負數」。光靠省錢，根本存不到財富</p>
+        </div>
+        <div class="data-card">
+          <div class="num">35年</div>
+          <div class="num-sub">購買力剩一半</div>
+          <p>2% 通膨下，35年後你的現金只剩今天一半的購買力。通膨是財富最隱蔽的敵人</p>
+        </div>
+        <div class="data-card">
+          <div class="num">6–8%</div>
+          <div class="num-sub">年化報酬</div>
+          <p>過去數十年，全球股票指數型ETF的長期平均年化報酬，遠超通膨、定存與債券</p>
+        </div>
+        <div class="data-card">
+          <div class="num">50%</div>
+          <div class="num-sub">加薪要存</div>
+          <p>每次加薪或獎金，至少存下一半，是避免「生活方式通膨」最簡單、最有效的規則</p>
+        </div>
+      </div>
+
+      <div class="infl-chart mt-48">
+        <div class="chart-headline" style="padding:0 0 20px;">
+          <strong>物價每年只漲 3%，你的錢<br />23 年後就只剩一半的購買力</strong>
+          <span>不同通膨率下，購買力減半所需的時間</span>
+        </div>
+        <div class="infl-row">
+          <span class="infl-rate">2%</span>
+          <div class="infl-track">
+            <div class="infl-fill" style="width:100%"></div>
+          </div>
+          <span class="infl-years">35 年</span>
+        </div>
+        <div class="infl-row">
+          <span class="infl-rate">3%</span>
+          <div class="infl-track">
+            <div class="infl-fill" style="width:66%"></div>
+          </div>
+          <span class="infl-years">23 年</span>
+        </div>
+        <div class="infl-row">
+          <span class="infl-rate">4%</span>
+          <div class="infl-track">
+            <div class="infl-fill" style="width:49%"></div>
+          </div>
+          <span class="infl-years">17 年</span>
+        </div>
+        <div class="infl-row">
+          <span class="infl-rate">5%</span>
+          <div class="infl-track">
+            <div class="infl-fill" style="width:40%"></div>
+          </div>
+          <span class="infl-years">14 年</span>
+        </div>
+        <div class="infl-src">資料來源：課程 L4 — 通膨使你的購買力減半所需的時間</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CURRICULUM ═══════════════════ -->
+  <section class="section section-alt" id="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">完整課程大綱</div>
+        <h2 class="section-title">10 個章節，打造你的<br />完整財富知識體系</h2>
+        <div class="divider"></div>
+        <p class="section-sub">從觀念建立、資產選擇、市場應對，到十年行動藍圖——每個章節都是你立刻可以使用的工具</p>
+      </div>
+
+      <div class="curriculum">
+
+        <div class="lesson">
+          <div class="lesson-num">L1</div>
+          <div class="lesson-body">
+            <h3>存錢是窮人的事，投資才是富人的思維</h3>
+            <p>用「儲蓄與投資的光譜」重新框架你的人生理財觀。從人生起點到終局，了解不同階段應該把多少重心放在儲蓄、多少放在投資，以及為何「路遙莫急」是長期財富累積最重要的心態</p>
+            <div class="lesson-tags">
+              <span class="tag">觀念建立</span>
+              <span class="tag">人生規劃</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L2</div>
+          <div class="lesson-body">
+            <h3>個人理財中最大的謊言——為什麼「削減開支」不會讓你變有錢</h3>
+            <p>揭穿「省錢理財法」的迷思：台灣真實數據顯示，最低收入族群每年儲蓄是負數，而最高收入族群年存885,139元。省錢的邊際效益有限，真正的解方是提高收入。這一課告訴你如何做</p>
+            <div class="lesson-tags">
+              <span class="tag">收入增長</span>
+              <span class="tag">台灣數據</span>
+              <span class="tag tag-orange">破除迷思</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L3</div>
+          <div class="lesson-body">
+            <h3>加薪後應該存多少？——把加薪、獎金納入長期財務計劃</h3>
+            <p>「生活方式通膨」是財富積累最隱藏的殺手——薪水漲了，花費也跟著漲，最後財富原地踏步。透過「彈簧喬 vs 志明」的真實案例，學習如何在享受生活的同時，把每次加薪有系統地轉化為長期資產</p>
+            <div class="lesson-tags">
+              <span class="tag">財務規劃</span>
+              <span class="tag">儲蓄策略</span>
+              <span class="tag tag-orange">實用公式</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L4</div>
+          <div class="lesson-body">
+            <h3>為什麼一定要投資？——在現代經濟中，投資是財富成長的必要條件</h3>
+            <p>三個你無法迴避的投資理由：為未來的自己儲蓄、對抗通膨這個「隱形稅」、把人力資本轉換為金融資本。包含台灣退休制度的轉變、MSCI台灣指數1990–2025走勢圖，以及具體的現值計算說明</p>
+            <div class="lesson-tags">
+              <span class="tag">投資必要性</span>
+              <span class="tag">通膨對抗</span>
+              <span class="tag">人力資本</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L5</div>
+          <div class="lesson-body">
+            <h3>讓你的錢替你工作——把儲蓄轉化為能產生複利與收入的資產</h3>
+            <p>深度解析7種能源源不絕產生現金流的資產類別：股票ETF、債券、出租房地產、不動產投資信託（REITs）、小型企業、定期存款，以及黃金/比特幣。每種資產的歷史報酬率、優缺點、適合比例，一次說清楚</p>
+            <div class="lesson-tags">
+              <span class="tag">資產配置</span>
+              <span class="tag">ETF</span>
+              <span class="tag">REITs</span>
+              <span class="tag tag-orange">核心課程</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L6</div>
+          <div class="lesson-body">
+            <h3>穿越市場循環，持續投資——在市場崩跌與高峰期都能穩定前進</h3>
+            <p>「波動就是入場券」——用台灣與美國市場的歷史崩跌圖表，以及「等待低點買進」vs「持續定期投資」的實證比較，說明為何大多數人嘗試抓市場低點反而輸給持續買進。恐懼不是敵人，放棄才是</p>
+            <div class="lesson-tags">
+              <span class="tag">市場波動</span>
+              <span class="tag">心理素質</span>
+              <span class="tag tag-orange">數據實證</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L7</div>
+          <div class="lesson-body">
+            <h3>多元化：在不確定世界中的安全網——打造能保護未來的投資組合</h3>
+            <p>分散投資不是因為你懦弱，而是因為沒有人能預測下一個十年哪個市場會稱王。透過2000-2024年跨國市場的真實報酬對比，了解「自家偏誤」的危險，以及 Nick 親身使用的投資組合配置邏輯</p>
+            <div class="lesson-tags">
+              <span class="tag">分散投資</span>
+              <span class="tag">地理配置</span>
+              <span class="tag">風險管理</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L8</div>
+          <div class="lesson-body">
+            <h3>建立屬於你的財務系統——將儲蓄、消費、投資整合成自動化計劃</h3>
+            <p>意志力是有限的，好的系統才是長期執行的關鍵。這一課教你建立三個帳戶（所得帳戶、儲蓄帳戶、投資帳戶）的自動化金流，並提供 Nick 親自使用的淨資產追蹤表，讓財務進度可視化</p>
+            <div class="lesson-tags">
+              <span class="tag">財務系統</span>
+              <span class="tag">自動化</span>
+              <span class="tag tag-orange">工具模板</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L9</div>
+          <div class="lesson-body">
+            <h3>讓人生也能複利成長——讓你的習慣、事業、人際關係都成為「投資」</h3>
+            <p>複利不只存在於你的投資帳戶。這一課借用NASA「航海家計劃」的思路，把複利思維擴展到職涯（技能、口碑、人脈）、關係（一致性重於強度）、健康（微小選擇的長期累加），打造全方位的複利人生</p>
+            <div class="lesson-tags">
+              <span class="tag">職涯發展</span>
+              <span class="tag">複利思維</span>
+              <span class="tag">人生哲學</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lesson">
+          <div class="lesson-num">L10</div>
+          <div class="lesson-body">
+            <h3>你的下一個十年財富計劃——結合全課重點，打造屬於自己的長期行動藍圖</h3>
+            <p>整合前九章所有工具，規劃你未來十年的財富成長路徑。三個階段：基礎期（第1-3年，建立系統）、加速期（第4-7年，擴大規模）、優化期（第8-10年，精煉組合）。Nick也分享了他自己的十年計劃如何實踐</p>
+            <div class="lesson-tags">
+              <span class="tag">10年計劃</span>
+              <span class="tag tag-orange">行動藍圖</span>
+              <span class="tag">綜合整理</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ 7 ASSETS ═══════════════════ -->
+  <section class="section">
+    <div class="container-wide">
+      <div class="section-header text-center">
+        <div class="section-label">第五章重點</div>
+        <h2 class="section-title">7 種會替你賺錢的資產</h2>
+        <div class="divider divider-center"></div>
+        <p class="section-sub" style="margin:0 auto;">這門課不只告訴你「要投資」，而是逐一拆解每種資產的報酬率、風險、適合比例</p>
+      </div>
+      <div class="assets-grid mt-48">
+        <div class="asset-card">
+          <div class="asset-icon">📊</div>
+          <h3>股票 ETF / 指數型基金</h3>
+          <span class="asset-return">年化報酬 6–8%</span>
+          <p>分散持有整個市場，低成本、高流動性，是多數人財富成長的核心引擎</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">📋</div>
+          <h3>債券</h3>
+          <span class="asset-return">年化報酬 2–4%</span>
+          <p>與股票負相關，在市場動盪時提供組合穩定性，是壓艙石資產</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🏠</div>
+          <h3>出租房地產</h3>
+          <span class="asset-return">年化報酬 8–12%</span>
+          <p>槓桿放大報酬，持續現金流入，但需要主動管理與較大初始資本</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🏗️</div>
+          <h3>不動產投資信託（REITs）</h3>
+          <span class="asset-return">年化報酬 8–10%</span>
+          <p>享有房地產報酬，不需親自管理，流動性高，小額就能參與</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🏪</div>
+          <h3>小型企業</h3>
+          <span class="asset-return">配置比例 5–10%</span>
+          <p>高風險高報酬，適合有創業能力或特殊行業知識的投資者</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🏦</div>
+          <h3>定期存款</h3>
+          <span class="asset-return">資金緩衝工具</span>
+          <p>流動性強、零本金風險，作為緊急預備金或短期等待投資的資金停泊池</p>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">✨</div>
+          <h3>黃金 / 比特幣</h3>
+          <span class="asset-return">配置比例 ≤5%</span>
+          <p>不產生現金流，波動劇烈，但可作為對沖通膨和系統性風險的少量配置</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PORTFOLIO ═══════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="split-2col">
+        <div>
+          <div class="section-label">Nick 的建議配置</div>
+          <h2 class="section-title">簡單、有效、<br />專為台灣人設計</h2>
+          <div class="divider"></div>
+          <p style="color:var(--text-mid);line-height:1.8;font-size:16px;">
+            沒有複雜的選股公式，沒有頻繁的進出場操作。
+            這是 Nick 根據台灣市場特性提出的入門配置——你可以在今天就開始執行。
+          </p>
+          <p style="color:var(--text-mid);line-height:1.8;font-size:16px;margin-top:14px;">
+            課程中會教你如何根據自己的年齡、風險承受度和財務目標進行個人化調整。
+          </p>
+        </div>
+        <div class="portfolio-box">
+          <h3>建議投資組合</h3>
+          <div class="sub">適合台灣投資人的入門配置比例</div>
+          <div class="portfolio-bars">
+            <div class="portfolio-bar-row">
+              <span class="label">🌐 國際股票</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:40%"></div>
+              </div>
+              <span class="pct">40%</span>
+            </div>
+            <div class="portfolio-bar-row">
+              <span class="label">🇹🇼 台灣股票</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:35%"></div>
+              </div>
+              <span class="pct">35%</span>
+            </div>
+            <div class="portfolio-bar-row">
+              <span class="label">📋 國際債券</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:15%;background:linear-gradient(90deg,#C9A84C,#f0d080)"></div>
+              </div>
+              <span class="pct">15%</span>
+            </div>
+            <div class="portfolio-bar-row">
+              <span class="label">📋 台灣債券</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:5%;background:linear-gradient(90deg,#C9A84C,#f0d080)"></div>
+              </div>
+              <span class="pct">5%</span>
+            </div>
+            <div class="portfolio-bar-row">
+              <span class="label">✨ 其他資產</span>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:5%;background:linear-gradient(90deg,#666,#999)"></div>
+              </div>
+              <span class="pct">5%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ INSTRUCTOR ═══════════════════ -->
+  <section class="section" id="instructor">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">你的老師</div>
+        <h2 class="section-title">華爾街數據科學家<br />把真實投資哲學帶給你</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="instructor-wrap">
+        <div>
+          <div class="instructor-photo"><img
+              src="https://cdn.shopify.com/s/files/1/0304/1083/4051/files/04-Nick-Maggiulli.jpg?v=1786496193"
+              alt="Nick Maggiulli" /></div>
+        </div>
+        <div class="instructor-bio">
+          <h2 class="instructor-name">尼克・馬朱利</h2>
+          <div class="instructor-title">Nick Maggiulli｜數據科學家 × 暢銷書作者</div>
+          <p>
+            尼克・馬朱利是 O'Shaughnessy Asset Management 的首席運營官，也是全球最受歡迎的個人財務部落格《Of Dollars and
+            Data》的創辦人。他的寫作方式獨樹一幟：用數據說話，用圖表取代感覺，讓複雜的財務決策變得清晰可執行。
+          </p>
+          <p>
+            他的暢銷書《持續買進》顛覆了傳統理財書的套路——不談「如何找到下一支飆股」，而是用幾十年的市場數據證明：持續、有紀律地買進優質資產，才是普通人財富成長最可靠的路徑。
+          </p>
+          <p>
+            這門課是他第一次為繁體中文市場設計的完整版本，包含針對台灣投資環境（台股、勞退、本土ETF）的在地化內容。
+          </p>
+          <div class="credentials">
+            <div class="credential">
+              <div class="credential-dot"></div>
+              <span>《持續買進》暢銷書作者，已翻譯為多國語言</span>
+            </div>
+            <div class="credential">
+              <div class="credential-dot"></div>
+              <span>O'Shaughnessy Asset Management 首席運營官（數十億美元資產管理規模）</span>
+            </div>
+            <div class="credential">
+              <div class="credential-dot"></div>
+              <span>「Of Dollars and Data」部落格，擁有數十萬訂閱者</span>
+            </div>
+            <div class="credential">
+              <div class="credential-dot"></div>
+              <span>哥倫比亞大學統計學碩士，擅長將數據分析應用於個人財務決策</span>
+            </div>
+            <div class="credential">
+              <div class="credential-dot"></div>
+              <span>本課程已針對台灣投資環境進行在地化設計（台股、勞退、本土ETF）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ 真實評價 ═══════════════════ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2 class="section-title">真實評價</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="endorsements-grid">
+        <div class="endorsement">
+          <div class="endorsement-icon">📊</div>
+          <p class="endorsement-quote">
+            很多年前我就發現什麼「停利不停損」根本就是白費工夫，徒增困擾。但是要怎麼度過漲跌？單筆買進就好？可我就抱不住，或是我一開始根本沒這麼多錢啊！很簡單，想辦法讓自己【持續買進】就好。</p>
+          <div class="endorsement-name">Jet Lee 的投資隨筆</div>
+        </div>
+        <div class="endorsement">
+          <div class="endorsement-icon">💡</div>
+          <p class="endorsement-quote">
+            這堂課想做的事，不是再教你一招「超強逢低買入技巧」，而是設計一個，撐得住、做得久的「持續買進系統」。十年後的某一天，你打開當年的帳戶紀錄，也許會看到這樣一句話：「還好那一年，我沒有再等低點，而是開始，然後持續買進。」
+          </p>
+          <div class="endorsement-name">清流君</div>
+        </div>
+        <div class="endorsement">
+          <div class="endorsement-icon">🌱</div>
+          <p class="endorsement-quote">尼克.馬朱利的《持續買進》，精彩細節朋友購買後可以去體會。他將會告訴你一味地存錢其實不會更有錢，要懂得讓市場幫你賺錢才能生活得更有品質。</p>
+          <div class="endorsement-name">竹軒的親子理財筆記</div>
+        </div>
+        <div class="endorsement">
+          <div class="endorsement-icon">📈</div>
+          <p class="endorsement-quote">這位大師的數據分析好強<br />剛好這幾天股市大回檔，這堂課也剛好達到了亂流中的安定效果🤣</p>
+          <div class="endorsement-name">學員真實回饋</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ═══════════════════ WHAT YOU GET ═══════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+
+        <h2 class="section-title">不只是影片，<br />是完整的財富成長工具包</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="gets-grid">
+        <div class="get-card">
+          <div class="get-icon">🎬</div>
+          <h3>10 個完整影片章節</h3>
+          <p>共 10 堂課，每堂精煉重點，兼顧深度與可操作性，繁體中文字幕</p>
+        </div>
+        <div class="get-card">
+          <div class="get-icon">📥</div>
+          <h3>3 份專屬附贈下載素材</h3>
+          <p>
+            <strong>① Nick 個人淨值追蹤試算表</strong>（Excel）—他本人每月實際在用的資產管理工具，含歷史快照功能<br><br>
+            <strong>② 主計處家庭儲蓄統計原始數據</strong>（Excel）—課程 L2 引用的官方政府統計，1975 年至今各收入等分位差距完整記錄<br><br>
+            <strong>③ 台灣儲蓄差距深度分析補充數據</strong>（Excel）—從原始數據讀懂台灣儲蓄結構的進階分析資料
+          </p>
+        </div>
+        <div class="get-card">
+          <div class="get-icon">🌐</div>
+          <h3>台灣在地化內容</h3>
+          <p>台股、勞退金、本土ETF、台灣薪資數據——不是翻譯書，是為台灣人設計的課</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FAQ ═══════════════════ -->
+  <section class="section section-alt">
+    <div class="container" style="max-width:720px;">
+      <div class="section-header text-center">
+        <div class="section-label">常見問題</div>
+        <h2 class="section-title">你可能想知道的</h2>
+        <div class="divider divider-center"></div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">這門課適合完全沒有投資經驗的人嗎？</div>
+          <div class="faq-a">非常適合。課程從最基本的觀念建立開始，不預設任何投資知識。Nick 用數據和真實案例解釋每個概念，即使你現在對投資一無所知，也能跟得上並立刻應用。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">我已經有在投資了，這門課還有幫助嗎？</div>
+          <div class="faq-a">當然有。課程的核心不是「入門教學」，而是建立一套有數據支撐的完整投資框架。很多已在投資的人，看完後才發現自己的配置太過集中、買賣太頻繁、或者完全忽略了分散投資的重要性。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">課程是針對台灣市場設計的嗎？</div>
+          <div class="faq-a">是的。雖然 Nick
+            本人是美國投資者，但本課程特別針對台灣情況進行了在地化，包括台灣薪資儲蓄數據、MSCI台灣指數分析、勞退金制度介紹、本土ETF選擇，以及針對台灣投資人的資產配置建議（如 35% 台灣股票的比例設計）。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">這套方法需要多少資金才能開始？</div>
+          <div class="faq-a">任何金額都可以開始。課程強調的是「持續」的習慣和系統，而不是一次性的大額投資。無論你每個月只有1,000元還是10萬元可以投資，同樣的框架都適用，只是規模不同。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">課程有繁體中文嗎？英文很重要嗎？</div>
+          <div class="faq-a">課程影片有完整的繁體中文字幕，所有投影片也都是繁體中文版本。你完全不需要英文能力就能完整吸收全部內容。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">這門課和市面上的「理財課」有什麼不同？</div>
+          <div class="faq-a">最大的差異在於：這門課不賣「輕鬆致富」的夢，也不推薦任何特定股票或產品。Nick
+            的每一個論點都有數十年市場數據作為依據，他教的是一套可以自己獨立思考、判斷和執行的框架，而不是讓你依賴老師的「明牌」。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">買了之後多久可以開始看？</div>
+          <div class="faq-a">完成付款後立即解鎖全部課程內容，可以馬上開始觀看，也可以按自己的步調分章節學習。課程觀看期限至 2031/01/30（四）23:59。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer>
+    <div>
+      <strong>MasterTalks</strong> × 尼克・馬朱利的持續買進大師課<br />
+      本課程內容僅供教育參考，不構成具體投資建議。投資有風險，請依個人財務狀況謹慎評估。<br />
+      © 2025 MasterTalks. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(el) {
+      const answer = el.nextElementSibling;
+      const isOpen = el.classList.contains('open');
+      // Close all
+      document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+      document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+      // Open clicked if it was closed
+      if (!isOpen) {
+        el.classList.add('open');
+        answer.classList.add('open');
+      }
+    }
+  </script>
+
+
+</div>
