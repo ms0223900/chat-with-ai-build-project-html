@@ -771,6 +771,10 @@
     column-gap: 12px;
     align-items: center;
     transition: background 0.18s;
+
+    @media (max-width: 768px) {
+      padding: 8px 12px;
+    }
   }
 
   #bl-buffett .faq-btn:hover {
@@ -984,7 +988,7 @@
   <section class="bl-sec bl-sec--dark">
     <div class="bl-inner">
       <span class="bl-label">你是否也卡在這裡</span>
-      <h2 class="bl-h2">你可能知道「價格是你付出的，<br>價值是你得到的」——卻仍卡在這些問題</h2>
+      <h2 class="bl-h2" style="color:var(--text-main);">你可能知道「價格是你付出的，<br>價值是你得到的」——卻仍卡在這些問題</h2>
       <hr class="bl-divider">
 
       <div class="pain-grid">
